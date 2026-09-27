@@ -1,0 +1,9 @@
+{
+  "name": "Sunday Meeting Buddy",
+  "short_name": "Meeting Buddy",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#f5f7fb",
+  "theme_color": "#6d5dfc",
+  "description": "Maddy's Sunday meeting companion"
+}
