@@ -312,12 +312,12 @@ const questions={
 18:`Why will we never stop getting to know Jehovah?`
 };
 const units=[
-{id:'u1',ps:[1],activity:{type:'burst',prompt:'The sky is huge — like Jehovah’s mind. Catch the three ideas from the paragraph. Leave ordinary stuff alone.',items:[
+{id:'u1',pts:4,ps:[1],activity:{type:'burst',prompt:'The sky is huge — like Jehovah’s mind. Catch the three ideas from the paragraph. Leave ordinary stuff alone.',items:[
   {t:'Depth of his knowledge',ok:1},{t:'Vastness of his wisdom',ok:1},{t:'Scope of his works',ok:1},
   {t:'Favorite color',ok:0},{t:'What’s for lunch',ok:0},{t:'Wi-Fi password',ok:0},{t:'How tall I am',ok:0}
 ]}},
-{id:'u2',ps:[2],activity:{type:'flip',prompt:'Flip cards. Find SEARCH, FIND, KNOW, SERVE.',words:['SEARCH','FIND','KNOW','SERVE']}},
-{id:'u3',ps:[3],activity:{type:'rockets',prompt:'Load only the three questions this article will talk about.',qs:[
+{id:'u2',pts:6,ps:[2],activity:{type:'flip',prompt:'Flip cards. Find SEARCH, FIND, KNOW, SERVE.',words:['SEARCH','FIND','KNOW','SERVE']}},
+{id:'u3',pts:5,ps:[3],activity:{type:'rockets',prompt:'Load only the three questions this article will talk about.',qs:[
   {t:'What does it mean to come to know Jehovah?',ok:1},
   {t:'Why should we keep getting to know him better?',ok:1},
   {t:'How do we get to know him better?',ok:1},
@@ -325,33 +325,33 @@ const units=[
   {t:'How many stars can I collect?',ok:0},
   {t:'Why is my snack gone?',ok:0}
 ]}},
-{id:'u4',ps:[4],activity:{type:'swipe',prompt:'Sort fast. Heart = knowing the Person. Clipboard = only facts. Misses go to the back of the pile.',cards:[
+{id:'u4',pts:7,ps:[4],activity:{type:'swipe',prompt:'Sort fast. Heart = knowing the Person. Clipboard = only facts. Misses go to the back of the pile.',cards:[
   ['Jehovah has a name','fact'],['He is God','fact'],['People can list titles for him','fact'],['He created everything','fact'],
   ['His feelings','heart'],['His motives','heart'],['What makes him happy','heart'],['What displeases him','heart'],
   ['Knowing the Person behind the name','heart'],['A heart to know me','heart'],['Reading about love vs falling in love','heart'],
   ['Facts on a clipboard','fact']
 ]}},
-{id:'u5',ps:[5],activity:{type:'stones',prompt:'The stones are mixed up. Tap Josiah’s path in the real order.',steps:[
+{id:'u5',pts:7,ps:[5],activity:{type:'stones',prompt:'The stones are mixed up. Tap Josiah’s path in the real order.',steps:[
   {t:'Boy Josiah starts searching',ico:'🔎'},
   {t:'He learns what Jehovah loves',ico:'📖'},
   {t:'He acts on it',ico:'👟'},
   {t:'He is fair and helps the poor',ico:'🤲'},
   {t:'That is what it means to know me',ico:'💛'}
 ]}},
-{id:'u6',ps:[6],activity:{type:'stack',prompt:'Build Paul’s trust tower from the ground up. Wrong block wobbles off.',blocks:['Know Jehovah','Learn + live it','Trust him completely']}},
-{id:'u7',ps:[7],activity:{type:'lens',prompt:'Slap a magnifying glass onto the page. Which one belongs on a Bible account?',choices:['What does this tell me about Jehovah?','How fast can I finish?','How does this make me look smart?'],correct:0}},
-{id:'u8',ps:[8],activity:{type:'grow',prompt:'Grow the friendship garden in order.',steps:['Learn more','Feel closer','Thank him','Friendship grows']}},
-{id:'u9',ps:[9],activity:{type:'pocket',prompt:'Keep the photo that belongs in the pocket. Toss the junk.',keep:{t:'Would this please Jehovah?',ico:'🖼️'},toss:[{t:'What’s popular?',ico:'🎫'},{t:'What’s fastest?',ico:'⏱️'},{t:'What gets likes?',ico:'📱'}]}},
-{id:'u10',ps:[10],activity:{type:'mirror',prompt:'Stick the weightier qualities on the glass. Fakes bounce off.',items:[{t:'Justice',ok:1},{t:'Mercy',ok:1},{t:'Faithfulness',ok:1},{t:'Showing off',ok:0},{t:'Being first',ok:0}]}},
-{id:'u11',ps:[11],activity:{type:'pins',prompt:'Pin the real meeting-places. Two spots do not belong.',pins:[
+{id:'u6',pts:5,ps:[6],activity:{type:'stack',prompt:'Build Paul’s trust tower from the ground up. Wrong block wobbles off.',blocks:['Know Jehovah','Learn + live it','Trust him completely']}},
+{id:'u7',pts:5,ps:[7],activity:{type:'lens',prompt:'Slap a magnifying glass onto the page. Which one belongs on a Bible account?',choices:['What does this tell me about Jehovah?','How fast can I finish?','How does this make me look smart?'],correct:0}},
+{id:'u8',pts:6,ps:[8],activity:{type:'grow',prompt:'Grow the friendship garden in order.',steps:['Learn more','Feel closer','Thank him','Friendship grows']}},
+{id:'u9',pts:5,ps:[9],activity:{type:'pocket',prompt:'Keep the photo that belongs in the pocket. Toss the junk.',keep:{t:'Would this please Jehovah?',ico:'🖼️'},toss:[{t:'What’s popular?',ico:'🎫'},{t:'What’s fastest?',ico:'⏱️'},{t:'What gets likes?',ico:'📱'}]}},
+{id:'u10',pts:6,ps:[10],activity:{type:'mirror',prompt:'Stick the weightier qualities on the glass. Fakes bounce off.',items:[{t:'Justice',ok:1},{t:'Mercy',ok:1},{t:'Faithfulness',ok:1},{t:'Showing off',ok:0},{t:'Being first',ok:0}]}},
+{id:'u11',pts:5,ps:[11],activity:{type:'pins',prompt:'Pin the real meeting-places. Two spots do not belong.',pins:[
   {t:'Family home',ok:1,ico:'🏠'},{t:'Bible study',ok:1,ico:'📚'},{t:'Bible accounts',ok:1,ico:'📖'},{t:'Creation / trees',ok:1,ico:'🌳'},
   {t:'The mall',ok:0,ico:'🛍️'},{t:'Game console',ok:0,ico:'🎮'}
 ]}},
-{id:'u12-13',ps:[12,13],activity:{type:'rescue',prompt:'Lower the rope to Jeremiah. Then hunt the well walls for hidden qualities. Leave the treasure-junk alone.',good:['Courage','Love','Appreciation','Fairness','Impartiality'],fake:['Famous','Gold','Crown']}},
-{id:'u14',ps:[14],activity:{type:'tools',prompt:'Pack the detective kit. Leave the running shoes.',tools:[{t:'👀 Look',ok:1},{t:'🧠 Think',ok:1},{t:'🔎 Reason',ok:1},{t:'🏃 Rush past',ok:0}]}},
-{id:'u15',ps:[15],activity:{type:'hunt',prompt:'Catch what Patrick noticed. Leave city junk alone.',items:[{e:'🐦',l:'birds',ok:1},{e:'🐜',l:'insects',ok:1},{e:'🪺',l:'nest',ok:1},{e:'❤️',l:'Jehovah cares',ok:1},{e:'🚗',l:'traffic',ok:0},{e:'🍕',l:'pizza',ok:0},{e:'📺',l:'TV',ok:0},{e:'🏀',l:'ball',ok:0}]}},
-{id:'u16',ps:[16],activity:{type:'stamp',prompt:'Doodle a tiny symbol under every quality Mary noticed. All four pads keep your drawings.',choices:['Power','Mercy','Impartiality','Care for the lowly']}},
-{id:'u17-18',ps:[17,18],activity:{type:'track',prompt:'Line the future up. Tap a picture-card, then tap its place on the path.',items:[
+{id:'u12-13',pts:10,ps:[12,13],activity:{type:'rescue',prompt:'Lower the rope to Jeremiah. Then hunt the well walls for hidden qualities. Leave the treasure-junk alone.',good:['Courage','Love','Appreciation','Fairness','Impartiality'],fake:['Famous','Gold','Crown']}},
+{id:'u14',pts:6,ps:[14],activity:{type:'tools',prompt:'Pack the detective kit. Leave the running shoes.',tools:[{t:'👀 Look',ok:1},{t:'🧠 Think',ok:1},{t:'🔎 Reason',ok:1},{t:'🏃 Rush past',ok:0}]}},
+{id:'u15',pts:8,ps:[15],activity:{type:'hunt',prompt:'Catch what Patrick noticed. Leave city junk alone.',items:[{e:'🐦',l:'birds',ok:1},{e:'🐜',l:'insects',ok:1},{e:'🪺',l:'nest',ok:1},{e:'❤️',l:'Jehovah cares',ok:1},{e:'🚗',l:'traffic',ok:0},{e:'🍕',l:'pizza',ok:0},{e:'📺',l:'TV',ok:0},{e:'🏀',l:'ball',ok:0}]}},
+{id:'u16',pts:8,ps:[16],activity:{type:'stamp',prompt:'Doodle a tiny symbol under every quality Mary noticed. All four pads keep your drawings.',choices:['Power','Mercy','Impartiality','Care for the lowly']}},
+{id:'u17-18',pts:7,ps:[17,18],activity:{type:'track',prompt:'Line the future up. Tap a picture-card, then tap its place on the path.',items:[
   {t:'Learn now',ico:'📖'},{t:'New scrolls',ico:'📜'},{t:'Resurrection',ico:'🌅'},{t:'Closer to perfection',ico:'✨'},{t:'Never stop learning',ico:'♾️'}
 ]}}
 ];
@@ -369,7 +369,16 @@ function fmt(ms){let t=Math.max(0,Math.ceil(ms/1000));return `${String(Math.floo
 function unit(){return units[state.unit]}
 function wtPage(p){return p<=3?14:p<=7?15:p<=11?16:p<=14?17:p<=16?18:19}
 function songPage(n){return SONG_PAGES[Number(n)]||null}
-function remaining(){if(state.test||state.screen!=='wt') return 0;const e=state.meetingStarted?Date.now()-state.meetingStarted:0;return Math.max(0,150000-e)}
+const WT_BUDGET_MS=48*60*1000; // 48 minutes of unit minimums inside a ~60 minute study
+function unitPts(u){return (u&&u.pts)||0}
+function lessonPts(){return units.reduce((n,u)=>n+unitPts(u),0)||100}
+function unitBudget(u){return Math.round(WT_BUDGET_MS*unitPts(u)/lessonPts())}
+function remaining(){
+  if(state.test||state.screen!=='wt') return 0;
+  const e=state.meetingStarted?Date.now()-state.meetingStarted:0;
+  return Math.max(0,unitBudget(unit())-e);
+}
+
 
 function header(){
   const ready=!remaining();
@@ -422,6 +431,7 @@ function transition(){
     <p><strong>Song 12 — Great God, Jehovah</strong></p>
     <button class="secondary" id="song12">🎵 Song 12 lead sheet</button>
     <div style="height:10px"></div>
+    <p class="small">Study hour: units are weighted out of 100 and spread over 48 minutes of minimum time. Short paragraphs unlock sooner. Long ones (two questions, an account, a picture) hold longer.</p>
     <button class="primary" id="beginWT" ${ready?'':'disabled'}>Begin Watchtower</button>
     <button class="ghost" id="backTalk" style="margin-top:8px">← Back to the public talk</button>
   </section>`;
@@ -455,7 +465,7 @@ function watch(){
     <div class="watchHead">
       <div>
         <h2>${title} · ${state.unit+1}/${units.length}</h2>
-        <div class="meta">Getting to Know Jehovah Better · ⭐ ${earned}/3</div>
+        <div class="meta">Getting to Know Jehovah Better · ⭐ ${earned}/3 · ${unitPts(u)}/100 pts · min ${fmt(unitBudget(u))}</div>
         <div class="progress"><div style="width:${((state.unit+1)/units.length)*100}%"></div></div>
       </div>
       <button class="secondary" id="openWT" style="margin-left:auto">Page</button>
