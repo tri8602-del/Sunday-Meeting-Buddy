@@ -1,4 +1,4 @@
-const CACHE = 'smb-sunday-v6';
+const CACHE = 'smb-sunday-v7';
 const ASSETS = [
   './',
   './index.html',

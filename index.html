@@ -167,6 +167,8 @@ button,input,textarea{font:inherit}button{border:0;cursor:pointer}button:disable
 .holdBtn{width:100%;min-height:52px;border-radius:14px;background:#efeaff;color:#4c43b8;font-weight:900;position:relative;overflow:hidden}
 .holdBtn span{position:relative;z-index:1}
 .holdBtn .fill{position:absolute;inset:0 auto 0 0;width:0;background:#c9c2ff}
+.jumpSel{border:1px solid #cfd6e2;border-radius:12px;padding:10px 12px;font-weight:800;background:#fff;min-height:44px}
+.watchHead .jumpSel{min-height:40px;padding:6px 8px;font-size:13px}
 
 /* Brutus dock + chat */
 .brutusDock{width:44px;height:44px;border-radius:50%;overflow:hidden;border:2px solid #d9d2ff;padding:0;background:#efeaff;flex:0 0 auto}
@@ -367,6 +369,14 @@ function save(){try{localStorage.setItem(STORE,JSON.stringify(state))}catch(e){}
 function load(){try{const s=JSON.parse(localStorage.getItem(STORE)||'null');if(s)state={...DEFAULT,...s}}catch(e){}}
 function fmt(ms){let t=Math.max(0,Math.ceil(ms/1000));return `${String(Math.floor(t/60)).padStart(2,'0')}:${String(t%60).padStart(2,'0')}`}
 function unit(){return units[state.unit]}
+function unitLabel(u){return u.ps.length>1?`¶ ${u.ps[0]}–${u.ps[u.ps.length-1]}`:`¶ ${u.ps[0]}`}
+function unitOptions(sel){return units.map((u,i)=>`<option value="${i}" ${i===sel?'selected':''}>${unitLabel(u)}</option>`).join('')}
+function jumpTo(i){
+  const n=Math.max(0,Math.min(units.length-1,Number(i)||0));
+  state.screen='wt'; state.unit=n; state.view='actual'; state.talkDone=true; state.wtUnlocked=true; state.meetingStarted=Date.now();
+  save(); render();
+}
+
 function wtPage(p){return p<=3?14:p<=7?15:p<=11?16:p<=14?17:p<=16?18:19}
 function songPage(n){return SONG_PAGES[Number(n)]||null}
 const WT_BUDGET_MS=48*60*1000; // 48 minutes of unit minimums inside a ~60 minute study
@@ -420,6 +430,8 @@ function talk(){
   <div class="lock"><div class="small">Stay here for the public talk. Watchtower unlocks at 10:30.</div>
     <button class="holdBtn" id="endTalk" type="button"><i class="fill"></i><span>Hold to end the talk</span></button>
     <button class="secondary" id="openOpening2" style="margin-top:8px">🎵 Opening song lead sheet</button>
+    <div class="field" style="margin-top:12px;text-align:left"><label>Oops — jump into the study</label><select class="jumpSel" id="oopsUnit">${unitOptions(0)}</select></div>
+    <button class="secondary" id="oopsJump" style="margin-top:6px">Open that paragraph</button>
   </div>`;
 }
 function transition(){
@@ -432,6 +444,7 @@ function transition(){
     <button class="secondary" id="song12">🎵 Song 12 lead sheet</button>
     <div style="height:10px"></div>
     <p class="small">Study hour: units are weighted out of 100 and spread over 48 minutes of minimum time. Short paragraphs unlock sooner. Long ones (two questions, an account, a picture) hold longer.</p>
+    <div class="field"><label>Start at</label><select class="jumpSel" id="startUnit">${unitOptions(state.unit||0)}</select></div>
     <button class="primary" id="beginWT" ${ready?'':'disabled'}>Begin Watchtower</button>
     <button class="ghost" id="backTalk" style="margin-top:8px">← Back to the public talk</button>
   </section>`;
@@ -468,7 +481,8 @@ function watch(){
         <div class="meta">Getting to Know Jehovah Better · ⭐ ${earned}/3 · ${unitPts(u)}/100 pts · min ${fmt(unitBudget(u))}</div>
         <div class="progress"><div style="width:${((state.unit+1)/units.length)*100}%"></div></div>
       </div>
-      <button class="secondary" id="openWT" style="margin-left:auto">Page</button>
+      <select class="jumpSel" id="jumpUnit" title="Jump to paragraph">${unitOptions(state.unit)}</select>
+      <button class="secondary" id="openWT">Page</button>
     </div>
     <section class="pane">
       <div class="paneBar">
@@ -641,7 +655,15 @@ function bind(){
   if(state.screen==='transition'&&!state.test&&!state.wtUnlocked){
     const c=()=>{const n=new Date(),u=new Date(n);u.setHours(10,30,0,0);if(n>=u){state.wtUnlocked=true;save();render()}else setTimeout(c,1000)};c();
   }
-  document.getElementById('beginWT')?.addEventListener('click',()=>{state.screen='wt';state.unit=0;state.meetingStarted=Date.now();save();render()});
+  document.getElementById('beginWT')?.addEventListener('click',()=>{
+    const i=document.getElementById('startUnit')?.value||0;
+    jumpTo(i);
+  });
+  document.getElementById('oopsJump')?.addEventListener('click',()=>{
+    const el=document.getElementById('oopsUnit')||document.getElementById('startUnit');
+    jumpTo(el?.value||0);
+  });
+  document.getElementById('jumpUnit')?.addEventListener('change',e=>jumpTo(e.target.value));
   if(state.screen==='wt'&&!state.test){
     const tick=()=>{const t=document.getElementById('timer');const r=remaining();if(t){t.textContent=fmt(r);t.classList.toggle('ready',r===0)}const n=document.getElementById('next');if(n&&r===0)n.disabled=false;if(state.screen==='wt') setTimeout(tick,500)};tick();
   }
@@ -901,6 +923,8 @@ function finish(){
     <h1>Great job, Maddy</h1>
     <div class="finishStats"><div class="stat">⭐ ${state.stars}</div><div class="stat">${units.length*3} possible</div><div class="stat">${Object.values(state.questionAnswers).filter(Boolean).length} answers</div></div>
     <p><button class="secondary" id="end28">🎵 Song 28</button></p>
+    <div class="field" style="text-align:left"><label>Jump back to a paragraph</label><select class="jumpSel" id="startUnit">${unitOptions(0)}</select></div>
+    <button class="secondary" id="oopsJump">Open that paragraph</button>
     <button class="primary" id="restart">New meeting</button>
   </section>`;
 }
