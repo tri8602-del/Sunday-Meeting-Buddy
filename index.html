@@ -12,162 +12,186 @@
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <title>Sunday Meeting Buddy</title>
 <style>
-:root{--bg:#f4f6fb;--card:#fff;--ink:#182033;--muted:#667085;--accent:#6d5dfc;--accent2:#5146c7;--gold:#f3b73f;--good:#2c9961;--bad:#d95656;--line:#dfe4ee;--soft:#f5f1ff;--yellow:#fff8df;--shadow:0 8px 24px rgba(25,35,65,.08)}
-*{box-sizing:border-box}html,body{margin:0;min-height:100%;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:var(--bg);color:var(--ink)}body{overscroll-behavior-y:none}
-button,input,textarea,select{font:inherit}button{border:0;cursor:pointer}button:disabled{opacity:.48;cursor:not-allowed}
-.app{min-height:100vh}
-.top{position:sticky;top:0;z-index:20;display:flex;justify-content:space-between;align-items:center;padding:12px 20px;background:rgba(255,255,255,.96);border-bottom:1px solid var(--line);backdrop-filter:blur(10px)}
-.brand{font-size:18px;font-weight:900}
-.topActions{display:flex;gap:8px;align-items:center}
-.stars,.toolBtn{background:#f0efff;border:1px solid #ddd8ff;border-radius:14px;padding:10px 14px;font-weight:900;color:#4d43b8}
-.stars{background:#fff8e5;border-color:#f0d67d;color:#795a08}
-.testBanner{background:#fff3cc;border-bottom:1px solid #efd27b;text-align:center;padding:9px;font-weight:900;color:#775600}
-.wrap{padding:20px;max-width:1500px;margin:auto}
-.grid{display:grid;grid-template-columns:minmax(0,1.7fr) minmax(300px,.85fr);gap:18px}
-.card{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:20px;box-shadow:var(--shadow);margin-bottom:18px}
-.hero{text-align:center;padding:34px}
-.eyebrow{font-size:13px;letter-spacing:1.5px;text-transform:uppercase;color:#6257d4;font-weight:900}
-.hero h1{font-size:42px;margin:8px 0 12px}
-.field{max-width:600px;margin:14px auto;text-align:left}
-.field label{display:block;font-weight:800;margin-bottom:7px}
-.field input,.answerInput,.question textarea,.talkGrid textarea{width:100%;border:1px solid #cfd6e2;border-radius:13px;padding:13px;background:#fff}
-.primary,.secondary{border-radius:13px;padding:12px 17px;font-weight:900}
+:root{--bg:#eef1f8;--card:#fff;--ink:#1a2236;--muted:#667085;--accent:#6d5dfc;--gold:#e8b423;--good:#1f9d5b;--bad:#d24b4b;--line:#d7deea;--soft:#f3efff;--yellow:#fff4c4}
+*{box-sizing:border-box}html,body{margin:0;height:100%;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:var(--bg);color:var(--ink)}
+body{overscroll-behavior:none}
+button,input,textarea{font:inherit}button{border:0;cursor:pointer}button:disabled{opacity:.45;cursor:not-allowed}
+.app{height:100dvh;display:flex;flex-direction:column;min-height:100vh}
+.top{flex:0 0 auto;display:flex;align-items:center;gap:8px;padding:8px 10px;background:#fff;border-bottom:1px solid var(--line);z-index:20}
+.brand{font-weight:900;font-size:15px;white-space:nowrap}
+.top .grow{flex:1}
+.chip,.toolBtn,.stars{border-radius:999px;padding:7px 10px;font-weight:800;font-size:13px;border:1px solid #ddd8ff;background:#f3f1ff;color:#4c43b8}
+.stars{background:#fff6d8;border-color:#efd27b;color:#7a5a00}
+.timerChip{font-variant-numeric:tabular-nums;background:#e9f8ef;border-color:#bfe8cf;color:#1f7a46}
+.timerChip.ready{background:#efeaff;border-color:#c9c2ff;color:var(--accent)}
+.testBanner{background:#fff3cc;text-align:center;padding:5px;font-weight:800;font-size:12px;color:#775600}
+.wrap{flex:1;min-height:0;display:flex;flex-direction:column;padding:8px;gap:8px}
+.hero{background:#fff;border:1px solid var(--line);border-radius:16px;padding:22px 16px;text-align:center;margin:auto;width:min(560px,100%)}
+.hero h1{font-size:30px;margin:6px 0 8px}
+.eyebrow{font-size:11px;letter-spacing:1.2px;text-transform:uppercase;color:#6257d4;font-weight:900}
+.field{text-align:left;margin:10px 0}
+.field label{display:block;font-weight:800;margin-bottom:5px;font-size:13px}
+.field input,textarea{width:100%;border:1px solid #cfd6e2;border-radius:12px;padding:11px;background:#fff}
+.primary,.secondary{border-radius:12px;padding:11px 14px;font-weight:900}
 .primary{background:var(--accent);color:#fff}
 .secondary{background:#efefff;color:#4c43b8}
 .ghost{background:transparent;color:var(--muted);padding:8px}
-.headerline{display:flex;justify-content:space-between;gap:16px;align-items:flex-start}
-.headerline h2{font-size:28px;margin:4px 0}
-.pill{background:#f0f1f6;border-radius:999px;padding:9px 13px;font-weight:900;white-space:nowrap}
-.article-meta,.source{color:var(--muted);line-height:1.45}
-.progress{height:10px;background:#e7eaf1;border-radius:999px;overflow:hidden}
+.source{color:var(--muted);font-size:13px;line-height:1.4}
+.talkGrid{display:grid;grid-template-columns:1fr 1fr;gap:8px;flex:1;min-height:0}
+.talkPrompt{background:#fff;border:1px solid var(--line);border-radius:14px;padding:10px;display:flex;flex-direction:column;min-height:0}
+.talkPrompt h3{margin:0 0 6px;font-size:14px}
+.talkPrompt textarea{flex:1;min-height:80px}
+.lock{background:#fff;border:1px dashed #c9d1e0;border-radius:14px;padding:12px;text-align:center}
+
+/* Watch layout: fill the screen */
+.watch{flex:1;min-height:0;display:grid;grid-template-rows:auto minmax(0,1fr) minmax(0,1.05fr) auto;gap:8px}
+.watchHead{background:#fff;border:1px solid var(--line);border-radius:14px;padding:8px 10px;display:flex;align-items:center;gap:8px}
+.watchHead h2{font-size:15px;margin:0}
+.meta{font-size:12px;color:var(--muted)}
+.progress{height:6px;background:#e7eaf1;border-radius:99px;overflow:hidden;margin-top:6px}
 .progress>div{height:100%;background:var(--accent)}
-.unitDots{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
-.unitDots span{width:12px;height:12px;border-radius:50%;background:#d9deea}
-.unitDots span.on{background:var(--accent)}
-.unitDots span.now{outline:2px solid var(--gold);outline-offset:2px}
-.toggle{display:flex;gap:5px;background:#eef0f5;border-radius:12px;padding:4px;width:max-content}
-.toggle button{padding:9px 13px;border-radius:9px;background:transparent;color:var(--muted);font-weight:900}
-.toggle button.active{background:#fff;color:var(--ink);box-shadow:0 2px 7px rgba(0,0,0,.08)}
-.actualText{font-size:1.04rem;line-height:1.7;background:#fbfcff;border:1px solid #e1e6ef;border-radius:16px;padding:18px;white-space:pre-line}
-.easy{font-size:1.08rem;line-height:1.65;background:var(--soft);border:1px solid #ddd7ff;border-radius:16px;padding:18px}
-.question{background:var(--yellow);border:1px solid #f1dda4;border-radius:16px;padding:16px;margin-top:16px}
-.question strong{display:block;margin-bottom:8px}
-.question textarea{min-height:92px;margin-top:10px;resize:vertical}
-.materialTools{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
-.interact{background:#fff;border:1px solid #c7dfd0;padding:9px 12px;border-radius:11px;font-weight:850;color:#26764b}
-.activity{border:2px solid #e1e4ed}
-.activity h3{margin:0 0 6px;font-size:23px}
-.activityPrompt{font-size:1.12rem;font-weight:800;line-height:1.45;margin:8px 0 15px}
-.answers,.choiceGrid{display:grid;gap:10px}
-.answer,.choice,.matchCard,.matchTarget,.pathStep{padding:13px 15px;border:1px solid #cbd3df;border-radius:13px;background:#fff;text-align:left;font-weight:800}
-.answer.correct,.choice.selected,.matchCard.selected,.matchTarget.selected,.pathStep.selected,.picturePiece.selected{border-color:#8c82e8;background:#eeeaff}
-.answer.wrong{border-color:#ed9999;background:#fff0f0}
-.matchCard.matched{border-color:#70c397;background:#edf9f2}
-.feedback{min-height:26px;margin-top:10px;font-weight:800}
-.scoreline{display:flex;justify-content:space-between;align-items:center;margin-top:14px;color:var(--muted);font-weight:800}
-.mini-stars{color:#7d5c00}
-.bottom{display:flex;justify-content:space-between;gap:15px;align-items:center;margin:12px 0 30px}
-.nextnote{color:var(--muted);font-weight:750}
-.timerCard{position:sticky;top:78px;height:max-content}
-.timer{font-size:58px;font-weight:950;color:#2e9962;margin:5px 0}
-.timer.ready{color:var(--accent)}
-.timerLabel{font-weight:900;color:var(--muted)}
-.sideTools{display:grid;gap:10px;margin-top:18px}
-.brutusCard{margin-top:16px;text-align:center;background:#f5f1ff;border:1px solid #ddd8ff;border-radius:16px;padding:9px;cursor:pointer}
-.brutusCard img{width:100%;max-height:220px;object-fit:cover;border-radius:12px}
-.brutusCard strong{display:block;margin-top:6px}
-.talkGrid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-.talkPrompt{margin:0}
-.talkPrompt h3{margin-top:0}
-.lock{margin-top:18px;text-align:center;background:#f8f8fc;border:1px dashed #cbd1df;border-radius:18px;padding:22px}
-.finish{text-align:center;padding:50px}
-.bigstars{font-size:48px}
-.finishStats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:22px 0}
-.stat{background:#f7f8fb;border-radius:14px;padding:16px;font-weight:850}
-.drawOverlay{position:fixed;inset:0;background:rgba(17,24,39,.55);z-index:100;display:none;padding:20px}
-.drawOverlay.open{display:flex}
-.drawPanel{background:#fff;border-radius:20px;max-width:1100px;width:100%;height:100%;margin:auto;display:flex;flex-direction:column;overflow:hidden}
-.drawHead,.drawFoot{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:12px 16px;border-bottom:1px solid var(--line)}
-.drawTools{display:flex;gap:7px;align-items:center;flex-wrap:wrap}
-.swatch{width:28px;height:28px;border-radius:50%;border:2px solid #fff;box-shadow:0 0 0 1px #ccd2dd}
+.pane{background:#fff;border:1px solid var(--line);border-radius:14px;min-height:0;display:flex;flex-direction:column;overflow:hidden}
+.paneBar{display:flex;align-items:center;gap:6px;padding:6px 8px;border-bottom:1px solid var(--line);flex-wrap:wrap}
+.paneBody{flex:1;min-height:0;overflow:auto;padding:10px}
+.toggle{display:flex;background:#eef0f5;border-radius:10px;padding:3px}
+.toggle button{padding:6px 10px;border-radius:8px;background:transparent;color:var(--muted);font-weight:800;font-size:13px}
+.toggle button.active{background:#fff;color:var(--ink);box-shadow:0 1px 4px rgba(0,0,0,.08)}
+.hlTools{display:flex;gap:5px;margin-left:auto;align-items:center}
+.hlDot{width:22px;height:22px;border-radius:50%;border:2px solid #fff;box-shadow:0 0 0 1px #c5cdd8}
+.hlDot.on{box-shadow:0 0 0 2px #182033}
+.mark{cursor:pointer;border-radius:4px;padding:0 1px}
+.mark.y{background:#ffe56a}
+.mark.g{background:#b6f0c8}
+.mark.p{background:#ffc2e2}
+.mark.b{background:#c9dbff}
+.actualText,.easy{font-size:16px;line-height:1.55}
+.easy{background:var(--soft);border-radius:10px;padding:8px}
+.foot{display:flex;gap:8px;align-items:stretch}
+.qbar{flex:1;background:#fff8df;border:1px solid #f1dda4;border-radius:14px;padding:8px 10px;min-width:0}
+.qbar strong{display:block;font-size:11px;letter-spacing:.4px;text-transform:uppercase;color:#8a6a10}
+.qbar .qprompt{font-weight:750;font-size:13px;line-height:1.3;margin:2px 0 6px}
+.qbar textarea{min-height:44px;padding:8px;border-radius:10px}
+.nextCol{display:flex;flex-direction:column;gap:6px;width:118px}
+.nextCol .primary{height:100%;min-height:52px}
+
+/* Games */
+.playPrompt{font-weight:800;font-size:15px;line-height:1.35;margin:0 0 8px}
+.arena{position:relative;min-height:210px;border-radius:14px;background:linear-gradient(#d7ecff,#eef8e8);overflow:hidden;border:1px solid #d3dce8}
+.floater{position:absolute;border:0;border-radius:16px;padding:10px 12px;font-weight:900;background:#fff;box-shadow:0 6px 16px rgba(20,30,50,.12);touch-action:manipulation}
+.floater.good{outline:3px solid #7d73ff}
+.floater.got{background:#d9f6e4;transform:scale(.9);opacity:.55}
+.floater.boom{background:#ffd3d3}
+.gridTap{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}
+.bigHit{min-height:64px;border-radius:16px;border:2px solid #d5dceb;background:#fff;font-weight:900;font-size:16px;padding:10px}
+.bigHit.on,.tile.on,.slot.filled{background:#ece8ff;border-color:#8b82e8}
+.bigHit.good{background:#d9f6e4;border-color:#49b877}
+.bigHit.bad{background:#ffe1e1;border-color:#e07a7a}
+.tile{min-height:58px;border-radius:12px;border:2px solid #d5dceb;background:#fff;font-weight:900}
+.tile.flip{background:#6d5dfc;color:#fff}
+.tile.found{background:#d9f6e4;border-color:#49b877;color:#16653c}
+.stones{display:flex;flex-wrap:wrap;gap:8px;justify-content:center}
+.stone{width:86px;height:86px;border-radius:50%;border:3px solid #c9c2a8;background:#f4ecd2;font-weight:900;font-size:12px;padding:6px}
+.stone.lit{background:#ffe56a;border-color:#e0b000}
+.stack{display:flex;flex-direction:column-reverse;align-items:center;gap:6px;min-height:180px}
+.block{width:min(280px,90%);padding:12px;border-radius:10px;background:#8d83e8;color:#fff;font-weight:900}
+.garden{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.plant{min-height:110px;border-radius:16px;background:#e7f6ea;border:2px dashed #b7d8bf;font-weight:900}
+.plant.up{background:#b9ecc6;border-style:solid}
+.pocketRow{display:grid;grid-template-columns:1fr 110px;gap:8px}
+.pocket{min-height:150px;border-radius:16px;background:#3d2a1a;color:#fff;padding:10px;font-weight:800}
+.dragBit{padding:10px;border-radius:12px;background:#fff;border:1px solid #d5dceb;font-weight:800;margin-bottom:6px}
+.mirror{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.pinBoard{position:relative;height:200px;border-radius:14px;background:linear-gradient(#cde6ff 50%,#d8efd0 50%);border:1px solid #d3dce8}
+.pin{position:absolute;width:86px;padding:8px;border-radius:14px;background:#fff;font-weight:800;font-size:12px;border:2px solid #d5dceb}
+.pin.on{background:#ffe56a;border-color:#e0b000}
+.cistern{position:relative;height:200px;border-radius:14px;background:linear-gradient(#c5d4e0,#6d7c8a);overflow:hidden}
+.rope{position:absolute;left:50%;top:0;width:8px;height:40%;background:#c9a36a}
+.jar{position:absolute;left:calc(50% - 28px);top:38%;font-size:42px}
+.badgeFly{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.badge{padding:8px 10px;border-radius:999px;background:#fff;border:2px solid #d5dceb;font-weight:800}
+.badge.on{background:#d9f6e4;border-color:#49b877}
+.huntItem{position:absolute;font-size:34px;background:transparent;animation:wiggle 2.6s ease-in-out infinite}
+@keyframes wiggle{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
+.slots{display:grid;gap:6px}
+.slot{min-height:44px;border:2px dashed #c9d1e0;border-radius:12px;padding:8px;font-weight:800;background:#f7f8fc}
+.small{font-size:12px;color:var(--muted)}
+.checkRow{display:flex;gap:8px;margin-top:8px;align-items:center}
+
+/* Brutus dock + chat */
+.brutusDock{width:44px;height:44px;border-radius:50%;overflow:hidden;border:2px solid #d9d2ff;padding:0;background:#efeaff;flex:0 0 auto}
+.brutusDock img{width:100%;height:100%;object-fit:cover;object-position:50% 18%}
+.chat{position:fixed;inset:auto 8px 8px 8px;max-width:520px;margin:auto;background:#fff;border:1px solid var(--line);border-radius:18px;box-shadow:0 16px 40px rgba(20,30,50,.2);z-index:80;display:none;flex-direction:column;max-height:52dvh}
+.chat.open{display:flex}
+.chatHead{display:flex;gap:8px;align-items:center;padding:8px 10px;border-bottom:1px solid var(--line)}
+.chatHead img{width:46px;height:46px;border-radius:50%;object-fit:cover;object-position:50% 18%}
+.chatLog{flex:1;overflow:auto;padding:10px;display:flex;flex-direction:column;gap:6px}
+.bubble{max-width:90%;padding:8px 10px;border-radius:14px;font-size:14px;line-height:1.35}
+.bubble.me{align-self:flex-end;background:#6d5dfc;color:#fff}
+.bubble.dog{align-self:flex-start;background:#f3efff}
+.chips{display:flex;flex-wrap:wrap;gap:6px;padding:0 10px 8px}
+.chipAsk{background:#f3f1ff;border-radius:999px;padding:6px 10px;font-weight:800;font-size:12px;color:#4c43b8}
+.chatForm{display:flex;gap:6px;padding:8px 10px;border-top:1px solid var(--line)}
+.chatForm input{flex:1;border:1px solid #cfd6e2;border-radius:12px;padding:10px}
+
+/* Draw */
+.drawOverlay,.pop{position:fixed;inset:0;background:rgba(17,24,39,.55);z-index:100;display:none;padding:10px}
+.drawOverlay.open,.pop.open{display:flex}
+.drawPanel{background:#fff;border-radius:16px;max-width:1100px;width:100%;height:100%;margin:auto;display:flex;flex-direction:column;overflow:hidden}
+.drawHead,.drawFoot{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:8px 10px;border-bottom:1px solid var(--line);flex-wrap:wrap}
+.drawFoot{border-top:1px solid var(--line);border-bottom:0}
+.swatch{width:24px;height:24px;border-radius:50%;border:2px solid #fff;box-shadow:0 0 0 1px #ccd2dd}
 .drawCanvasWrap{flex:1;background:#fff;touch-action:none}
 .drawCanvasWrap canvas{display:block;width:100%;height:100%;touch-action:none}
-.drawFoot{border-top:1px solid var(--line);border-bottom:0}
-.dropBoard{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.dropZone{min-height:130px;border:2px dashed #c8cfdd;border-radius:15px;padding:10px;background:#fafbfe}
-.dropZone.over{border-color:#8c82e8;background:#f3f0ff}
-.dropZone h4{margin:0 0 8px}
-.dragCard{background:#fff;border:1px solid #cbd3df;border-radius:11px;padding:10px;margin:6px 0;font-weight:800}
-.dragCard.selected{border-color:#8c82e8;background:#eeeaff}
-.wordList{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-bottom:10px}
-.wordChip{background:#f0efff;border-radius:999px;padding:6px 10px;font-weight:800;color:#4d43b8}
-.wordChip.found{background:#edf9f2;color:#26764b;text-decoration:line-through}
-.wordsearch{display:grid;gap:4px;margin:0 auto;max-width:520px}
-.wsCell{aspect-ratio:1;border-radius:6px;background:#f4f6fb;border:1px solid #dce1ea;display:grid;place-items:center;font-weight:900}
-.wsCell.selected{background:#e9e5ff;color:#4e44bf}
-.wsCell.found{background:#d9f3e4;border-color:#70c397}
-.clueList{display:grid;gap:8px;margin-top:12px}
-.clue{background:#f8f9fc;border-radius:11px;padding:9px}
-.crossword{display:grid;gap:2px;justify-content:center}
-.cwCell{width:40px;height:40px;border:1px solid #bfc7d5;display:flex;align-items:center;justify-content:center;font-weight:900;background:#fff}
-.cwCell.block{background:#20283a;border-color:#20283a}
-.cwCell input{width:100%;height:100%;border:0;text-align:center;font-weight:900;background:transparent;text-transform:uppercase}
-.matchGrid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.matchSide{display:grid;gap:8px}
-.picturePuzzle{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;max-width:500px}
-.picturePiece{aspect-ratio:1.2;border-radius:14px;border:2px solid #d8dce6;background:#f8f9fc;display:grid;place-items:center;font-size:36px;cursor:pointer;padding:10px}
-.hiddenScene{position:relative;height:260px;border-radius:15px;background:linear-gradient(#9ec9f0 0 46%,#d9efd0 46%);overflow:hidden;border:1px solid #cbd6df}
-.hiddenScene:before{content:"";position:absolute;left:8%;right:8%;top:46%;height:14px;background:#c4b39a;border-radius:4px}
-.hiddenItem{position:absolute;font-size:30px;cursor:pointer;user-select:none;background:transparent}
-.hiddenItem.found{opacity:.28;transform:scale(.9)}
-.smallNote{font-size:.85rem;color:var(--muted)}
-.pathSteps{display:grid;gap:8px}
-@media(max-width:900px){.grid{grid-template-columns:1fr}.timerCard{position:static}.talkGrid{grid-template-columns:1fr}.hero h1{font-size:34px}.headerline{flex-direction:column}.finishStats{grid-template-columns:1fr}.bottom{flex-direction:column;align-items:stretch}.bottom .primary{width:100%}}
-@media(max-width:650px){.wrap{padding:12px}.card{padding:15px;border-radius:16px}.top{padding:10px 12px}.brand{font-size:16px}.timer{font-size:45px}.cwCell{width:34px;height:34px}}
+.popCard{background:#fff;border-radius:20px;max-width:420px;width:100%;margin:auto;padding:22px 18px;text-align:center}
+.popCard h2{margin:8px 0}
+.popFace{width:88px;height:88px;border-radius:50%;object-fit:cover;object-position:50% 18%;margin:0 auto}
+
+.finish{background:#fff;border-radius:16px;padding:28px 16px;text-align:center;margin:auto;width:min(560px,100%)}
+.finishStats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:16px 0}
+.stat{background:#f7f8fb;border-radius:12px;padding:12px;font-weight:850}
+
+@media(max-width:700px){.talkGrid{grid-template-columns:1fr}.watch{grid-template-rows:auto minmax(0,.9fr) minmax(0,1.2fr) auto}.nextCol{width:96px}}
 </style>
 </head>
 <body>
 <div id="app" class="app"></div>
-<div id="brutusOverlay" class="drawOverlay">
-  <div class="card" style="max-width:520px;width:100%;margin:auto;text-align:center">
-    <img src="brutus.png" alt="Brutus" style="width:180px;height:180px;object-fit:cover;border-radius:24px">
-    <div class="eyebrow">Brutus</div>
-    <h2 style="margin:6px 0 10px">Your meeting buddy is here. 🐾</h2>
-    <p class="source">Brutus is ready to keep you company while you listen, think, draw, and play.</p>
-    <button class="primary" id="closeBrutus">OK, Brutus!</button>
+<div id="chat" class="chat">
+  <div class="chatHead">
+    <img src="brutus.png" alt="Brutus">
+    <div><strong>Brutus</strong><div class="small">Ask him anything. He is a dog. He tries.</div></div>
+    <button class="ghost" id="closeChat" style="margin-left:auto">✕</button>
   </div>
+  <div class="chatLog" id="chatLog"></div>
+  <div class="chips" id="chatChips"></div>
+  <form class="chatForm" id="chatForm"><input id="chatInput" placeholder="Ask Brutus…" autocomplete="off"><button class="primary" type="submit">Send</button></form>
 </div>
+<div id="pop" class="pop"><div class="popCard" id="popCard"></div></div>
 <div id="drawOverlay" class="drawOverlay">
   <div class="drawPanel">
     <div class="drawHead">
       <strong>✏️ Drawing</strong>
-      <div class="drawTools">
+      <div style="display:flex;gap:6px;flex-wrap:wrap;align-items:center">
         <button class="secondary" id="undoDraw">↩️</button>
         <button class="secondary" id="redoDraw">↪️</button>
+        <button class="secondary" id="eraseDraw">Eraser</button>
         <button class="secondary" id="clearDraw">Clear</button>
-        <button class="primary" id="saveDraw">Save Image</button>
+        <button class="primary" id="saveDraw">Save</button>
         <button class="ghost" id="closeDraw">✕</button>
       </div>
     </div>
-    <div class="drawTools" style="padding:8px 14px;border-bottom:1px solid var(--line)">
-      <span style="font-weight:800">Pen</span>
-      <button class="swatch" style="background:#182033" data-color="#182033"></button>
-      <button class="swatch" style="background:#6d5dfc" data-color="#6d5dfc"></button>
-      <button class="swatch" style="background:#d95555" data-color="#d95555"></button>
-      <button class="swatch" style="background:#2e9961" data-color="#2e9961"></button>
-      <button class="swatch" style="background:#f3b73f" data-color="#f3b73f"></button>
-      <label style="display:flex;align-items:center;gap:6px">Size <input id="penSize" type="range" min="2" max="24" value="5"></label>
+    <div style="padding:8px 10px;border-bottom:1px solid var(--line);display:flex;gap:8px;flex-wrap:wrap;align-items:center">
+      <label style="font-weight:800;font-size:13px">Color <input id="fullColor" type="color" value="#182033"></label>
+      <div id="swatches" style="display:flex;flex-wrap:wrap;gap:5px"></div>
+      <label style="display:flex;align-items:center;gap:6px;font-weight:800;font-size:13px">Size <input id="penSize" type="range" min="2" max="28" value="6"></label>
     </div>
     <div class="drawCanvasWrap"><canvas id="drawCanvas"></canvas></div>
-    <div class="drawFoot">
-      <span class="source">Your sketch stays on this device.</span>
-      <button class="secondary" id="newDraw">New Drawing</button>
-    </div>
+    <div class="drawFoot"><span class="source">Stays on this iPad.</span><button class="secondary" id="newDraw">New drawing</button></div>
   </div>
 </div>
 <script>
 const WT='w_E_202607.pdf', SONGS='sjjsm_E.pdf';
 const SONG_PAGES={1:1,2:2,3:3,4:4,5:6,6:8,7:5,8:10,9:11,10:12,11:13,12:14,13:15,14:16,15:17,16:18,18:20,19:21,20:23,21:25,22:26,23:27,24:29,25:31,26:32,27:34,28:36,29:37,30:39,31:40,32:42,33:44,34:46,35:48,36:49,37:51,38:53,39:55,40:56,41:58,42:59,43:60,44:61,45:62,46:63,47:64,48:65,49:67,50:68,51:69,52:70,53:71,54:73,55:75,56:76,57:78,58:80,59:82,60:83,61:85,62:87,63:89,64:91,65:92,66:94,68:97,69:99,70:100,71:101,72:103,73:105,74:107,75:109,76:111,77:113,78:115,79:117,80:118,81:119,82:121,84:124,85:125,86:126,87:127,88:129,89:130,90:131,91:133,92:135,93:137,94:138,95:139,96:141,97:143,98:145,99:146,100:147,101:149,102:151,103:152,104:153,105:154,106:156,107:158,108:160,109:162,111:166,112:168,113:169,114:170,115:172,116:173,117:174,118:175,119:177,120:178,121:179,122:180,123:181,124:182,125:183,126:185,127:187,128:189,129:190,130:191,132:193,133:195,134:196,135:198,136:200,137:202,138:204,139:206,140:208,141:209,142:211,143:212,144:213,145:215,146:216,147:218,148:219,149:221,150:222,151:224};
+const PALETTE=['#182033','#6d5dfc','#d24b4b','#1f9d5b','#e8b423','#ff7ad9','#ff8a3d','#2bb7c7','#8b5a2b','#111','#fff','#7dd3fc','#86efac','#f9a8d4','#fde68a','#c4b5fd','#fb7185','#94a3b8'];
 const pTexts={
 1:`Have you ever thought about the depth of Jehovah’s knowledge, the vastness of his wisdom, or the scope of his accomplishments? We are humbled when we think about our Creator. You may feel as did the apostle Paul, who wrote: “O the depth of God’s riches and wisdom and knowledge! How unsearchable his judgments are and beyond tracing out his ways are!”—Rom. 11:33, 34.`,
 2:`Although we will never know everything there is to know about Jehovah, it is possible, to a certain extent, to get to know what he is like. King David told his son Solomon: “Know the God of your father and serve him with a complete heart . . . If you search for him, he will let himself be found by you.” (1 Chron. 28:9) And the apostle John reminded his fellow Christians that we have “insight so that we may gain the knowledge of the one who is true.” (1 John 5:20) Jesus himself said that knowledge of Jehovah is available to “anyone to whom the Son is willing to reveal him.”—Matt. 11:27.`,
@@ -189,271 +213,275 @@ const pTexts={
 18:`We will never stop getting to know Jehovah. He has already lived for an eternity, so “his understanding is beyond measure.” (Ps. 90:2; 147:5) We “will never find out the work that the true God has made from start to finish.” (Eccl. 3:11) Therefore, regardless of how long we have been in the truth, may we seize every opportunity to learn more about our loving Father.`
 };
 const easy={
-1:`Jehovah knows so much more than we do. Thinking about that can make us feel small — and thankful that he wants us to know him.`,
-2:`We will never know everything about Jehovah. But we can keep learning what he is like. If we search for him, he lets himself be found.`,
-3:`The article asks three big questions: What does it mean to know Jehovah? Why keep learning about him? And how can we learn more?`,
-4:`Knowing Jehovah is more than knowing facts. We want to know the Person behind his name, including his feelings and motives.`,
-5:`Josiah was still a boy when he started searching for Jehovah. He showed that he knew Him by being fair and helping people who needed help.`,
-6:`The more we come to know Jehovah, the more we trust him. Paul trusted Jehovah because of what he had learned and lived.`,
-7:`When we study, we can ask not only “How does this help me?” but also “What does this teach me about Jehovah?”`,
-8:`Learning more about Jehovah can make us feel closer to him and more thankful.`,
-9:`Remembering Jehovah and thinking about what would please him can help us make better choices.`,
-10:`Learning Jehovah’s qualities helps us copy those qualities in the way we treat people.`,
-11:`People meet Jehovah in different ways — through family, a Bible study, Bible accounts, and even creation.`,
-12:`When you read a Bible account, look for what it teaches you about Jehovah, not only what happened.`,
-13:`Ebed-melech rescued Jeremiah. The account also helps us notice qualities Jehovah values, like fairness, appreciation, and impartiality.`,
-14:`Nature can teach us about Jehovah when we look, think, and reason — not just rush past.`,
-15:`Even in a city, Patrick noticed birds, insects, and a nest from his balcony. Then he thought about how Jehovah cares for small creatures — and for him.`,
-16:`Mary thought about what her experiences taught her about Jehovah. When Jehovah helps us, we can do the same.`,
-17:`In the new world there will still be wonderful things to learn and experience.`,
-18:`We will never finish learning about Jehovah. There will always be more to discover about our loving Father.`
+1:`Jehovah’s knowledge, wisdom, and works are huge. Thinking about that can humble us — and make us want to know him.`,
+2:`We will never know everything about Jehovah. But if we search, he lets himself be found.`,
+3:`Three questions: What does it mean to know him? Why keep learning? How do we learn more?`,
+4:`Knowing Jehovah is more than facts. It is knowing the Person — his feelings and motives.`,
+5:`Josiah was still a boy. He searched, then he acted: he was fair and he helped people who needed help.`,
+6:`The more we know Jehovah, the more we trust him. That is what happened to Paul.`,
+7:`When we study, also ask: “What does this tell me about Jehovah?”`,
+8:`Learning more about him makes the friendship stronger. We feel closer, then we thank him.`,
+9:`If Jehovah is in our thoughts, we make choices that please him.`,
+10:`We can copy Jehovah’s qualities — like justice, mercy, and faithfulness.`,
+11:`Someone introduced you to Jehovah: family, a Bible study, Bible accounts, or creation.`,
+12:`When you read a Bible story, look for what it shows about Jehovah.`,
+13:`Ebed-melech rescued Jeremiah. Look for courage and love — and also Jehovah’s fairness and appreciation.`,
+14:`Look at creation. Then think. Then reason. That is how nature teaches us about Jehovah.`,
+15:`Patrick watched birds and bugs from a city balcony, then thought: Jehovah cares for small creatures — and for me.`,
+16:`Mary thought about what her experiences showed about Jehovah. We can do that when he helps us.`,
+17:`In the new world there will still be more to learn.`,
+18:`We will never finish knowing Jehovah. There is always more.`
 };
 const questions={
 1:`What thought about Jehovah can humble us?`,
 2:`What proves that we can get to know Jehovah?`,
 3:`What three questions will we discuss?`,
 4:`What is involved in coming to know Jehovah?`,
-5:`What can we learn from King Josiah about what it means to know Jehovah?`,
-6:`As indicated at Psalm 9:10, how will coming to know Jehovah affect us?`,
-7:`After we have been serving Jehovah for many years, what could happen?`,
-8:`What impact will getting to know Jehovah better have on our friendship with him?`,
-9:`When we “take notice” of Jehovah, how will this affect our decisions?`,
-10:`How will knowing Jehovah’s appealing qualities help us?`,
+5:`What can we learn from King Josiah?`,
+6:`How does knowing Jehovah affect our trust?`,
+7:`What extra question should we ask when we study?`,
+8:`How does knowing Jehovah better change the friendship?`,
+9:`How does taking notice of Jehovah affect our decisions?`,
+10:`How do Jehovah’s qualities help us?`,
 11:`Who introduced you to Jehovah?`,
-12:`What can we learn about Jehovah from reading the Bible?`,
-13:`What can we learn about Jehovah from the account of Ebed-melech?`,
-14:`What can we do to benefit fully from what we observe in creation?`,
-15:`What has Patrick done to get to know Jehovah better, and how can you do something similar?`,
-16:`What helped Mary come to know Jehovah better, and how can we imitate her?`,
-17:`Why will we keep learning more about Jehovah?`,
-18:`Why can we say that we will never stop getting to know Jehovah?`
+12:`What can Bible reading teach us about Jehovah?`,
+13:`What can we learn from Ebed-melech’s account?`,
+14:`How can creation help us know Jehovah?`,
+15:`What did Patrick do, and how can you copy him?`,
+16:`How did Mary get to know Jehovah better?`,
+17:`Why will we keep learning in the new world?`,
+18:`Why will we never stop getting to know Jehovah?`
 };
 const units=[
-{id:'u1',ps:[1],activity:{type:'sort',prompt:'Sort the cards: which ideas are only facts, and which show that you know the Person behind the name?',cards:[['Knowing Jehovah has a name',0],['Knowing basic facts about him',0],['Learning what makes him happy',1],['Understanding his feelings and motives',1]],targets:['Knowing about Jehovah','Knowing the Person']}},
-{id:'u2',ps:[2],activity:{type:'wordsearch',prompt:'Find four words hidden in the grid. They are connected with searching for Jehovah.',words:['SEARCH','FIND','KNOW','SERVE']}},
-{id:'u3',ps:[3],activity:{type:'crossword',prompt:'Fill the mini-crossword using the three big questions in the paragraph.'}},
-{id:'u4',ps:[4],activity:{type:'choose',prompt:'Build a “real knowing” card. Choose every idea the paragraph says is part of knowing Jehovah.',choices:['His name only','His feelings','His motives','What makes him happy','What displeases him','His favorite number'],correct:[1,2,3,4]}},
-{id:'u5',ps:[5],activity:{type:'order',prompt:'Put Josiah’s example in order — from learning about Jehovah to showing that he knew Him.',items:['Josiah searched for Jehovah while still a boy','Josiah acted on what he learned','Josiah upheld justice and helped the afflicted and poor'],correct:[0,1,2]}},
-{id:'u6',ps:[6],activity:{type:'match',prompt:'Build Paul’s trust chain. Match each idea with the result described in the paragraph.',pairs:[['Knowing Jehovah','Trust in him'],['What Paul learned and experienced','Confidence in Jehovah'],['“I know the One whom I have believed”','Implicit trust']]}},
-{id:'u7',ps:[7],activity:{type:'lens',prompt:'You are reading a Bible account. Which question puts the “Jehovah lens” on what you are reading?',choices:['How can I use this to help someone?','What does this tell me about Jehovah God?','How fast can I finish this?'],correct:[1]}},
-{id:'u8',ps:[8],activity:{type:'path',prompt:'Build the friendship path. Tap the steps in the order described by the paragraph.',steps:['Learn more about Jehovah','Feel closer to him','Praise and thank him','Friendship grows stronger'],correct:[0,1,2,3]}},
-{id:'u9',ps:[9],activity:{type:'scenario',prompt:'A choice is in front of you. Which thought belongs in your “Jehovah decision helper”?',choices:['What would please Jehovah?','What would make me popular?','What is the fastest choice?'],correct:[0]}},
-{id:'u10',ps:[10],activity:{type:'match',prompt:'Match the three steps: learn Jehovah’s qualities, see them in his laws, and imitate them.',pairs:[['Learn Jehovah’s qualities','Understand him better'],['See those qualities in his laws','See how they look in practice'],['Imitate those qualities','Demonstrate them yourself']]}},
-{id:'u11',ps:[11],activity:{type:'sort',prompt:'Every card is a way the paragraph says someone may be introduced to Jehovah. Put all four in the “yes” box.',cards:[['Christian parents',0],['A Bible study',0],['Bible accounts',0],['Learning from creation',0]],targets:['Yes — the paragraph gives this example','No — not mentioned']}},
-{id:'u12-13',ps:[12,13],activity:{type:'evidence',prompt:'Tap the qualities this account helps us notice. Some are shown by Ebed-melech; others are qualities of Jehovah we can praise.',choices:['Self-sacrifice','Courage','Love','Appreciation','Fairness','Impartiality','Being famous','Being wealthy'],correct:[0,1,2,3,4,5]}},
-{id:'u14',ps:[14],activity:{type:'picture',prompt:'Choose the three pictures that make up the article’s “creation detective” method.',tiles:[['👀','Observe'],['🧠','Think'],['🔎','Reason'],['🏃','Rush past']],correct:[0,1,2]}},
-{id:'u15',ps:[15],activity:{type:'hidden',prompt:'Explore Patrick’s balcony. Find the four things he noticed or learned from.',items:['🐦','🐜','🪺','❤️'],labels:['small birds','tiny insects','a nest','Jehovah cares']}},
-{id:'u16',ps:[16],activity:{type:'choiceDraw',prompt:'Mary meditated on what her experience revealed about Jehovah. Choose one quality, then draw a tiny symbol for it.',choices:['Power','Mercy','Impartiality','Interest in the lowly']}},
-{id:'u17-18',ps:[17,18],activity:{type:'timeline',prompt:'Build the “never stop learning” timeline. Put the cards from now toward the future.',items:['Learn about Jehovah now','New things to learn','Loved ones resurrected','Get closer to perfection','Keep learning about our loving Father'],correct:[0,1,2,3,4]}}
+{id:'u1',ps:[1],activity:{type:'burst',prompt:'Pop the three huge things about Jehovah. Leave the fake one alone.',items:[{t:'Knowledge',ok:1},{t:'Wisdom',ok:1},{t:'Works',ok:1},{t:'Favorite color',ok:0}]}},
+{id:'u2',ps:[2],activity:{type:'flip',prompt:'Flip cards. Find SEARCH, FIND, KNOW, SERVE.',words:['SEARCH','FIND','KNOW','SERVE']}},
+{id:'u3',ps:[3],activity:{type:'rockets',prompt:'Drag each fuel chip onto the matching question rocket.',pairs:[['What?','What does it mean to know Jehovah?'],['Why?','Why keep getting to know him better?'],['How?','How do we get to know him better?']]}},
+{id:'u4',ps:[4],activity:{type:'swipe',prompt:'Heart = knowing the Person. Clipboard = only facts. Sort them fast.',cards:[['Jehovah has a name','fact'],['He is God','fact'],['His feelings','heart'],['His motives','heart'],['What makes him happy','heart'],['A list of titles','fact']]}},
+{id:'u5',ps:[5],activity:{type:'stones',prompt:'Tap Josiah’s stepping stones in order.',steps:['Boy Josiah searches','He acts on it','He is fair and helps the poor']}},
+{id:'u6',ps:[6],activity:{type:'stack',prompt:'Tap blocks from the bottom up to build Paul’s trust tower.',blocks:['Know Jehovah','Learn + live','Trust him completely']}},
+{id:'u7',ps:[7],activity:{type:'lens',prompt:'Slap the lens that belongs on a Bible account.',choices:['What does this tell me about Jehovah?','How fast can I finish?','How does this make me look smart?'],correct:0}},
+{id:'u8',ps:[8],activity:{type:'grow',prompt:'Tap the plants in friendship order. They only grow if you go in order.',steps:['Learn more','Feel closer','Thank him','Friendship grows']}},
+{id:'u9',ps:[9],activity:{type:'pocket',prompt:'Drop the thought that belongs in the pocket. Toss the others.',keep:'What would please Jehovah?',toss:['What is popular?','What is fastest?']}},
+{id:'u10',ps:[10],activity:{type:'mirror',prompt:'Stick the weightier qualities on the mirror. Leave the fake one off.',items:[{t:'Justice',ok:1},{t:'Mercy',ok:1},{t:'Faithfulness',ok:1},{t:'Showing off',ok:0}]}},
+{id:'u11',ps:[11],activity:{type:'pins',prompt:'Tap every place the paragraph says someone can meet Jehovah.',pins:['Family','Bible study','Bible accounts','Creation']}},
+{id:'u12-13',ps:[12,13],activity:{type:'rescue',prompt:'Tap the rope to rescue Jeremiah. Then tag every real quality.',qualities:['Courage','Love','Appreciation','Fairness','Impartiality','Famous']}},
+{id:'u14',ps:[14],activity:{type:'tools',prompt:'Tap the three detective tools. Not the running shoes.',tools:[{t:'👀 Look',ok:1},{t:'🧠 Think',ok:1},{t:'🔎 Reason',ok:1},{t:'🏃 Rush past',ok:0}]}},
+{id:'u15',ps:[15],activity:{type:'hunt',prompt:'Catch what Patrick noticed on the balcony.',items:[{e:'🐦',l:'birds'},{e:'🐜',l:'insects'},{e:'🪺',l:'nest'},{e:'❤️',l:'Jehovah cares'}]}},
+{id:'u16',ps:[16],activity:{type:'stamp',prompt:'Pick the quality Mary noticed, then draw a tiny symbol for it.',choices:['Power','Mercy','Impartiality','Care for the lowly']}},
+{id:'u17-18',ps:[17,18],activity:{type:'track',prompt:'Drop the cards onto the future track in order.',items:['Learn now','New scrolls','Resurrection','Closer to perfection','Never stop learning']}}
 ];
-const DEFAULT={screen:'setup',talk:'',opening:'',unit:0,view:'actual',stars:0,earned:{},activityStars:{},materialAwarded:{},attempts:{},test:false,meetingStarted:null,wtUnlocked:false,talkNotes:{},questionAnswers:{},game:{},sawBrutus:false};
-const STORE='smb-sunday-2026-09-21';
+
+const STORE='smb-sunday-2026-09-21-v2';
+const DEFAULT={screen:'setup',talk:'',opening:'',unit:0,view:'actual',stars:0,earned:{},activityStars:{},materialAwarded:{},attempts:{},test:false,meetingStarted:null,wtUnlocked:false,talkNotes:{},questionAnswers:{},game:{},marks:{},hl:'y',chat:[]};
 let state={...DEFAULT};
-let drawState={color:'#182033',size:5,drawing:null,history:[],redo:[]};
+let drawState={color:'#182033',size:6,drawing:null,history:[],redo:[],erase:false};
 let canvas,ctx,drawing=false,lastX=0,lastY=0;
 
 function esc(s){return String(s??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]))}
 function save(){try{localStorage.setItem(STORE,JSON.stringify(state))}catch(e){}}
 function load(){try{const s=JSON.parse(localStorage.getItem(STORE)||'null');if(s)state={...DEFAULT,...s}}catch(e){}}
-function fmt(ms){let t=Math.ceil(ms/1000),m=Math.floor(t/60),s=t%60;return `${String(m).padStart(2,'0')}:${String(s).padStart(2,'0')}`}
+function fmt(ms){let t=Math.max(0,Math.ceil(ms/1000));return `${String(Math.floor(t/60)).padStart(2,'0')}:${String(t%60).padStart(2,'0')}`}
 function unit(){return units[state.unit]}
 function wtPage(p){return p<=3?14:p<=7?15:p<=11?16:p<=14?17:p<=16?18:19}
-function songPage(n){n=Number(n);return SONG_PAGES[n]||null}
-function header(){return `<div class="top"><div class="brand">🌿 Sunday Meeting Buddy</div><div class="topActions"><button class="toolBtn" id="drawOpen">✏️ Draw</button><div class="stars">⭐ ${state.stars}</div></div></div>`}
+function songPage(n){return SONG_PAGES[Number(n)]||null}
+function remaining(){if(state.test||state.screen!=='wt') return 0;const e=state.meetingStarted?Date.now()-state.meetingStarted:0;return Math.max(0,150000-e)}
+
+function header(){
+  const ready=!remaining();
+  return `<div class="top">
+    <button class="brutusDock" id="openChat" title="Talk to Brutus"><img src="brutus.png" alt="Brutus"></button>
+    <div class="brand">Sunday Buddy</div>
+    <div class="grow"></div>
+    ${state.screen==='wt'?`<div class="chip timerChip ${ready?'ready':''}" id="timer">${state.test?'TEST':fmt(remaining())}</div>`:''}
+    <button class="toolBtn" id="drawOpen">✏️</button>
+    <div class="stars">⭐ ${state.stars}</div>
+  </div>`;
+}
 
 function render(){
-  let html=header();
-  if(state.test) html+=`<div class="testBanner">TEST MODE — timers and the 10:30 lock are off.</div>`;
-  const body=state.screen==='setup'?setup():state.screen==='talk'?talk():state.screen==='transition'?transition():state.screen==='wt'?watch():finish();
-  html+=`<main class="wrap">${body}</main>`;
-  document.getElementById('app').innerHTML=html;
+  const main=state.screen==='setup'?setup():state.screen==='talk'?talk():state.screen==='transition'?transition():state.screen==='wt'?watch():finish();
+  document.getElementById('app').innerHTML=`${header()}${state.test?'<div class="testBanner">TEST MODE — locks off</div>':''}<div class="wrap">${main}</div>`;
   bind();
 }
 
 function setup(){
-  return `<section class="card hero">
-    <div class="eyebrow">Sunday · September 21–27, 2026</div>
-    <h1>Let’s get ready! 🌿</h1>
-    <p>Meeting starts at 10:00. Set up the public talk and opening song.</p>
-    <div class="field"><label>Public talk title</label><input id="talk" placeholder="Enter the talk title" value="${esc(state.talk)}"></div>
-    <div class="field"><label>Opening song number</label><input id="opening" inputmode="numeric" placeholder="Song number" value="${esc(state.opening)}"></div>
-    <label style="display:flex;justify-content:center;align-items:center;gap:8px;margin:16px 0;font-weight:750"><input id="testMode" type="checkbox" ${state.test?'checked':''}> Test mode</label>
-    <button class="primary" id="start">START THE MEETING</button>
-    <p class="source" style="margin-top:18px">Watchtower this week: <em>Are You Getting to Know Jehovah Better?</em><br>WT songs: 12 · 28</p>
+  return `<section class="hero">
+    <div class="eyebrow">Sep 21–27 · 2026</div>
+    <h1>Ready, Maddy?</h1>
+    <p class="source">Are You Getting to Know Jehovah Better?</p>
+    <div class="field"><label>Public talk title</label><input id="talk" value="${esc(state.talk)}" placeholder="Talk title"></div>
+    <div class="field"><label>Opening song</label><input id="opening" inputmode="numeric" value="${esc(state.opening)}" placeholder="Song number"></div>
+    <label style="display:flex;gap:8px;justify-content:center;font-weight:800;margin:10px 0"><input id="testMode" type="checkbox" ${state.test?'checked':''}> Test mode</label>
+    <button class="primary" id="start">START</button>
   </section>`;
 }
-
 function talk(){
-  return `<section class="card">
-    <div class="headerline">
-      <div><div class="eyebrow">Public Talk</div><h1 style="margin:4px 0">${esc(state.talk||'Public Talk')}</h1></div>
-      <button class="secondary" id="openOpening">🎵 Opening Song ${esc(state.opening||'')}</button>
-    </div>
-    <p class="source">Listen, think, and use any of these if they help. Nothing here is scored.</p>
-    <div class="talkGrid">
-      <div class="card talkPrompt"><h3>💡 Something I learned</h3><textarea data-note="learned" placeholder="Type or use dictation…">${esc(state.talkNotes.learned||'')}</textarea></div>
-      <div class="card talkPrompt"><h3>📖 A Bible verse I heard</h3><textarea data-note="verse" placeholder="Type or use dictation…">${esc(state.talkNotes.verse||'')}</textarea></div>
-      <div class="card talkPrompt"><h3>❤️ Something about Jehovah</h3><textarea data-note="jehovah" placeholder="Type or use dictation…">${esc(state.talkNotes.jehovah||'')}</textarea></div>
-      <div class="card talkPrompt"><h3>🤔 Something I want to remember</h3><textarea data-note="remember" placeholder="Type or use dictation…">${esc(state.talkNotes.remember||'')}</textarea></div>
-    </div>
-    <div class="lock">
-      <strong>Watchtower Study unlocks at 10:30 AM</strong>
-      <p class="source">Then we sing Song 12 and begin the study.</p>
-      <button class="primary" id="toTrans">CONTINUE</button>
-    </div>
-  </section>`;
+  return `<div style="display:flex;justify-content:space-between;align-items:center;gap:8px">
+    <div><div class="eyebrow">Public talk</div><h2 style="margin:0">${esc(state.talk||'Public Talk')}</h2></div>
+    <button class="secondary" id="openOpening">🎵 ${esc(state.opening||'')}</button>
+  </div>
+  <div class="talkGrid">
+    ${[['learned','💡 I learned'],['verse','📖 A verse'],['jehovah','❤️ About Jehovah'],['remember','🤔 Remember']].map(([k,l])=>`<div class="talkPrompt"><h3>${l}</h3><textarea data-note="${k}" placeholder="Type or dictate…">${esc(state.talkNotes[k]||'')}</textarea></div>`).join('')}
+  </div>
+  <div class="lock"><div class="small">Watchtower unlocks at 10:30</div><button class="primary" id="toTrans" style="margin-top:8px">Continue</button></div>`;
 }
-
 function transition(){
   const now=new Date(),u=new Date(now);u.setHours(10,30,0,0);
   const ready=state.test||state.wtUnlocked||now>=u;
-  return `<section class="card hero">
+  return `<section class="hero">
     <div class="eyebrow">Transition</div>
-    <h1>${ready?'Watchtower Study is ready! 📖':'Almost there… 🔒'}</h1>
-    <p>${ready?'Opening song for the study:':'The next song and Watchtower unlock at 10:30 AM.'}<br><strong>Song 12 — Great God, Jehovah</strong></p>
-    <button class="secondary" id="song12">🎵 Song 12 Lead Sheet</button>
-    <p class="source" style="margin-top:14px">Closing song later: Song 28 — Gaining Jehovah’s Friendship</p>
-    <button class="primary" id="beginWT" ${ready?'':'disabled'}>BEGIN WATCHTOWER STUDY</button>
+    <h1>${ready?'Song 12, then study':'Locked until 10:30'}</h1>
+    <p><strong>Song 12 — Great God, Jehovah</strong></p>
+    <button class="secondary" id="song12">🎵 Lead sheet</button>
+    <div style="height:10px"></div>
+    <button class="primary" id="beginWT" ${ready?'':'disabled'}>Begin Watchtower</button>
   </section>`;
 }
 
-function actualText(u){return u.ps.map(n=>`Paragraph ${n}\n${pTexts[n]}`).join('\n\n')}
-function unitQuestion(u){return u.ps.length===2 && u.id==='u12-13' ? questions[13] : questions[u.ps[0]]}
+function sentences(text){
+  const parts=text.split(/(?<=[.!?—”])\s+/);
+  return parts.filter(Boolean);
+}
+function markedHTML(u){
+  const key=u.id, marks=state.marks[key]||{};
+  const blocks=u.ps.map(n=>{
+    const raw=state.view==='easy'?easy[n]:pTexts[n];
+    const bits=sentences(raw).map((s,i)=>{
+      const idx=n+':'+i;
+      const cls=marks[idx]?` mark ${marks[idx]}`:' mark';
+      return `<span class="${cls.trim()}" data-mark="${idx}">${esc(s)}</span>`;
+    }).join(' ');
+    return `<p style="margin:0 0 10px"><b>¶ ${n}</b> ${bits}</p>`;
+  }).join('');
+  return `<div class="${state.view==='easy'?'easy':'actualText'}">${blocks}</div>`;
+}
 
 function watch(){
-  const u=unit(),key=u.id,earned=state.earned[key]||0,score=state.activityStars[key];
-  const elapsed=state.meetingStarted?Date.now()-state.meetingStarted:0;
-  const remaining=Math.max(0,150000-elapsed);
-  const ready=state.test||remaining===0;
+  const u=unit(), key=u.id, earned=state.earned[key]||0, score=state.activityStars[key];
+  const ready=state.test||remaining()===0;
   const qa=state.questionAnswers[key]||'';
-  const dots=units.map((uu,i)=>`<span class="${i<state.unit?'on':i===state.unit?'on now':''}"></span>`).join('');
-  return `<div class="grid"><section>
-    <div class="card">
-      <div class="headerline">
-        <div>
-          <div class="eyebrow">Watchtower Study</div>
-          <h2>${u.ps.length>1?`Paragraphs ${u.ps[0]}–${u.ps[u.ps.length-1]}`:`Paragraph ${u.ps[0]}`} · Unit ${state.unit+1} of ${units.length}</h2>
-          <div class="article-meta">Are You Getting to Know Jehovah Better? · September 21–27, 2026</div>
+  const q=u.ps.length>1 && u.id==='u12-13'?questions[13]:questions[u.ps[0]];
+  const title=u.ps.length>1?`¶ ${u.ps[0]}–${u.ps[u.ps.length-1]}`:`¶ ${u.ps[0]}`;
+  return `<div class="watch">
+    <div class="watchHead">
+      <div>
+        <h2>${title} · ${state.unit+1}/${units.length}</h2>
+        <div class="meta">Getting to Know Jehovah Better · ⭐ ${earned}/3</div>
+        <div class="progress"><div style="width:${((state.unit+1)/units.length)*100}%"></div></div>
+      </div>
+      <button class="secondary" id="openWT" style="margin-left:auto">Page</button>
+    </div>
+    <section class="pane">
+      <div class="paneBar">
+        <div class="toggle">
+          <button id="actual" class="${state.view==='actual'?'active':''}">Actual</button>
+          <button id="easy" class="${state.view==='easy'?'active':''}">Maddy</button>
         </div>
-        <div class="pill">⭐ ${earned}/3</div>
+        <div class="hlTools">
+          <span class="small">Highlight</span>
+          ${[['y','#ffe56a'],['g','#b6f0c8'],['p','#ffc2e2'],['b','#c9dbff']].map(([k,c])=>`<button class="hlDot ${state.hl===k?'on':''}" data-hl="${k}" style="background:${c}"></button>`).join('')}
+          <button class="ghost" id="clearMarks" style="font-size:12px">Clear</button>
+        </div>
       </div>
-      <div class="progress" style="margin-top:13px"><div style="width:${((state.unit+1)/units.length)*100}%"></div></div>
-      <div class="unitDots">${dots}</div>
-    </div>
-    <div class="card">
-      <div class="toggle">
-        <button id="actual" class="${state.view==='actual'?'active':''}">📖 Actual</button>
-        <button id="easy" class="${state.view==='easy'?'active':''}">🧒 Maddy’s words</button>
+      <div class="paneBody" id="textPane">${markedHTML(u)}</div>
+    </section>
+    <section class="pane">
+      <div class="paneBar"><strong style="font-size:13px">Play</strong><span class="small" style="margin-left:auto">Activity ${score===undefined?'—':score+'/2'} · Material ${state.materialAwarded[key]?'⭐':'—'}</span></div>
+      <div class="paneBody" id="playPane">${playHTML(u.activity,key)}</div>
+    </section>
+    <div class="foot">
+      <div class="qbar">
+        <strong>Think</strong>
+        <div class="qprompt">${esc(q)}</div>
+        <textarea id="questionAnswer" placeholder="Your answer…">${esc(qa)}</textarea>
       </div>
-      <div style="margin-top:12px">${state.view==='actual'?`<div class="actualText">${esc(actualText(u))}</div>`:`<div class="easy"><strong>In Maddy’s words:</strong><br>${u.ps.map(n=>easy[n]).join('<br><br>')}</div>`}</div>
-      <div class="materialTools">
-        <button class="interact" id="openWT">📖 Original page</button>
-        <button class="interact" id="scriptureBtn">📜 References</button>
-      </div>
-      <div class="question">
-        <strong>Think about it</strong>
-        <div class="qprompt">${esc(unitQuestion(u))}</div>
-        <textarea id="questionAnswer" placeholder="Type your answer…">${esc(qa)}</textarea>
-        <button class="secondary" id="saveQuestion" style="margin-top:8px">Save answer</button>
+      <div class="nextCol">
+        <button class="secondary" id="saveQuestion">Save</button>
+        <button class="primary" id="next" ${ready?'':'disabled'}>${state.unit===units.length-1?'Finish':'Next'}</button>
       </div>
     </div>
-    ${activityHTML(u.activity,key,score)}
-    <div class="bottom">
-      <div class="nextnote">${state.test?'Test mode: advance whenever you want.':ready?'Unit complete — you can move on.':'Next unlocks when this unit’s time is up.'}</div>
-      <button class="primary" id="next" ${ready?'':'disabled'}>${state.unit===units.length-1?'FINISH STUDY':'NEXT →'}</button>
-    </div>
-  </section>
-  <aside class="card timerCard">
-    <div class="eyebrow">Unit timer</div>
-    <div class="timer ${ready?'ready':''}" id="timer">${state.test?'TEST':fmt(remaining)}</div>
-    <div class="timerLabel">2:30 default</div>
-    <p class="source">The timer only controls when you can go to the next unit. You can read, answer, draw, and play the whole time.</p>
-    <div class="sideTools">
-      <button class="secondary" id="side12">🎵 Song 12</button>
-      <button class="secondary" id="side28">🎵 Song 28</button>
-    </div>
-    <div class="brutusCard" id="openBrutus"><img src="brutus.png" alt="Brutus, Maddy’s German Shepherd buddy"><strong>Brutus 🐾</strong></div>
-  </aside></div>`;
+  </div>`;
 }
 
-function activityTitle(t){return ({sort:'Sort It',wordsearch:'Word Search',crossword:'Mini Crossword',choose:'Pick the Clues',lens:'Bible Reading Lens',scenario:'Decision Helper',order:'Put It In Order',timeline:'Future Timeline',match:'Match It',path:'Build the Path',picture:'Picture Puzzle',hidden:'Explore the Scene',evidence:'Jehovah Qualities',choiceDraw:'Pick & Draw'})[t]||'Game'}
-function activityHTML(a,key,score){
-  let body='';
-  if(a.type==='sort') body=sortHTML(a,key);
-  else if(a.type==='wordsearch') body=wordSearchHTML(a,key);
-  else if(a.type==='crossword') body=crosswordHTML();
-  else if(['choose','lens','scenario','evidence'].includes(a.type)) body=chooseHTML(a);
-  else if(['order','timeline'].includes(a.type)) body=sequenceHTML(a);
-  else if(a.type==='match') body=matchHTML(a);
-  else if(a.type==='path') body=pathHTML(a);
-  else if(a.type==='picture') body=pictureHTML(a);
-  else if(a.type==='hidden') body=hiddenHTML(a);
-  else if(a.type==='choiceDraw') body=choiceDrawHTML(a);
-  return `<div class="card activity"><h3>🎮 ${activityTitle(a.type)}</h3><div class="activityPrompt">${esc(a.prompt)}</div>${body}<div class="feedback" id="feedback"></div><div class="scoreline"><span>Activity: <span class="mini-stars">${score===undefined?'—':score+' / 2'}</span></span><span>Material: <span class="mini-stars">${state.materialAwarded[key]?'⭐':'—'}</span></span></div></div>`;
-}
-function sortHTML(a,key){
-  const placed=(state.game[key]&&state.game[key].sort)||{};
-  const zones=a.targets.map((t,i)=>{
-    const cards=a.cards.map((c,ci)=>placed[ci]===i?`<div class="dragCard" data-placed="${ci}">${esc(c[0])}</div>`:'').join('');
-    return `<div class="dropZone" data-target="${i}"><h4>${esc(t)}</h4><div class="zoneItems">${cards}</div></div>`;
-  }).join('');
-  const pool=a.cards.map((c,i)=>placed[i]===undefined?`<div class="dragCard" draggable="true" data-drag="${i}">${esc(c[0])}</div>`:'').join('');
-  return `<div class="dropBoard">${zones}</div><div class="pool" id="dragPool">${pool}</div><div class="smallNote">On iPad: tap a card, then tap a box.</div><button class="secondary" id="checkGame" style="margin-top:10px">Check it</button>`;
-}
-function wordSearchHTML(a,key){
-  const grid=makeWordGrid(a.words,8);
-  const found=((state.game[key]||{}).ws||{}).found||[];
-  return `<div class="wordList">${a.words.map(w=>`<span class="wordChip ${found.includes(w)?'found':''}" data-word="${w}">${w}</span>`).join('')}</div>
-    <div class="wordsearch" style="grid-template-columns:repeat(8,1fr)">${grid.cells.map((c,i)=>`<button class="wsCell" data-wsi="${i}" data-r="${c.r}" data-c="${c.c}">${c.letter}</button>`).join('')}</div>
-    <div class="smallNote" style="margin-top:9px">Tap the first and last letter of a word. Words can go across, down, or diagonally.</div>`;
-}
-function makeWordGrid(words,n){
-  let cells=Array.from({length:n*n},(_,i)=>({r:Math.floor(i/n),c:i%n,letter:''}));
-  let dirs=[[0,1],[1,0],[1,1],[-1,1]],seed=31;
-  for(const w of words){
-    let placed=false;
-    for(let tries=0;tries<500&&!placed;tries++){
-      seed=(seed*9301+49297)%233280;
-      let r=Math.floor(seed/233280*n),c=Math.floor(((seed*17)%233280)/233280*n),d=dirs[tries%dirs.length];
-      let er=r+d[0]*(w.length-1),ec=c+d[1]*(w.length-1);
-      if(er<0||er>=n||ec<0||ec>=n) continue;
-      let ok=true;
-      for(let j=0;j<w.length;j++){let cell=cells[(r+d[0]*j)*n+(c+d[1]*j)];if(cell.letter&&cell.letter!==w[j])ok=false}
-      if(ok){for(let j=0;j<w.length;j++) cells[(r+d[0]*j)*n+(c+d[1]*j)].letter=w[j];placed=true}
-    }
+function playHTML(a,key){
+  const g=state.game[key]||{};
+  if(a.type==='burst'){
+    const got=g.got||[];
+    return `<div class="playPrompt">${esc(a.prompt)}</div><div class="arena" id="arena">${a.items.map((it,i)=>`<button class="floater ${it.ok?'good':''} ${got.includes(i)?'got':''}" data-burst="${i}" style="left:${12+i*20}%;top:${18+(i%3)*22}%">${esc(it.t)}</button>`).join('')}</div><div class="small">Tap the real ones. They bounce if you miss.</div>`;
   }
-  const letters='ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-  for(const cell of cells) if(!cell.letter){seed=(seed*9301+49297)%233280;cell.letter=letters[Math.floor(seed/233280*26)]}
-  return {cells};
-}
-function crosswordHTML(){
-  const pattern=[
-    [1,1,1,1,0],
-    [1,0,0,0,0],
-    [1,0,1,1,1]
-  ];
-  let html='<div class="crossword" style="grid-template-columns:repeat(5,40px)">';
-  for(let r=0;r<3;r++) for(let c=0;c<5;c++){
-    if(!pattern[r][c]) html+='<div class="cwCell block"></div>';
-    else html+=`<div class="cwCell"><input maxlength="1" data-cwr="${r}" data-cwc="${c}"></div>`;
+  if(a.type==='flip'){
+    const cards=g.deck||makeDeck(a.words);
+    if(!g.deck){state.game[key]={...g,deck:cards};}
+    return `<div class="playPrompt">${esc(a.prompt)}</div><div class="gridTap">${cards.map((c,i)=>`<button class="tile ${c.found?'found':c.up?'flip':''}" data-flip="${i}">${c.up||c.found?esc(c.w):'🐾'}</button>`).join('')}</div>`;
   }
-  html+=`</div><div class="clueList">
-    <div class="clue"><b>1 Across:</b> The question asking for a thing or idea.</div>
-    <div class="clue"><b>2 Down:</b> The question asking for a reason.</div>
-    <div class="clue"><b>3 Across:</b> The question asking for a method.</div>
-  </div><button class="secondary" id="checkGame" style="margin-top:10px">Check crossword</button>`;
-  return html;
+  if(a.type==='rockets'){
+    return `<div class="playPrompt">${esc(a.prompt)}</div><div class="gridTap" id="rockets">${a.pairs.map((p,i)=>`<div class="slot" data-rock="${i}"><div class="small">${esc(p[1])}</div><div class="zone"></div></div>`).join('')}</div><div id="fuel">${a.pairs.map((p,i)=>`<button class="dragBit" draggable="true" data-fuel="${i}">🚀 ${esc(p[0])}</button>`).join('')}</div><button class="primary" id="checkGame" style="margin-top:8px">Check</button>`;
+  }
+  if(a.type==='swipe'){
+    const i=g.i||0; const card=a.cards[i];
+    if(!card) return `<div class="playPrompt">Done sorting.</div>`;
+    return `<div class="playPrompt">${esc(a.prompt)}</div><div class="bigHit" style="min-height:90px;display:grid;place-items:center;font-size:20px">${esc(card[0])}</div><div class="gridTap" style="margin-top:8px"><button class="bigHit" data-swipe="fact">📋 Facts</button><button class="bigHit" data-swipe="heart">💛 Person</button></div><div class="small">${i+1}/${a.cards.length}</div>`;
+  }
+  if(a.type==='stones'){
+    return `<div class="playPrompt">${esc(a.prompt)}</div><div class="stones">${a.steps.map((s,i)=>`<button class="stone ${(g.path||[]).includes(i)?'lit':''}" data-stone="${i}">${i+1}<br>${esc(s)}</button>`).join('')}</div>`;
+  }
+  if(a.type==='stack'){
+    const n=g.n||0;
+    const order=g.order||a.blocks.map((_,i)=>i).sort(()=>Math.random()-.5);
+    if(!g.order) g.order=order;
+    return `<div class="playPrompt">${esc(a.prompt)}</div><div class="stack">${a.blocks.slice(0,n).map(b=>`<div class="block">${esc(b)}</div>`).join('')}</div><div class="gridTap">${order.map(i=>n>i?'':`<button class="bigHit" data-stack="${i}">${esc(a.blocks[i])}</button>`).join('')}</div>`;
+  }
+  if(a.type==='lens'){
+    return `<div class="playPrompt">${esc(a.prompt)}</div><div class="gridTap">${a.choices.map((c,i)=>`<button class="bigHit" data-pick="${i}">${esc(c)}</button>`).join('')}</div>`;
+  }
+  if(a.type==='grow'){
+    const n=g.n||0;
+    return `<div class="playPrompt">${esc(a.prompt)}</div><div class="garden">${a.steps.map((s,i)=>`<button class="plant ${i<n?'up':''}" data-grow="${i}">${i<n?'🌿':'🌱'}<br>${esc(s)}</button>`).join('')}</div>`;
+  }
+  if(a.type==='pocket'){
+    return `<div class="playPrompt">${esc(a.prompt)}</div><div class="pocketRow"><div>${[a.keep,...a.toss].map((t,i)=>`<button class="dragBit" data-bit="${i}">${esc(t)}</button>`).join('')}</div><div class="pocket" data-pocket="1">📷 Pocket<br><span class="small">Drop the keeper here</span><div id="pocketItems"></div></div></div><button class="primary" id="checkGame" style="margin-top:8px">Check pocket</button>`;
+  }
+  if(a.type==='mirror'){
+    return `<div class="playPrompt">${esc(a.prompt)}</div><div class="mirror">${a.items.map((it,i)=>`<button class="bigHit" data-mir="${i}">${esc(it.t)}</button>`).join('')}</div><button class="primary" id="checkGame" style="margin-top:8px">Look in the mirror</button>`;
+  }
+  if(a.type==='pins'){
+    const pos=[[8,18],[58,16],[14,58],[60,62]];
+    return `<div class="playPrompt">${esc(a.prompt)}</div><div class="pinBoard">${a.pins.map((p,i)=>`<button class="pin ${(g.pins||[]).includes(i)?'on':''}" data-pin="${i}" style="left:${pos[i][0]}%;top:${pos[i][1]}%">📍 ${esc(p)}</button>`).join('')}</div>`;
+  }
+  if(a.type==='rescue'){
+    return `<div class="playPrompt">${esc(a.prompt)}</div><div class="cistern" id="cistern"><div class="rope" id="rope"></div><button class="jar" id="jar">🏺</button></div><div class="badgeFly">${a.qualities.map((q,i)=>`<button class="badge" data-badge="${i}">${esc(q)}</button>`).join('')}</div><button class="primary" id="checkGame" style="margin-top:8px">Check rescue</button>`;
+  }
+  if(a.type==='tools'){
+    return `<div class="playPrompt">${esc(a.prompt)}</div><div class="gridTap">${a.tools.map((t,i)=>`<button class="bigHit" data-tool="${i}">${esc(t.t)}</button>`).join('')}</div><button class="primary" id="checkGame" style="margin-top:8px">Check kit</button>`;
+  }
+  if(a.type==='hunt'){
+    const pos=[[10,16],[48,28],[72,14],[30,58]];
+    return `<div class="playPrompt">${esc(a.prompt)}</div><div class="arena">${a.items.map((it,i)=>`<button class="huntItem ${(g.found||[]).includes(i)?'got':''}" data-hunt="${i}" style="left:${pos[i][0]}%;top:${pos[i][1]}%;animation-delay:${i*.3}s">${it.e}</button>`).join('')}</div><div class="small">Find: ${a.items.map(x=>x.l).join(' · ')}</div>`;
+  }
+  if(a.type==='stamp'){
+    return `<div class="playPrompt">${esc(a.prompt)}</div><div class="gridTap">${a.choices.map((c,i)=>`<button class="bigHit" data-stamp="${i}">${esc(c)}</button>`).join('')}</div><button class="secondary" id="activityDraw" style="margin-top:8px">✏️ Draw the symbol</button><button class="primary" id="checkGame" style="margin-top:8px">I’m done</button>`;
+  }
+  if(a.type==='track'){
+    return `<div class="playPrompt">${esc(a.prompt)}</div><div class="slots" id="track">${a.items.map((x,i)=>`<div class="slot" data-slot="${i}">${i+1}.</div>`).join('')}</div><div id="pool">${a.items.map((x,i)=>`<button class="dragBit" data-trk="${i}">${esc(x)}</button>`).join('')}</div><div class="small">Tap a card, then tap its place on the track.</div><button class="primary" id="checkGame" style="margin-top:8px">Check track</button>`;
+  }
+  return '';
 }
-function chooseHTML(a){return `<div class="choiceGrid">${a.choices.map((c,i)=>`<button class="answer choice" data-choice="${i}">${esc(c)}</button>`).join('')}</div><button class="secondary" id="checkGame" style="margin-top:12px">Check my choices</button>`}
-function sequenceHTML(a){return `<div class="answers" id="sequence">${a.items.map((x,i)=>`<button class="answer orderItem" data-seq="${i}">${esc(x)} <span style="float:right">↕️</span></button>`).join('')}</div><div class="smallNote">Tap a card to move it to the bottom. Keep tapping until the order is right.</div><button class="secondary" id="checkGame" style="margin-top:12px">Check order</button>`}
-function matchHTML(a){
-  const rights=a.pairs.map((p,i)=>({i,text:p[1]})).sort(()=>Math.random()-.5);
-  return `<div class="matchGrid"><div class="matchSide">${a.pairs.map((p,i)=>`<button class="matchCard" data-left="${i}">${esc(p[0])}</button>`).join('')}</div><div class="matchSide">${rights.map(x=>`<button class="matchTarget" data-right="${x.i}">${esc(x.text)}</button>`).join('')}</div></div><div class="smallNote" style="margin-top:10px">Tap one on the left, then its match on the right.</div><button class="secondary" id="checkGame" style="margin-top:12px">Check matches</button>`;
+
+function makeDeck(words){
+  const all=[...words,...words].sort(()=>Math.random()-.5).map(w=>({w,up:false,found:false}));
+  return all;
 }
-function pathHTML(a){return `<div class="pathSteps">${a.steps.map((s,i)=>`<button class="answer pathStep" data-path="${i}">${esc(s)}</button>`).join('')}</div><div class="smallNote">Tap the steps in the order you think they happen.</div><button class="secondary" id="checkGame" style="margin-top:12px">Check path</button>`}
-function pictureHTML(a){return `<div class="picturePuzzle">${a.tiles.map((x,i)=>`<button class="picturePiece" data-piece="${i}"><span style="font-size:44px">${x[0]}</span><br>${esc(x[1])}</button>`).join('')}</div><button class="secondary" id="checkGame" style="margin-top:12px">Check my choices</button>`}
-function hiddenHTML(a){return `<div class="hiddenScene">${a.items.map((x,i)=>`<button class="hiddenItem" style="left:${[12,39,64,78][i]}%;top:${[18,42,22,64][i]}%" data-hidden="${i}">${x}</button>`).join('')}</div><div class="smallNote" style="margin-top:10px">Find: ${a.labels.map(esc).join(' · ')}</div><button class="secondary" id="checkGame" style="margin-top:10px">I found them</button>`}
-function choiceDrawHTML(a){return `<div class="choiceGrid">${a.choices.map((c,i)=>`<button class="answer choice" data-choice="${i}">${esc(c)}</button>`).join('')}</div><div class="smallNote" style="margin-top:12px">Choose one quality, then draw a tiny symbol for it.</div><button class="secondary" id="activityDraw" style="margin-top:10px">✏️ Draw it</button><button class="secondary" id="checkGame" style="margin-top:10px">I’m done</button>`}
+
+function popup(ok,title,msg){
+  const el=document.getElementById('pop');
+  document.getElementById('popCard').innerHTML=`<img class="popFace" src="brutus.png" alt="">
+    <div class="eyebrow">${ok?'Brutus says yes':'Brutus tilts his head'}</div>
+    <h2>${esc(title)}</h2>
+    <p>${esc(msg)}</p>
+    <button class="primary" id="popOk">OK</button>`;
+  el.classList.add('open');
+  document.getElementById('popOk').onclick=()=>el.classList.remove('open');
+}
 
 function awardMaterial(key){
   if(state.materialAwarded[key]) return;
@@ -461,10 +489,12 @@ function awardMaterial(key){
   state.earned[key]=(state.earned[key]||0)+1;
   state.stars++;
   save();
-  toast('⭐ Material star earned');
 }
 function attemptResult(key,correct){
-  if(state.activityStars[key]!==undefined) return;
+  if(state.activityStars[key]!==undefined){
+    popup(true,'Already finished','You already did this one.');
+    return;
+  }
   state.attempts[key]=(state.attempts[key]||0)+1;
   const n=state.attempts[key];
   if(correct){
@@ -472,191 +502,286 @@ function attemptResult(key,correct){
     state.activityStars[key]=score;
     state.earned[key]=(state.earned[key]||0)+score;
     state.stars+=score;
-    save(); render();
-    toast(score?`⭐ ${score} activity star${score===1?'':'s'}`:'Completed — no activity stars this time');
+    save();
+    popup(true, score?`Yes! ${'⭐'.repeat(score)}`:'Got it', score?`First-try energy.`:`You figured it out.`);
+    render();
   }else{
     save();
-    const f=document.getElementById('feedback');
-    if(f) f.textContent=n===1?'Not quite — try again.':n===2?'One more thoughtful try.':'Keep thinking about the material.';
+    popup(false, n===1?'Not yet':'Almost', n===1?'Look back at the paragraph and try again.':'One more careful try.');
   }
 }
-function feedback(msg){const f=document.getElementById('feedback');if(f)f.textContent=msg;else toast(msg)}
 
 function bind(){
   document.getElementById('drawOpen')?.addEventListener('click',openDraw);
-  document.getElementById('openBrutus')?.addEventListener('click',()=>document.getElementById('brutusOverlay').classList.add('open'));
-  document.getElementById('closeBrutus')?.addEventListener('click',()=>document.getElementById('brutusOverlay').classList.remove('open'));
-  const start=document.getElementById('start');
-  if(start) start.onclick=()=>{
-    state={...DEFAULT,talk:document.getElementById('talk').value.trim()||'Public Talk',opening:document.getElementById('opening').value.trim(),test:!!document.getElementById('testMode')?.checked,screen:'talk',meetingStarted:Date.now()};
-    save(); render();
-  };
+  document.getElementById('openChat')?.addEventListener('click',()=>document.getElementById('chat').classList.add('open'));
+  document.getElementById('closeChat')?.addEventListener('click',()=>document.getElementById('chat').classList.remove('open'));
+  document.getElementById('start')?.addEventListener('click',()=>{
+    state={...DEFAULT,talk:document.getElementById('talk').value.trim()||'Public Talk',opening:document.getElementById('opening').value.trim(),test:!!document.getElementById('testMode')?.checked,screen:'talk',meetingStarted:Date.now(),chat:state.chat};
+    save();render();
+  });
   document.querySelectorAll('[data-note]').forEach(t=>t.oninput=()=>{state.talkNotes[t.dataset.note]=t.value;save()});
   document.getElementById('openOpening')?.addEventListener('click',()=>song(state.opening||12));
   document.getElementById('toTrans')?.addEventListener('click',()=>{state.screen='transition';save();render()});
   document.getElementById('song12')?.addEventListener('click',()=>song(12));
-  document.getElementById('side12')?.addEventListener('click',()=>song(12));
-  document.getElementById('side28')?.addEventListener('click',()=>song(28));
   if(state.screen==='transition'&&!state.test&&!state.wtUnlocked){
-    const c=()=>{const n=new Date(),u=new Date(n);u.setHours(10,30,0,0);if(n>=u){state.wtUnlocked=true;save();render()}else setTimeout(c,1000)};
-    c();
+    const c=()=>{const n=new Date(),u=new Date(n);u.setHours(10,30,0,0);if(n>=u){state.wtUnlocked=true;save();render()}else setTimeout(c,1000)};c();
   }
   document.getElementById('beginWT')?.addEventListener('click',()=>{state.screen='wt';state.unit=0;state.meetingStarted=Date.now();save();render()});
   if(state.screen==='wt'&&!state.test){
-    const tick=()=>{
-      const t=document.getElementById('timer'),n=document.getElementById('next');
-      const e=state.meetingStarted?Date.now()-state.meetingStarted:0,r=Math.max(0,150000-e);
-      if(t) t.textContent=fmt(r);
-      if(n&&r===0){n.disabled=false;const note=document.querySelector('.nextnote');if(note)note.textContent='Unit complete — you can move on.';}
-      else setTimeout(tick,1000);
-    };
-    tick();
+    const tick=()=>{const t=document.getElementById('timer');const r=remaining();if(t){t.textContent=fmt(r);t.classList.toggle('ready',r===0)}const n=document.getElementById('next');if(n&&r===0)n.disabled=false;if(state.screen==='wt') setTimeout(tick,500)};tick();
   }
   const u=state.screen==='wt'?unit():null;
   if(u){
     document.getElementById('actual')?.addEventListener('click',()=>{state.view='actual';save();render()});
     document.getElementById('easy')?.addEventListener('click',()=>{state.view='easy';save();render()});
     document.getElementById('openWT')?.addEventListener('click',()=>{awardMaterial(u.id);openWatchtowerPage(u.ps[0])});
-    document.getElementById('scriptureBtn')?.addEventListener('click',()=>toast('Use the references printed in the paragraph and on the original page.'));
+    document.querySelectorAll('[data-hl]').forEach(b=>b.onclick=()=>{state.hl=b.dataset.hl;save();render()});
+    document.getElementById('clearMarks')?.addEventListener('click',()=>{state.marks[u.id]={};save();render()});
+    document.querySelectorAll('[data-mark]').forEach(s=>s.onclick=()=>{
+      state.marks[u.id]=state.marks[u.id]||{};
+      const k=s.dataset.mark;
+      state.marks[u.id][k]=state.marks[u.id][k]===state.hl?undefined:state.hl;
+      save();
+      s.className='mark '+(state.marks[u.id][k]||'');
+    });
     document.getElementById('saveQuestion')?.addEventListener('click',()=>{
       const v=document.getElementById('questionAnswer').value.trim();
       state.questionAnswers[u.id]=v;
-      if(v.length>=8) awardMaterial(u.id);
-      save(); toast(v?'Answer saved':'Write a little more, then save.');
+      if(v.length>=8){awardMaterial(u.id);popup(true,'Saved','Material star is yours.');}
+      else popup(false,'A little more','Write one real sentence.');
+      save();
     });
-    bindActivity(u.activity,u.id);
+    bindPlay(u.activity,u.id);
     document.getElementById('next')?.addEventListener('click',advance);
   }
   document.getElementById('restart')?.addEventListener('click',()=>{state={...DEFAULT,screen:'setup'};save();render()});
+  document.getElementById('end28')?.addEventListener('click',()=>song(28));
 }
 
-function bindActivity(a,key){
-  if(a.type==='sort') setupSortTouch(a,key);
-  if(a.type==='wordsearch') document.querySelectorAll('.wsCell').forEach(c=>c.onclick=()=>wsTap(c,key));
-  if(a.type==='crossword') document.getElementById('checkGame')?.addEventListener('click',()=>{
-    const val=(r,c)=>{const el=document.querySelector(`[data-cwr="${r}"][data-cwc="${c}"]`);return (el?.value||'').toUpperCase()};
-    const what=val(0,0)+val(0,1)+val(0,2)+val(0,3);
-    const why=val(0,0)+val(1,0)+val(2,0);
-    const how=val(2,2)+val(2,3)+val(2,4);
-    attemptResult(key,what==='WHAT'&&why==='WHY'&&how==='HOW');
-  });
-  if(['choose','lens','scenario','evidence','picture'].includes(a.type)){
-    document.querySelectorAll('[data-choice],[data-piece]').forEach(c=>c.onclick=()=>c.classList.toggle('selected'));
+function gobj(key){state.game[key]=state.game[key]||{};return state.game[key]}
+
+function bindPlay(a,key){
+  if(a.type==='burst'){
+    document.querySelectorAll('[data-burst]').forEach(b=>b.onclick=()=>{
+      const i=+b.dataset.burst, it=a.items[i], g=gobj(key);
+      g.got=g.got||[];
+      if(!it.ok){b.classList.add('boom');attemptResult(key,false);return}
+      if(!g.got.includes(i)) g.got.push(i);
+      b.classList.add('got'); save();
+      if(a.items.every((x,idx)=>!x.ok||g.got.includes(idx))) attemptResult(key,true);
+    });
+  }
+  if(a.type==='flip'){
+    document.querySelectorAll('[data-flip]').forEach(b=>b.onclick=()=>{
+      const g=gobj(key); if(!g.deck) return;
+      const i=+b.dataset.flip, card=g.deck[i];
+      if(card.found||card.up) return;
+      const ups=g.deck.filter(c=>c.up&&!c.found);
+      card.up=true; save(); render();
+      const after=()=>{
+        const open=g.deck.filter(c=>c.up&&!c.found);
+        if(open.length<2) return;
+        if(open[0].w===open[1].w){open[0].found=open[1].found=true;open[0].up=open[1].up=false}
+        else {open.forEach(c=>c.up=false)}
+        save();
+        if(a.words.every(w=>g.deck.filter(c=>c.w===w&&c.found).length>=1)) attemptResult(key,true);
+        else render();
+      };
+      if(g.deck.filter(c=>c.up&&!c.found).length>=2) setTimeout(after,450);
+    });
+  }
+  if(a.type==='rockets'){
+    let sel=null;
+    document.querySelectorAll('[data-fuel]').forEach(el=>el.onclick=()=>{sel=+el.dataset.fuel;document.querySelectorAll('[data-fuel]').forEach(x=>x.classList.toggle('on',x===el))});
+    document.querySelectorAll('[data-rock]').forEach(z=>z.onclick=()=>{
+      if(sel===null) return;
+      const g=gobj(key); g.rock=g.rock||{}; g.rock[sel]=+z.dataset.rock;
+      z.querySelector('.zone').textContent=a.pairs[sel][0];
+      document.querySelector(`[data-fuel="${sel}"]`).style.visibility='hidden';
+      sel=null; save();
+    });
     document.getElementById('checkGame')?.addEventListener('click',()=>{
-      const chosen=[...document.querySelectorAll('.selected')].map(x=>Number(x.dataset.choice??x.dataset.piece));
-      const ok=chosen.length===a.correct.length&&chosen.every(i=>a.correct.includes(i));
+      const rock=gobj(key).rock||{};
+      attemptResult(key,a.pairs.every((_,i)=>rock[i]===i));
+    });
+  }
+  if(a.type==='swipe'){
+    document.querySelectorAll('[data-swipe]').forEach(b=>b.onclick=()=>{
+      const g=gobj(key); g.i=g.i||0; g.ok=g.ok??true;
+      const card=a.cards[g.i];
+      if(!card) return;
+      if(b.dataset.swipe!==card[1]) g.ok=false;
+      g.i++; save();
+      if(g.i>=a.cards.length) attemptResult(key,g.ok);
+      else render();
+    });
+  }
+  if(a.type==='stones'){
+    document.querySelectorAll('[data-stone]').forEach(b=>b.onclick=()=>{
+      const g=gobj(key); g.path=g.path||[];
+      const i=+b.dataset.stone;
+      if(i!==g.path.length){attemptResult(key,false);return}
+      g.path.push(i); b.classList.add('lit'); save();
+      if(g.path.length===a.steps.length) attemptResult(key,true);
+    });
+  }
+  if(a.type==='stack'){
+    document.querySelectorAll('[data-stack]').forEach(b=>b.onclick=()=>{
+      const g=gobj(key); g.n=g.n||0; const i=+b.dataset.stack;
+      if(i!==g.n){attemptResult(key,false);return}
+      g.n++; save();
+      if(g.n>=a.blocks.length) attemptResult(key,true);
+      else render();
+    });
+  }
+  if(a.type==='lens'){
+    document.querySelectorAll('[data-pick]').forEach(b=>b.onclick=()=>attemptResult(key,+b.dataset.pick===a.correct));
+  }
+  if(a.type==='grow'){
+    document.querySelectorAll('[data-grow]').forEach(b=>b.onclick=()=>{
+      const g=gobj(key); g.n=g.n||0; const i=+b.dataset.grow;
+      if(i!==g.n){attemptResult(key,false);return}
+      g.n++; save();
+      if(g.n===a.steps.length) attemptResult(key,true);
+      else render();
+    });
+  }
+  if(a.type==='pocket'){
+    document.querySelectorAll('[data-bit]').forEach(el=>el.onclick=()=>{
+      const g=gobj(key); g.bit=+el.dataset.bit;
+      document.getElementById('pocketItems').textContent=el.textContent;
+      document.querySelectorAll('[data-bit]').forEach(x=>x.style.opacity=x===el?.5:1);
+    });
+    document.getElementById('checkGame')?.addEventListener('click',()=>attemptResult(key,gobj(key).bit===0));
+  }
+  if(a.type==='mirror'){
+    document.querySelectorAll('[data-mir]').forEach(b=>b.onclick=()=>b.classList.toggle('on'));
+    document.getElementById('checkGame')?.addEventListener('click',()=>{
+      const chosen=[...document.querySelectorAll('[data-mir].on')].map(x=>+x.dataset.mir);
+      const need=a.items.map((it,i)=>it.ok?i:-1).filter(i=>i>=0);
+      attemptResult(key,chosen.length===need.length&&need.every(i=>chosen.includes(i)));
+    });
+  }
+  if(a.type==='pins'){
+    document.querySelectorAll('[data-pin]').forEach(b=>b.onclick=()=>{
+      const g=gobj(key); g.pins=g.pins||[]; const i=+b.dataset.pin;
+      if(!g.pins.includes(i)) g.pins.push(i);
+      b.classList.add('on'); save();
+      if(g.pins.length===a.pins.length) attemptResult(key,true);
+    });
+  }
+  if(a.type==='rescue'){
+    document.getElementById('jar')?.addEventListener('click',()=>{
+      gobj(key).rescued=1; document.getElementById('rope').style.height='70%'; document.getElementById('jar').style.top='8%'; save();
+    });
+    document.querySelectorAll('[data-badge]').forEach(b=>b.onclick=()=>b.classList.toggle('on'));
+    document.getElementById('checkGame')?.addEventListener('click',()=>{
+      const chosen=[...document.querySelectorAll('[data-badge].on')].map(x=>+x.dataset.badge);
+      const ok=gobj(key).rescued && chosen.includes(0)&&chosen.includes(1)&&chosen.includes(2)&&chosen.includes(3)&&chosen.includes(4)&&!chosen.includes(5);
       attemptResult(key,ok);
     });
   }
-  if(['order','timeline'].includes(a.type)){
-    document.querySelectorAll('.orderItem').forEach(b=>b.onclick=()=>document.getElementById('sequence').appendChild(b));
+  if(a.type==='tools'){
+    document.querySelectorAll('[data-tool]').forEach(b=>b.onclick=()=>b.classList.toggle('on'));
     document.getElementById('checkGame')?.addEventListener('click',()=>{
-      const seq=[...document.querySelectorAll('.orderItem')].map(x=>Number(x.dataset.seq));
-      attemptResult(key,JSON.stringify(seq)===JSON.stringify(a.correct));
+      const chosen=[...document.querySelectorAll('[data-tool].on')].map(x=>+x.dataset.tool);
+      const need=a.tools.map((t,i)=>t.ok?i:-1).filter(i=>i>=0);
+      attemptResult(key,chosen.length===need.length&&need.every(i=>chosen.includes(i)));
     });
   }
-  if(a.type==='match'){
-    let current=null,matches={};
-    document.querySelectorAll('[data-left]').forEach(c=>c.onclick=()=>{current=+c.dataset.left;document.querySelectorAll('[data-left]').forEach(x=>x.classList.remove('selected'));c.classList.add('selected')});
-    document.querySelectorAll('[data-right]').forEach(c=>c.onclick=()=>{
-      if(current===null) return feedback('Pick something on the left first.');
-      matches[current]=+c.dataset.right;
-      c.classList.add('selected');
-      document.querySelector(`[data-left="${current}"]`)?.classList.add('matched');
-      current=null;
+  if(a.type==='hunt'){
+    document.querySelectorAll('[data-hunt]').forEach(b=>b.onclick=()=>{
+      const g=gobj(key); g.found=g.found||[]; const i=+b.dataset.hunt;
+      if(!g.found.includes(i)) g.found.push(i);
+      b.style.opacity='.3'; save();
+      if(g.found.length===a.items.length) attemptResult(key,true);
     });
-    document.getElementById('checkGame')?.addEventListener('click',()=>attemptResult(key,a.pairs.every((_,i)=>matches[i]===i)));
   }
-  if(a.type==='path'){
-    let picked=[];
-    document.querySelectorAll('[data-path]').forEach(c=>c.onclick=()=>{if(!picked.includes(+c.dataset.path)){picked.push(+c.dataset.path);c.classList.add('selected')}});
-    document.getElementById('checkGame')?.addEventListener('click',()=>attemptResult(key,JSON.stringify(picked)===JSON.stringify(a.correct)));
-  }
-  if(a.type==='hidden'){
-    document.querySelectorAll('[data-hidden]').forEach(c=>c.onclick=()=>c.classList.add('found'));
-    document.getElementById('checkGame')?.addEventListener('click',()=>attemptResult(key,[...document.querySelectorAll('[data-hidden].found')].length===a.items.length));
-  }
-  if(a.type==='choiceDraw'){
-    document.querySelectorAll('[data-choice]').forEach(c=>c.onclick=()=>{document.querySelectorAll('[data-choice]').forEach(x=>x.classList.remove('selected'));c.classList.add('selected')});
+  if(a.type==='stamp'){
+    document.querySelectorAll('[data-stamp]').forEach(b=>b.onclick=()=>{document.querySelectorAll('[data-stamp]').forEach(x=>x.classList.remove('on'));b.classList.add('on');gobj(key).stamp=+b.dataset.stamp});
     document.getElementById('activityDraw')?.addEventListener('click',openDraw);
-    document.getElementById('checkGame')?.addEventListener('click',()=>attemptResult(key,!!document.querySelector('[data-choice].selected')));
+    document.getElementById('checkGame')?.addEventListener('click',()=>attemptResult(key,gobj(key).stamp!==undefined));
   }
-}
-
-function setupSortTouch(a,key){
-  let selected=null;
-  document.querySelectorAll('[data-drag]').forEach(el=>{
-    el.addEventListener('dragstart',e=>{selected=el;e.dataTransfer.setData('text/plain',el.dataset.drag)});
-    el.addEventListener('click',()=>{document.querySelectorAll('[data-drag]').forEach(x=>x.classList.remove('selected'));el.classList.add('selected');selected=el});
-  });
-  document.querySelectorAll('.dropZone').forEach(z=>{
-    z.addEventListener('dragover',e=>{e.preventDefault();z.classList.add('over')});
-    z.addEventListener('dragleave',()=>z.classList.remove('over'));
-    z.addEventListener('drop',e=>{e.preventDefault();z.classList.remove('over');if(selected) placeSort(selected,z)});
-    z.addEventListener('click',()=>{if(selected) placeSort(selected,z)});
-  });
-  document.getElementById('checkGame')?.addEventListener('click',()=>{
-    const got=state.game[key]?.sort||{};
-    const ok=a.cards.every((c,i)=>got[i]===c[1]);
-    attemptResult(key,ok);
-  });
-}
-function placeSort(card,z){
-  const key=unit().id,i=Number(card.dataset.drag);
-  state.game[key]??={};state.game[key].sort??={};
-  state.game[key].sort[i]=Number(z.dataset.target);
-  save(); render();
-}
-function wsTap(el,key){
-  state.game[key]??={};state.game[key].ws??={start:null,found:[]};
-  const s=state.game[key].ws,all=[...document.querySelectorAll('.wsCell')];
-  if(s.start===null){s.start=Number(el.dataset.wsi);el.classList.add('selected');return}
-  const start=all[s.start],r1=+start.dataset.r,c1=+start.dataset.c,r2=+el.dataset.r,c2=+el.dataset.c;
-  const dr=Math.sign(r2-r1),dc=Math.sign(c2-c1),len=Math.max(Math.abs(r2-r1),Math.abs(c2-c1))+1;
-  if(!(dr===0||dc===0||Math.abs(r2-r1)===Math.abs(c2-c1))){all.forEach(x=>x.classList.remove('selected'));s.start=null;toast('Try a straight line.');return}
-  let word='';
-  for(let j=0;j<len;j++){
-    const cell=all.find(x=>+x.dataset.r===r1+dr*j&&+x.dataset.c===c1+dc*j);
-    if(!cell){s.start=null;return}
-    word+=cell.textContent;
+  if(a.type==='track'){
+    let sel=null;
+    document.querySelectorAll('[data-trk]').forEach(el=>el.onclick=()=>{sel=+el.dataset.trk;document.querySelectorAll('[data-trk]').forEach(x=>x.style.outline=x===el?'3px solid #6d5dfc':'')});
+    document.querySelectorAll('[data-slot]').forEach(z=>z.onclick=()=>{
+      if(sel===null) return;
+      const g=gobj(key); g.map=g.map||{}; g.map[sel]=+z.dataset.slot;
+      z.textContent=`${+z.dataset.slot+1}. ${a.items[sel]}`;
+      document.querySelector(`[data-trk="${sel}"]`).style.visibility='hidden';
+      sel=null; save();
+    });
+    document.getElementById('checkGame')?.addEventListener('click',()=>{
+      const map=gobj(key).map||{};
+      attemptResult(key,a.items.every((_,i)=>map[i]===i));
+    });
   }
-  const rev=word.split('').reverse().join('');
-  const hit=unit().activity.words.find(w=>w===word||w===rev);
-  if(hit){
-    if(!s.found.includes(hit)) s.found.push(hit);
-    all.forEach(x=>x.classList.remove('selected'));
-    for(let j=0;j<len;j++) all.find(x=>+x.dataset.r===r1+dr*j&&+x.dataset.c===c1+dc*j)?.classList.add('found');
-    document.querySelector(`[data-word="${hit}"]`)?.classList.add('found');
-    if(s.found.length===unit().activity.words.length) attemptResult(key,true);
-    else toast(`Found ${hit}!`);
-  }else{
-    all.forEach(x=>x.classList.remove('selected'));
-    toast('Not one of the hidden words. Try another line.');
-  }
-  s.start=null; save();
 }
 
 function finish(){
-  const possible=units.length*3;
-  return `<section class="card finish">
-    <div class="bigstars">🌟🌟🌟</div>
-    <div class="eyebrow">Study complete</div>
-    <h1>Great job, Maddy!</h1>
-    <p>You finished all ${units.length} study units and earned <strong>${state.stars} stars</strong>.</p>
-    <div class="finishStats">
-      <div class="stat">⭐ ${state.stars}<br><span class="source">stars earned</span></div>
-      <div class="stat">${possible}<br><span class="source">possible</span></div>
-      <div class="stat">${Object.keys(state.questionAnswers).filter(k=>state.questionAnswers[k]).length}<br><span class="source">answers saved</span></div>
-    </div>
-    <p><button class="secondary" id="end28">🎵 Closing Song 28</button></p>
-    <p class="source">Song 28 — Gaining Jehovah’s Friendship</p>
-    <button class="primary" id="restart">START A NEW MEETING</button>
+  return `<section class="finish">
+    <img src="brutus.png" alt="" style="width:96px;height:96px;border-radius:50%;object-fit:cover;object-position:50% 18%">
+    <div class="eyebrow">Done</div>
+    <h1>Great job, Maddy</h1>
+    <div class="finishStats"><div class="stat">⭐ ${state.stars}</div><div class="stat">${units.length*3} possible</div><div class="stat">${Object.values(state.questionAnswers).filter(Boolean).length} answers</div></div>
+    <p><button class="secondary" id="end28">🎵 Song 28</button></p>
+    <button class="primary" id="restart">New meeting</button>
   </section>`;
 }
-function advance(){if(state.unit===units.length-1) state.screen='finish';else{state.unit++;state.view='actual';state.meetingStarted=Date.now()}save();render()}
-function song(n){const p=songPage(n);window.open(`${SONGS}${p?'#page='+p:''}`,'_blank','noopener');if(!p)toast(`Opening the songbook. Find song ${n} there.`)}
+function advance(){if(state.unit===units.length-1)state.screen='finish';else{state.unit++;state.view='actual';state.meetingStarted=Date.now()}save();render()}
+function song(n){const p=songPage(n);window.open(`${SONGS}${p?'#page='+p:''}`,'_blank','noopener')}
 function openWatchtowerPage(para){window.open(`${WT}#page=${wtPage(para)}`,'_blank','noopener')}
-function toast(msg){const t=document.createElement('div');t.textContent=msg;t.style.cssText='position:fixed;left:50%;bottom:22px;transform:translateX(-50%);z-index:200;background:#182033;color:#fff;padding:11px 16px;border-radius:12px;font-weight:850;box-shadow:0 8px 24px rgba(0,0,0,.2)';document.body.appendChild(t);setTimeout(()=>t.remove(),1800)}
+
+/* Brutus */
+const CHIPS=['What should I do?','I’m bored','What’s this about?','Can I draw?','Good boy','I don’t get it'];
+function brutusReply(q){
+  const s=q.toLowerCase();
+  const lines=[
+    [/bored|adhd|wiggle|sit/, 'Woof. Hands first. Tap the Play half. Two minutes. Then we can talk snacks that do not exist.'],
+    [/what should|do now|help me/, 'Read the yellow Think box. Highlight one sentence. Then smash the game. I believe in you. I am a dog, but still.'],
+    [/about|paragraph|study|watchtower|article/, 'This week is: getting to know Jehovah like a friend. Not a list. A Person.'],
+    [/draw|color|pencil/, 'Yes. Purple button up top. Whole rainbow. Draw Jehovah’s qualities. Or draw me with a bigger snout. I would allow it.'],
+    [/good boy|cute|love you|hi brutus|hello/, 'Tail = yes. I am staying on this screen so you are not alone. Also I would like a biscuit that is imaginary.'],
+    [/don’t get|dont get|confused|hard/, 'Switch to Maddy words. Highlight the sentence that feels sticky. Ask the Think question out loud. Whisper is fine. I have excellent ears.'],
+    [/jehovah|know|friend/, 'Knowing Jehovah is like knowing me, only infinitely better and with no shedding. Name on a tag is not the same as a real friend.'],
+    [/star|point|win/, 'Stars are a nudge, not a report card. Think, then tap. First try gets two.'],
+    [/timer|next|unlock/, 'Timer only unlocks Next. You can read, highlight, draw, and pester me the whole time.'],
+    [/song/, 'Song 12 to start the study. Song 28 at the end. I cannot sing. I can hum in my throat. It is not good.'],
+    [/josiah/, 'Boy king. Searched. Then did something. That is the whole trick.'],
+    [/patrick|balcony|bird/, 'City balcony. Tiny birds. Tiny bugs. Big God. Look out a window later and steal Patrick’s move.'],
+    [/mary/, 'Mary kept things in her heart and thought about them. That is allowed during a meeting.'],
+    [/ebed|jeremiah|cistern|well/, 'Someone was stuck in a hole. Someone else got a rope. Jehovah noticed. Tag the real qualities, not “famous.”']
+  ];
+  for(const [re,ans] of lines){if(re.test(s)) return ans}
+  const fallbacks=[
+    'I heard you. I do not have thumbs, so you have to tap the game.',
+    'Hmm. Try highlighting the sentence that made your brain itch.',
+    'Woof woof, which in Brutus means: look at Maddy words, then play.',
+    'That is a good question. The paragraph probably already answered it. I checked with my nose.'
+  ];
+  return fallbacks[Math.floor(Math.random()*fallbacks.length)];
+}
+function paintChat(){
+  const log=document.getElementById('chatLog');
+  const chips=document.getElementById('chatChips');
+  if(!log) return;
+  log.innerHTML=(state.chat.length?state.chat:[{who:'dog',t:'Hi. I am Brutus. Ask me a question. I have a few answers and a lot of fur.'}]).map(m=>`<div class="bubble ${m.who==='me'?'me':'dog'}">${esc(m.t)}</div>`).join('');
+  log.scrollTop=log.scrollHeight;
+  chips.innerHTML=CHIPS.map(c=>`<button class="chipAsk" data-chip="${esc(c)}">${esc(c)}</button>`).join('');
+  chips.querySelectorAll('[data-chip]').forEach(b=>b.onclick=()=>askBrutus(b.dataset.chip));
+}
+function askBrutus(text){
+  text=String(text||'').trim(); if(!text) return;
+  state.chat.push({who:'me',t:text});
+  state.chat.push({who:'dog',t:brutusReply(text)});
+  if(state.chat.length>24) state.chat=state.chat.slice(-24);
+  save(); paintChat();
+}
+document.getElementById('chatForm').addEventListener('submit',e=>{e.preventDefault();const i=document.getElementById('chatInput');askBrutus(i.value);i.value=''});
+document.getElementById('closeChat').addEventListener('click',()=>document.getElementById('chat').classList.remove('open'));
+
+/* Draw */
 function openDraw(){document.getElementById('drawOverlay').classList.add('open');setupCanvas()}
 function closeDraw(){document.getElementById('drawOverlay').classList.remove('open');saveDrawing()}
 function setupCanvas(){
@@ -668,35 +793,40 @@ function setupCanvas(){
     ctx=canvas.getContext('2d'); ctx.scale(dpr,dpr); ctx.lineCap='round'; ctx.lineJoin='round';
     if(drawState.drawing){const im=new Image();im.onload=()=>ctx.drawImage(im,0,0,r.width,r.height);im.src=drawState.drawing}
   }
-  canvas.onpointerdown=e=>{drawing=true;const p=pos(e);lastX=p.x;lastY=p.y;saveHistory()};
-  canvas.onpointermove=e=>{if(!drawing)return;const p=pos(e);ctx.strokeStyle=drawState.color;ctx.lineWidth=drawState.size;ctx.beginPath();ctx.moveTo(lastX,lastY);ctx.lineTo(p.x,p.y);ctx.stroke();lastX=p.x;lastY=p.y;saveDrawing()};
+  canvas.onpointerdown=e=>{drawing=true;canvas.setPointerCapture(e.pointerId);const p=pos(e);lastX=p.x;lastY=p.y;saveHistory();stroke(p.x,p.y,p.x,p.y)};
+  canvas.onpointermove=e=>{if(!drawing)return;const p=pos(e);stroke(lastX,lastY,p.x,p.y);lastX=p.x;lastY=p.y;saveDrawing()};
   canvas.onpointerup=()=>drawing=false; canvas.onpointercancel=()=>drawing=false;
+}
+function stroke(x1,y1,x2,y2){
+  if(!ctx) return;
+  ctx.globalCompositeOperation=drawState.erase?'destination-out':'source-over';
+  ctx.strokeStyle=drawState.color; ctx.lineWidth=drawState.erase?Math.max(10,drawState.size*2):drawState.size;
+  ctx.beginPath(); ctx.moveTo(x1,y1); ctx.lineTo(x2,y2); ctx.stroke();
 }
 function pos(e){const r=canvas.getBoundingClientRect();return{x:e.clientX-r.left,y:e.clientY-r.top}}
 function saveHistory(){if(canvas){drawState.history.push(canvas.toDataURL('image/png'));if(drawState.history.length>20)drawState.history.shift();drawState.redo=[]}}
 function saveDrawing(){if(canvas){drawState.drawing=canvas.toDataURL('image/png');try{localStorage.setItem('smb-drawing-sunday',drawState.drawing)}catch(e){}}}
-function clearDraw(){if(!canvas)return;saveHistory();ctx.clearRect(0,0,canvas.width,canvas.height);saveDrawing()}
+function clearDraw(){if(!canvas||!ctx)return;saveHistory();ctx.globalCompositeOperation='source-over';ctx.clearRect(0,0,canvas.width,canvas.height);saveDrawing()}
 function undoDraw(){if(!canvas||!drawState.history.length)return;drawState.redo.push(canvas.toDataURL('image/png'));const d=drawState.history.pop();restoreDrawing(d);drawState.drawing=d}
 function redoDraw(){if(!canvas||!drawState.redo.length)return;drawState.history.push(canvas.toDataURL('image/png'));const d=drawState.redo.pop();restoreDrawing(d);drawState.drawing=d}
-function restoreDrawing(d){const im=new Image();im.onload=()=>{const r=canvas.getBoundingClientRect();ctx.clearRect(0,0,canvas.width,canvas.height);ctx.drawImage(im,0,0,r.width,r.height)};im.src=d}
+function restoreDrawing(d){const im=new Image();im.onload=()=>{const r=canvas.getBoundingClientRect();ctx.globalCompositeOperation='source-over';ctx.clearRect(0,0,canvas.width,canvas.height);ctx.drawImage(im,0,0,r.width,r.height)};im.src=d}
 function saveImage(){if(!canvas)return;const a=document.createElement('a');a.href=canvas.toDataURL('image/png');a.download='maddys-meeting-drawing.png';a.click()}
 
+const sw=document.getElementById('swatches');
+PALETTE.forEach(c=>{const b=document.createElement('button');b.className='swatch';b.style.background=c;b.onclick=()=>{drawState.color=c;drawState.erase=false;document.getElementById('fullColor').value=c.startsWith('#')&&c.length===7?c:'#182033'};sw.appendChild(b)});
+document.getElementById('fullColor').oninput=e=>{drawState.color=e.target.value;drawState.erase=false};
+document.getElementById('penSize').oninput=e=>drawState.size=Number(e.target.value);
+document.getElementById('eraseDraw').onclick=()=>{drawState.erase=!drawState.erase;document.getElementById('eraseDraw').textContent=drawState.erase?'Pen':'Eraser'};
 document.getElementById('closeDraw').onclick=closeDraw;
 document.getElementById('undoDraw').onclick=undoDraw;
 document.getElementById('redoDraw').onclick=redoDraw;
 document.getElementById('clearDraw').onclick=clearDraw;
 document.getElementById('saveDraw').onclick=saveImage;
-document.getElementById('newDraw').onclick=()=>{if(confirm('Start a new drawing?')){clearDraw();drawState.history=[];drawState.redo=[]}};
-document.querySelectorAll('.swatch').forEach(b=>b.onclick=()=>drawState.color=b.dataset.color);
-document.getElementById('penSize').oninput=e=>drawState.size=Number(e.target.value);
-document.getElementById('end28')?.addEventListener('click',()=>song(28));
+document.getElementById('newDraw').onclick=()=>{if(confirm('New drawing?')){clearDraw();drawState.history=[];drawState.redo=[]}};
 window.addEventListener('resize',()=>{if(document.getElementById('drawOverlay').classList.contains('open'))setupCanvas()});
-document.addEventListener('click',e=>{if(e.target.id==='end28') song(28)});
 try{drawState.drawing=localStorage.getItem('smb-drawing-sunday')||null}catch(e){}
 if('serviceWorker' in navigator) navigator.serviceWorker.register('./sw.js').catch(()=>{});
-load();
-if(!state.sawBrutus){state.sawBrutus=true;save();setTimeout(()=>document.getElementById('brutusOverlay').classList.add('open'),400)}
-render();
+load(); paintChat(); render();
 </script>
 </body>
 </html>
