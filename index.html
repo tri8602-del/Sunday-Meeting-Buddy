@@ -75,47 +75,75 @@ button,input,textarea{font:inherit}button{border:0;cursor:pointer}button:disable
 .nextCol .primary{height:100%;min-height:52px}
 
 /* Games */
+
 .playPrompt{font-weight:800;font-size:15px;line-height:1.35;margin:0 0 8px}
-.arena{position:relative;min-height:210px;border-radius:14px;background:linear-gradient(#d7ecff,#eef8e8);overflow:hidden;border:1px solid #d3dce8}
-.floater{position:absolute;border:0;border-radius:16px;padding:10px 12px;font-weight:900;background:#fff;box-shadow:0 6px 16px rgba(20,30,50,.12);touch-action:manipulation}
-.floater.good{outline:3px solid #7d73ff}
-.floater.got{background:#d9f6e4;transform:scale(.9);opacity:.55}
-.floater.boom{background:#ffd3d3}
+.sky{position:relative;min-height:230px;border-radius:16px;overflow:hidden;background:radial-gradient(circle at 50% 120%,#ffe9a8 0 18%,#9ec7ff 18% 55%,#3a4d9a 55%)}
+.floater{position:absolute;border:0;border-radius:18px;padding:9px 11px;font-weight:900;background:#fff;box-shadow:0 8px 18px rgba(20,30,50,.18);animation:drift 3.4s ease-in-out infinite;touch-action:manipulation}
+.floater.star{background:#fff7cc}
+.floater.got{background:#d9f6e4;opacity:.45;animation:none}
+.floater.boom{background:#ffd0d0;animation:shake .35s}
+@keyframes drift{0%,100%{transform:translate(0,0) rotate(-2deg)}50%{transform:translate(10px,-16px) rotate(3deg)}}
+@keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-7px)}75%{transform:translateX(7px)}}
 .gridTap{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}
-.bigHit{min-height:64px;border-radius:16px;border:2px solid #d5dceb;background:#fff;font-weight:900;font-size:16px;padding:10px}
-.bigHit.on,.tile.on,.slot.filled{background:#ece8ff;border-color:#8b82e8}
-.bigHit.good{background:#d9f6e4;border-color:#49b877}
-.bigHit.bad{background:#ffe1e1;border-color:#e07a7a}
+.bigHit{min-height:58px;border-radius:16px;border:2px solid #d5dceb;background:#fff;font-weight:900;font-size:15px;padding:10px}
+.bigHit.on{background:#ece8ff;border-color:#8b82e8}
+.sortStage{display:grid;gap:8px}
+.sortCard{min-height:88px;border-radius:18px;border:2px solid #cfd6ea;background:#fff;display:grid;place-items:center;font-weight:900;font-size:20px;padding:12px}
+.sortBtns{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.sortBtns button{min-height:72px;border-radius:16px;font-weight:900;font-size:16px}
+.factBtn{background:#eef3ff;border:2px solid #b9c7ee;color:#2a3d86}
+.heartBtn{background:#fff0f4;border:2px solid #f3b4c4;color:#9b2c4a}
+.path{position:relative;min-height:150px;display:flex;align-items:center;justify-content:center;gap:8px;flex-wrap:wrap;background:linear-gradient(#cfe8ff,#d9efc8);border-radius:16px;padding:12px}
+.stone{width:96px;min-height:96px;border-radius:50%;border:4px solid #c4b48a;background:#f3e6b8;font-weight:900;font-size:12px;padding:8px;line-height:1.2}
+.stone .ico{font-size:26px;display:block}
+.stone.lit{background:#ffe56a;border-color:#d4a000;transform:scale(1.05)}
+.towerBox{display:grid;grid-template-columns:140px 1fr;gap:10px;align-items:end}
+.tower{display:flex;flex-direction:column-reverse;align-items:center;min-height:200px;padding-bottom:8px;background:linear-gradient(#f4f7ff,#e4ebf8);border-radius:14px;border:1px solid #d5dceb}
+.brick{color:#fff;font-weight:900;text-align:center;padding:10px 8px;margin-top:4px;border-radius:6px;background:linear-gradient(#c27a4a,#8b4b28);box-shadow:inset 0 1px 0 rgba(255,255,255,.25),0 3px 0 #6a3418;font-size:13px}
+.brick.b0{width:118px}.brick.b1{width:100px}.brick.b2{width:84px}.brick.b3{width:70px}
+.pile{display:grid;gap:6px}
+.lensDesk{display:grid;grid-template-columns:1.2fr .8fr;gap:8px}
+.pageFake{background:#fffaf0;border:1px solid #e3d6b3;border-radius:8px;padding:10px;font-size:13px;line-height:1.45;min-height:120px}
+.lenses{display:grid;gap:8px}
+.lens{border-radius:50%;width:100%;aspect-ratio:1;max-height:84px;border:8px solid #333;background:radial-gradient(circle at 35% 30%,#fff,#7db7ff 35%,#1d3b73);color:#fff;font-weight:900;font-size:11px;text-shadow:0 1px 2px #000}
+.lens.on{outline:4px solid #6d5dfc}
+.jeans{display:grid;grid-template-columns:1fr 160px;gap:10px;align-items:start}
+.polaroid{background:#fff;border:1px solid #ddd;box-shadow:0 4px 10px rgba(0,0,0,.08);padding:8px 8px 18px;font-weight:800;font-size:13px;text-align:center;transform:rotate(var(--r,0deg))}
+.polaroid .pic{font-size:28px;display:block;margin-bottom:4px}
+.jeanPocket{height:180px;border-radius:12px 12px 40px 40px;background:linear-gradient(#3c5a86,#2a4064);border:3px dashed #c9d6ea;color:#e8eef8;padding:12px;position:relative}
+.jeanPocket:before{content:"";position:absolute;left:12px;right:12px;top:34px;height:8px;border-top:2px dashed #9fb3d1}
+.tossBin{margin-top:8px;min-height:44px;border-radius:12px;border:2px dashed #d9b0b0;background:#fff5f5;padding:8px;font-weight:800;color:#8a3030}
+.mirrorScene{display:grid;grid-template-columns:160px 1fr;gap:10px;align-items:center}
+.oval{width:150px;height:190px;border-radius:50%;border:10px solid #c9a227;background:linear-gradient(180deg,#eef7ff,#c8d8e8);box-shadow:inset 0 0 20px rgba(30,50,80,.15);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;padding:10px}
+.sticker{border-radius:14px;padding:8px;background:#fff;border:2px solid #d5dceb;font-weight:800}
+.sticker.on{background:#d9f6e4;border-color:#49b877}
+.sticker.no{background:#ffe1e1}
+.mapScene{position:relative;height:220px;border-radius:16px;background:linear-gradient(#b5e0a8 0 55%,#8ecf7a 55%);overflow:hidden;border:1px solid #c3ddb8}
+.mapScene .road{position:absolute;left:0;right:0;top:52%;height:18px;background:#e8d9a8}
+.pin{position:absolute;padding:6px 8px;border-radius:14px;background:#fff;font-weight:800;font-size:12px;border:2px solid #d5dceb}
+.pin.on{background:#ffe56a;border-color:#e0b000}
+.pin.bad{background:#ffe1e1}
+.well{position:relative;height:230px;border-radius:16px;background:linear-gradient(#6b7c8d,#2b3640);overflow:hidden}
+.wellWall{position:absolute;inset:0;background-image:repeating-linear-gradient(90deg,rgba(255,255,255,.05) 0 12px,transparent 12px 24px)}
+.rope{position:absolute;left:50%;width:6px;background:#c9a36a;top:0;height:20%;transform:translateX(-50%)}
+.person{position:absolute;left:calc(50% - 16px);bottom:10px;font-size:28px;filter:brightness(.7)}
+.hideTok{position:absolute;background:rgba(255,255,255,.16);border:0;border-radius:10px;padding:4px 6px;font-size:16px;color:#fff}
+.hideTok.found{background:#d9f6e4;color:#16653c}
+.quadDraw{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.pad{border:1px solid #d5dceb;border-radius:12px;padding:6px;background:#fafbff}
+.pad canvas{width:100%;height:88px;background:#fff;border-radius:8px;border:1px dashed #c9d1e0;touch-action:none}
+.trackRow{display:grid;grid-template-columns:52px 1fr;gap:6px;align-items:center;margin-bottom:6px}
+.trackIco{font-size:28px;text-align:center}
+.slot{min-height:48px;border:2px dashed #c9d1e0;border-radius:12px;padding:8px;font-weight:800;background:#f7f8fc}
+.slot.filled{background:#ece8ff;border-color:#8b82e8}
+.picCard{display:inline-flex;align-items:center;gap:6px;padding:8px 10px;border-radius:12px;background:#fff;border:1px solid #d5dceb;font-weight:800;margin:4px}
+.garden{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.plant{min-height:100px;border-radius:16px;background:#e7f6ea;border:2px dashed #b7d8bf;font-weight:900}
+.plant.up{background:#b9ecc6;border-style:solid}
 .tile{min-height:58px;border-radius:12px;border:2px solid #d5dceb;background:#fff;font-weight:900}
 .tile.flip{background:#6d5dfc;color:#fff}
 .tile.found{background:#d9f6e4;border-color:#49b877;color:#16653c}
-.stones{display:flex;flex-wrap:wrap;gap:8px;justify-content:center}
-.stone{width:86px;height:86px;border-radius:50%;border:3px solid #c9c2a8;background:#f4ecd2;font-weight:900;font-size:12px;padding:6px}
-.stone.lit{background:#ffe56a;border-color:#e0b000}
-.stack{display:flex;flex-direction:column-reverse;align-items:center;gap:6px;min-height:180px}
-.block{width:min(280px,90%);padding:12px;border-radius:10px;background:#8d83e8;color:#fff;font-weight:900}
-.garden{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
-.plant{min-height:110px;border-radius:16px;background:#e7f6ea;border:2px dashed #b7d8bf;font-weight:900}
-.plant.up{background:#b9ecc6;border-style:solid}
-.pocketRow{display:grid;grid-template-columns:1fr 110px;gap:8px}
-.pocket{min-height:150px;border-radius:16px;background:#3d2a1a;color:#fff;padding:10px;font-weight:800}
-.dragBit{padding:10px;border-radius:12px;background:#fff;border:1px solid #d5dceb;font-weight:800;margin-bottom:6px}
-.mirror{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
-.pinBoard{position:relative;height:200px;border-radius:14px;background:linear-gradient(#cde6ff 50%,#d8efd0 50%);border:1px solid #d3dce8}
-.pin{position:absolute;width:86px;padding:8px;border-radius:14px;background:#fff;font-weight:800;font-size:12px;border:2px solid #d5dceb}
-.pin.on{background:#ffe56a;border-color:#e0b000}
-.cistern{position:relative;height:200px;border-radius:14px;background:linear-gradient(#c5d4e0,#6d7c8a);overflow:hidden}
-.rope{position:absolute;left:50%;top:0;width:8px;height:40%;background:#c9a36a}
-.jar{position:absolute;left:calc(50% - 28px);top:38%;font-size:42px}
-.badgeFly{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
-.badge{padding:8px 10px;border-radius:999px;background:#fff;border:2px solid #d5dceb;font-weight:800}
-.badge.on{background:#d9f6e4;border-color:#49b877}
-.huntItem{position:absolute;font-size:34px;background:transparent;animation:wiggle 2.6s ease-in-out infinite}
-@keyframes wiggle{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
-.slots{display:grid;gap:6px}
-.slot{min-height:44px;border:2px dashed #c9d1e0;border-radius:12px;padding:8px;font-weight:800;background:#f7f8fc}
 .small{font-size:12px;color:var(--muted)}
-.checkRow{display:flex;gap:8px;margin-top:8px;align-items:center}
 
 /* Brutus dock + chat */
 .brutusDock{width:44px;height:44px;border-radius:50%;overflow:hidden;border:2px solid #d9d2ff;padding:0;background:#efeaff;flex:0 0 auto}
@@ -253,25 +281,44 @@ const questions={
 18:`Why will we never stop getting to know Jehovah?`
 };
 const units=[
-{id:'u1',ps:[1],activity:{type:'burst',prompt:'Pop the three huge things about Jehovah. Leave the fake one alone.',items:[{t:'Knowledge',ok:1},{t:'Wisdom',ok:1},{t:'Works',ok:1},{t:'Favorite color',ok:0}]}},
+{id:'u1',ps:[1],activity:{type:'burst',prompt:'The sky is huge — like Jehovah’s mind. Catch the three glowing ideas from the paragraph. Leave the ordinary stuff alone.',items:[
+  {t:'✨ Depth of his knowledge',ok:1},{t:'✨ Vastness of his wisdom',ok:1},{t:'✨ Scope of his works',ok:1},
+  {t:'Favorite color',ok:0},{t:'What’s for lunch',ok:0},{t:'Wi-Fi password',ok:0},{t:'How tall I am',ok:0}
+]}},
 {id:'u2',ps:[2],activity:{type:'flip',prompt:'Flip cards. Find SEARCH, FIND, KNOW, SERVE.',words:['SEARCH','FIND','KNOW','SERVE']}},
-{id:'u3',ps:[3],activity:{type:'rockets',prompt:'Drag each fuel chip onto the matching question rocket.',pairs:[['What?','What does it mean to know Jehovah?'],['Why?','Why keep getting to know him better?'],['How?','How do we get to know him better?']]}},
-{id:'u4',ps:[4],activity:{type:'swipe',prompt:'Heart = knowing the Person. Clipboard = only facts. Sort them fast.',cards:[['Jehovah has a name','fact'],['He is God','fact'],['His feelings','heart'],['His motives','heart'],['What makes him happy','heart'],['A list of titles','fact']]}},
-{id:'u5',ps:[5],activity:{type:'stones',prompt:'Tap Josiah’s stepping stones in order.',steps:['Boy Josiah searches','He acts on it','He is fair and helps the poor']}},
-{id:'u6',ps:[6],activity:{type:'stack',prompt:'Tap blocks from the bottom up to build Paul’s trust tower.',blocks:['Know Jehovah','Learn + live','Trust him completely']}},
-{id:'u7',ps:[7],activity:{type:'lens',prompt:'Slap the lens that belongs on a Bible account.',choices:['What does this tell me about Jehovah?','How fast can I finish?','How does this make me look smart?'],correct:0}},
-{id:'u8',ps:[8],activity:{type:'grow',prompt:'Tap the plants in friendship order. They only grow if you go in order.',steps:['Learn more','Feel closer','Thank him','Friendship grows']}},
-{id:'u9',ps:[9],activity:{type:'pocket',prompt:'Drop the thought that belongs in the pocket. Toss the others.',keep:'What would please Jehovah?',toss:['What is popular?','What is fastest?']}},
-{id:'u10',ps:[10],activity:{type:'mirror',prompt:'Stick the weightier qualities on the mirror. Leave the fake one off.',items:[{t:'Justice',ok:1},{t:'Mercy',ok:1},{t:'Faithfulness',ok:1},{t:'Showing off',ok:0}]}},
-{id:'u11',ps:[11],activity:{type:'pins',prompt:'Tap every place the paragraph says someone can meet Jehovah.',pins:['Family','Bible study','Bible accounts','Creation']}},
-{id:'u12-13',ps:[12,13],activity:{type:'rescue',prompt:'Tap the rope to rescue Jeremiah. Then tag every real quality.',qualities:['Courage','Love','Appreciation','Fairness','Impartiality','Famous']}},
-{id:'u14',ps:[14],activity:{type:'tools',prompt:'Tap the three detective tools. Not the running shoes.',tools:[{t:'👀 Look',ok:1},{t:'🧠 Think',ok:1},{t:'🔎 Reason',ok:1},{t:'🏃 Rush past',ok:0}]}},
+{id:'u3',ps:[3],activity:{type:'rockets',prompt:'Fuel the three question rockets.',pairs:[['What?','What does it mean to know Jehovah?'],['Why?','Why keep getting to know him better?'],['How?','How do we get to know him better?']]}},
+{id:'u4',ps:[4],activity:{type:'swipe',prompt:'Sort fast. Heart = knowing the Person. Clipboard = only facts. Misses go to the back of the pile.',cards:[
+  ['Jehovah has a name','fact'],['He is God','fact'],['People can list titles for him','fact'],['He created everything','fact'],
+  ['His feelings','heart'],['His motives','heart'],['What makes him happy','heart'],['What displeases him','heart'],
+  ['Knowing the Person behind the name','heart'],['A heart to know me','heart'],['Reading about love vs falling in love','heart'],
+  ['Facts on a clipboard','fact']
+]}},
+{id:'u5',ps:[5],activity:{type:'stones',prompt:'The stones are mixed up. Tap Josiah’s path in the real order.',steps:[
+  {t:'Boy Josiah starts searching',ico:'🔎'},
+  {t:'He learns what Jehovah loves',ico:'📖'},
+  {t:'He acts on it',ico:'👟'},
+  {t:'He is fair and helps the poor',ico:'🤲'},
+  {t:'That is what it means to know me',ico:'💛'}
+]}},
+{id:'u6',ps:[6],activity:{type:'stack',prompt:'Build Paul’s trust tower from the ground up. Wrong block wobbles off.',blocks:['Know Jehovah','Learn + live it','Trust him completely']}},
+{id:'u7',ps:[7],activity:{type:'lens',prompt:'Slap one lens onto the page. Which lens belongs on a Bible account?',choices:['What does this tell me about Jehovah?','How fast can I finish?','How does this make me look smart?'],correct:0}},
+{id:'u8',ps:[8],activity:{type:'grow',prompt:'Grow the friendship garden in order.',steps:['Learn more','Feel closer','Thank him','Friendship grows']}},
+{id:'u9',ps:[9],activity:{type:'pocket',prompt:'Keep the photo that belongs in the pocket. Toss the junk.',keep:{t:'Would this please Jehovah?',ico:'🖼️'},toss:[{t:'What’s popular?',ico:'🎫'},{t:'What’s fastest?',ico:'⏱️'},{t:'What gets likes?',ico:'📱'}]}},
+{id:'u10',ps:[10],activity:{type:'mirror',prompt:'Stick the weightier qualities on the glass. Fakes bounce off.',items:[{t:'Justice',ok:1},{t:'Mercy',ok:1},{t:'Faithfulness',ok:1},{t:'Showing off',ok:0},{t:'Being first',ok:0}]}},
+{id:'u11',ps:[11],activity:{type:'pins',prompt:'Pin the real meeting-places. Two spots do not belong.',pins:[
+  {t:'Family home',ok:1,ico:'🏠'},{t:'Bible study',ok:1,ico:'📚'},{t:'Bible accounts',ok:1,ico:'✝️'},{t:'Creation / trees',ok:1,ico:'🌳'},
+  {t:'The mall',ok:0,ico:'🛍️'},{t:'Game console',ok:0,ico:'🎮'}
+]}},
+{id:'u12-13',ps:[12,13],activity:{type:'rescue',prompt:'Lower the rope to Jeremiah. Then hunt the well walls for hidden qualities. Leave the treasure-junk alone.',good:['Courage','Love','Appreciation','Fairness','Impartiality'],fake:['Famous','Gold','Crown']}},
+{id:'u14',ps:[14],activity:{type:'tools',prompt:'Pack the detective kit. Leave the running shoes.',tools:[{t:'👀 Look',ok:1},{t:'🧠 Think',ok:1},{t:'🔎 Reason',ok:1},{t:'🏃 Rush past',ok:0}]}},
 {id:'u15',ps:[15],activity:{type:'hunt',prompt:'Catch what Patrick noticed on the balcony.',items:[{e:'🐦',l:'birds'},{e:'🐜',l:'insects'},{e:'🪺',l:'nest'},{e:'❤️',l:'Jehovah cares'}]}},
-{id:'u16',ps:[16],activity:{type:'stamp',prompt:'Pick the quality Mary noticed, then draw a tiny symbol for it.',choices:['Power','Mercy','Impartiality','Care for the lowly']}},
-{id:'u17-18',ps:[17,18],activity:{type:'track',prompt:'Drop the cards onto the future track in order.',items:['Learn now','New scrolls','Resurrection','Closer to perfection','Never stop learning']}}
+{id:'u16',ps:[16],activity:{type:'stamp',prompt:'Doodle a tiny symbol under every quality Mary noticed. All four pads keep your drawings.',choices:['Power','Mercy','Impartiality','Care for the lowly']}},
+{id:'u17-18',ps:[17,18],activity:{type:'track',prompt:'Line the future up. Tap a picture-card, then tap its place on the path.',items:[
+  {t:'Learn now',ico:'📖'},{t:'New scrolls',ico:'📜'},{t:'Resurrection',ico:'🌅'},{t:'Closer to perfection',ico:'✨'},{t:'Never stop learning',ico:'♾️'}
+]}}
 ];
 
-const STORE='smb-sunday-2026-09-21-v2';
+const STORE='smb-sunday-2026-09-21-v3';
 const DEFAULT={screen:'setup',talk:'',opening:'',unit:0,view:'actual',stars:0,earned:{},activityStars:{},materialAwarded:{},attempts:{},test:false,meetingStarted:null,wtUnlocked:false,talkNotes:{},questionAnswers:{},game:{},marks:{},hl:'y',chat:[]};
 let state={...DEFAULT};
 let drawState={color:'#182033',size:6,drawing:null,history:[],redo:[],erase:false};
@@ -407,7 +454,8 @@ function playHTML(a,key){
   const g=state.game[key]||{};
   if(a.type==='burst'){
     const got=g.got||[];
-    return `<div class="playPrompt">${esc(a.prompt)}</div><div class="arena" id="arena">${a.items.map((it,i)=>`<button class="floater ${it.ok?'good':''} ${got.includes(i)?'got':''}" data-burst="${i}" style="left:${12+i*20}%;top:${18+(i%3)*22}%">${esc(it.t)}</button>`).join('')}</div><div class="small">Tap the real ones. They bounce if you miss.</div>`;
+    const pos=[[8,18],[42,12],[70,22],[12,58],[48,62],[74,55],[30,38]];
+    return `<div class="playPrompt">${esc(a.prompt)}</div><div class="sky">${a.items.map((it,i)=>`<button class="floater ${it.ok?'star':''} ${got.includes(i)?'got':''}" data-burst="${i}" style="left:${pos[i][0]}%;top:${pos[i][1]}%;animation-duration:${2.6+i*.35}s">${esc(it.t)}</button>`).join('')}</div><div class="small">The shiny ones are from the paragraph. Ordinary stuff is a decoy.</div>`;
   }
   if(a.type==='flip'){
     const cards=g.deck||makeDeck(a.words);
@@ -415,54 +463,64 @@ function playHTML(a,key){
     return `<div class="playPrompt">${esc(a.prompt)}</div><div class="gridTap">${cards.map((c,i)=>`<button class="tile ${c.found?'found':c.up?'flip':''}" data-flip="${i}">${c.up||c.found?esc(c.w):'🐾'}</button>`).join('')}</div>`;
   }
   if(a.type==='rockets'){
-    return `<div class="playPrompt">${esc(a.prompt)}</div><div class="gridTap" id="rockets">${a.pairs.map((p,i)=>`<div class="slot" data-rock="${i}"><div class="small">${esc(p[1])}</div><div class="zone"></div></div>`).join('')}</div><div id="fuel">${a.pairs.map((p,i)=>`<button class="dragBit" draggable="true" data-fuel="${i}">🚀 ${esc(p[0])}</button>`).join('')}</div><button class="primary" id="checkGame" style="margin-top:8px">Check</button>`;
+    return `<div class="playPrompt">${esc(a.prompt)}</div><div class="gridTap" id="rockets">${a.pairs.map((p,i)=>`<div class="slot" data-rock="${i}"><div class="small">🚀 ${esc(p[1])}</div><div class="zone"></div></div>`).join('')}</div><div id="fuel">${a.pairs.map((p,i)=>`<button class="picCard" data-fuel="${i}">⛽ ${esc(p[0])}</button>`).join('')}</div><button class="primary" id="checkGame" style="margin-top:8px">Launch</button>`;
   }
   if(a.type==='swipe'){
-    const i=g.i||0; const card=a.cards[i];
-    if(!card) return `<div class="playPrompt">Done sorting.</div>`;
-    return `<div class="playPrompt">${esc(a.prompt)}</div><div class="bigHit" style="min-height:90px;display:grid;place-items:center;font-size:20px">${esc(card[0])}</div><div class="gridTap" style="margin-top:8px"><button class="bigHit" data-swipe="fact">📋 Facts</button><button class="bigHit" data-swipe="heart">💛 Person</button></div><div class="small">${i+1}/${a.cards.length}</div>`;
+    const q=g.queue||a.cards.map((c,i)=>i);
+    if(!g.queue) g.queue=q.slice();
+    const i=q[0]; const card=i===undefined?null:a.cards[i];
+    if(!card) return `<div class="playPrompt">Pile is empty. Nice sorting.</div>`;
+    return `<div class="playPrompt">${esc(a.prompt)}</div><div class="sortStage"><div class="sortCard">${esc(card[0])}</div><div class="sortBtns"><button class="factBtn" data-swipe="fact">📋 Facts only</button><button class="heartBtn" data-swipe="heart">💛 The Person</button></div><div class="small">${q.length} left in the pile</div></div>`;
   }
   if(a.type==='stones'){
-    return `<div class="playPrompt">${esc(a.prompt)}</div><div class="stones">${a.steps.map((s,i)=>`<button class="stone ${(g.path||[]).includes(i)?'lit':''}" data-stone="${i}">${i+1}<br>${esc(s)}</button>`).join('')}</div>`;
+    const order=g.order||a.steps.map((_,i)=>i).sort(()=>Math.random()-.5);
+    if(!g.order) g.order=order;
+    return `<div class="playPrompt">${esc(a.prompt)}</div><div class="path">${order.map(i=>`<button class="stone ${(g.path||[]).includes(i)?'lit':''}" data-stone="${i}"><span class="ico">${a.steps[i].ico}</span>${esc(a.steps[i].t)}</button>`).join('')}</div>`;
   }
   if(a.type==='stack'){
     const n=g.n||0;
     const order=g.order||a.blocks.map((_,i)=>i).sort(()=>Math.random()-.5);
     if(!g.order) g.order=order;
-    return `<div class="playPrompt">${esc(a.prompt)}</div><div class="stack">${a.blocks.slice(0,n).map(b=>`<div class="block">${esc(b)}</div>`).join('')}</div><div class="gridTap">${order.map(i=>n>i?'':`<button class="bigHit" data-stack="${i}">${esc(a.blocks[i])}</button>`).join('')}</div>`;
+    return `<div class="playPrompt">${esc(a.prompt)}</div><div class="towerBox"><div class="tower">${a.blocks.slice(0,n).map((b,i)=>`<div class="brick b${i}">${esc(b)}</div>`).join('')}${n?'':'<div class="small">empty ground</div>'}</div><div class="pile">${order.map(i=>n>i?'':`<button class="bigHit" data-stack="${i}">🧱 ${esc(a.blocks[i])}</button>`).join('')}</div></div>`;
   }
   if(a.type==='lens'){
-    return `<div class="playPrompt">${esc(a.prompt)}</div><div class="gridTap">${a.choices.map((c,i)=>`<button class="bigHit" data-pick="${i}">${esc(c)}</button>`).join('')}</div>`;
+    return `<div class="playPrompt">${esc(a.prompt)}</div><div class="lensDesk"><div class="pageFake">“The Bible also reveals much about its Author.”<br><br>When you read a verse, what are you actually looking through?</div><div class="lenses">${a.choices.map((c,i)=>`<button class="lens" data-pick="${i}">${esc(c)}</button>`).join('')}</div></div>`;
   }
   if(a.type==='grow'){
     const n=g.n||0;
     return `<div class="playPrompt">${esc(a.prompt)}</div><div class="garden">${a.steps.map((s,i)=>`<button class="plant ${i<n?'up':''}" data-grow="${i}">${i<n?'🌿':'🌱'}<br>${esc(s)}</button>`).join('')}</div>`;
   }
   if(a.type==='pocket'){
-    return `<div class="playPrompt">${esc(a.prompt)}</div><div class="pocketRow"><div>${[a.keep,...a.toss].map((t,i)=>`<button class="dragBit" data-bit="${i}">${esc(t)}</button>`).join('')}</div><div class="pocket" data-pocket="1">📷 Pocket<br><span class="small">Drop the keeper here</span><div id="pocketItems"></div></div></div><button class="primary" id="checkGame" style="margin-top:8px">Check pocket</button>`;
+    const bits=[a.keep,...a.toss];
+    return `<div class="playPrompt">${esc(a.prompt)}</div><div class="jeans"><div>${bits.map((x,i)=>`<button class="polaroid" data-bit="${i}" style="--r:${[-6,4,-2,7][i]}deg"><span class="pic">${x.ico}</span>${esc(x.t)}</button>`).join('')}<div class="tossBin" data-toss="1">Toss pile</div></div><div class="jeanPocket" data-pocket="1">back pocket<div id="pocketItems" class="small" style="margin-top:40px"></div></div></div><button class="primary" id="checkGame" style="margin-top:8px">Check pocket</button>`;
   }
   if(a.type==='mirror'){
-    return `<div class="playPrompt">${esc(a.prompt)}</div><div class="mirror">${a.items.map((it,i)=>`<button class="bigHit" data-mir="${i}">${esc(it.t)}</button>`).join('')}</div><button class="primary" id="checkGame" style="margin-top:8px">Look in the mirror</button>`;
+    const on=g.mir||[];
+    return `<div class="playPrompt">${esc(a.prompt)}</div><div class="mirrorScene"><div class="oval" id="glass">${on.map(i=>`<div>${esc(a.items[i].t)}</div>`).join('')||'<span class="small">empty glass</span>'}</div><div>${a.items.map((it,i)=>`<button class="sticker ${on.includes(i)?'on':''}" data-mir="${i}">${esc(it.t)}</button>`).join('')}<div><button class="primary" id="checkGame" style="margin-top:8px">Check reflection</button></div></div></div>`;
   }
   if(a.type==='pins'){
-    const pos=[[8,18],[58,16],[14,58],[60,62]];
-    return `<div class="playPrompt">${esc(a.prompt)}</div><div class="pinBoard">${a.pins.map((p,i)=>`<button class="pin ${(g.pins||[]).includes(i)?'on':''}" data-pin="${i}" style="left:${pos[i][0]}%;top:${pos[i][1]}%">📍 ${esc(p)}</button>`).join('')}</div>`;
+    const pos=[[8,16],[58,12],[18,62],[62,58],[40,8],[78,36]];
+    return `<div class="playPrompt">${esc(a.prompt)}</div><div class="mapScene"><div class="road"></div>${a.pins.map((p,i)=>`<button class="pin ${(g.pins||[]).includes(i)?'on':''}" data-pin="${i}" style="left:${pos[i][0]}%;top:${pos[i][1]}%">${p.ico} ${esc(p.t)}</button>`).join('')}</div>`;
   }
   if(a.type==='rescue'){
-    return `<div class="playPrompt">${esc(a.prompt)}</div><div class="cistern" id="cistern"><div class="rope" id="rope"></div><button class="jar" id="jar">🏺</button></div><div class="badgeFly">${a.qualities.map((q,i)=>`<button class="badge" data-badge="${i}">${esc(q)}</button>`).join('')}</div><button class="primary" id="checkGame" style="margin-top:8px">Check rescue</button>`;
+    const toks=[...a.good.map(t=>({t,ok:1})),...a.fake.map(t=>({t,ok:0}))];
+    const pos=[[8,22],[78,18],[12,70],[70,62],[40,44],[6,48],[82,48],[48,78]];
+    const low=g.low||0;
+    return `<div class="playPrompt">${esc(a.prompt)}</div><div class="well" id="cistern"><div class="wellWall"></div><div class="rope" id="rope" style="height:${20+low*18}%"></div><div class="person">🧔</div>${low>=3?toks.map((tk,i)=>`<button class="hideTok ${(g.found||[]).includes(i)?'found':''}" data-tok="${i}" style="left:${pos[i][0]}%;top:${pos[i][1]}%">${(g.found||[]).includes(i)||(g.peek||[]).includes(i)?esc(tk.t):'·'}</button>`).join(''):''}</div><button class="secondary" id="lowerRope">${low>=3?'Rope is down — search the walls':'Lower the rope'}</button><div class="small">${low>=3?'Tap the faint dots. Real qualities stay. Junk flashes and falls.':''}</div>`;
   }
   if(a.type==='tools'){
     return `<div class="playPrompt">${esc(a.prompt)}</div><div class="gridTap">${a.tools.map((t,i)=>`<button class="bigHit" data-tool="${i}">${esc(t.t)}</button>`).join('')}</div><button class="primary" id="checkGame" style="margin-top:8px">Check kit</button>`;
   }
   if(a.type==='hunt'){
     const pos=[[10,16],[48,28],[72,14],[30,58]];
-    return `<div class="playPrompt">${esc(a.prompt)}</div><div class="arena">${a.items.map((it,i)=>`<button class="huntItem ${(g.found||[]).includes(i)?'got':''}" data-hunt="${i}" style="left:${pos[i][0]}%;top:${pos[i][1]}%;animation-delay:${i*.3}s">${it.e}</button>`).join('')}</div><div class="small">Find: ${a.items.map(x=>x.l).join(' · ')}</div>`;
+    return `<div class="playPrompt">${esc(a.prompt)}</div><div class="sky" style="background:linear-gradient(#9ec9f0 0 46%,#d9efd0 46%)">${a.items.map((it,i)=>`<button class="floater ${(g.found||[]).includes(i)?'got':''}" data-hunt="${i}" style="left:${pos[i][0]}%;top:${pos[i][1]}%;font-size:28px">${it.e}</button>`).join('')}</div><div class="small">Find: ${a.items.map(x=>x.l).join(' · ')}</div>`;
   }
   if(a.type==='stamp'){
-    return `<div class="playPrompt">${esc(a.prompt)}</div><div class="gridTap">${a.choices.map((c,i)=>`<button class="bigHit" data-stamp="${i}">${esc(c)}</button>`).join('')}</div><button class="secondary" id="activityDraw" style="margin-top:8px">✏️ Draw the symbol</button><button class="primary" id="checkGame" style="margin-top:8px">I’m done</button>`;
+    const dood=g.dood||{};
+    return `<div class="playPrompt">${esc(a.prompt)}</div><div class="quadDraw">${a.choices.map((c,i)=>`<div class="pad"><strong>${esc(c)}</strong><canvas data-mini="${i}"></canvas></div>`).join('')}</div><button class="primary" id="checkGame" style="margin-top:8px">Hang them together</button>`;
   }
   if(a.type==='track'){
-    return `<div class="playPrompt">${esc(a.prompt)}</div><div class="slots" id="track">${a.items.map((x,i)=>`<div class="slot" data-slot="${i}">${i+1}.</div>`).join('')}</div><div id="pool">${a.items.map((x,i)=>`<button class="dragBit" data-trk="${i}">${esc(x)}</button>`).join('')}</div><div class="small">Tap a card, then tap its place on the track.</div><button class="primary" id="checkGame" style="margin-top:8px">Check track</button>`;
+    return `<div class="playPrompt">${esc(a.prompt)}</div>${a.items.map((x,i)=>`<div class="trackRow"><div class="trackIco">${i+1}</div><div class="slot" data-slot="${i}"></div></div>`).join('')}<div id="pool">${a.items.map((x,i)=>`<button class="picCard" data-trk="${i}"><span>${x.ico}</span> ${esc(x.t)}</button>`).join('')}</div><button class="primary" id="checkGame" style="margin-top:8px">Check path</button>`;
   }
   return '';
 }
@@ -565,7 +623,7 @@ function bindPlay(a,key){
     document.querySelectorAll('[data-burst]').forEach(b=>b.onclick=()=>{
       const i=+b.dataset.burst, it=a.items[i], g=gobj(key);
       g.got=g.got||[];
-      if(!it.ok){b.classList.add('boom');attemptResult(key,false);return}
+      if(!it.ok){b.classList.add('boom');return}
       if(!g.got.includes(i)) g.got.push(i);
       b.classList.add('got'); save();
       if(a.items.every((x,idx)=>!x.ok||g.got.includes(idx))) attemptResult(key,true);
@@ -574,17 +632,16 @@ function bindPlay(a,key){
   if(a.type==='flip'){
     document.querySelectorAll('[data-flip]').forEach(b=>b.onclick=()=>{
       const g=gobj(key); if(!g.deck) return;
-      const i=+b.dataset.flip, card=g.deck[i];
+      const card=g.deck[+b.dataset.flip];
       if(card.found||card.up) return;
-      const ups=g.deck.filter(c=>c.up&&!c.found);
       card.up=true; save(); render();
       const after=()=>{
         const open=g.deck.filter(c=>c.up&&!c.found);
         if(open.length<2) return;
         if(open[0].w===open[1].w){open[0].found=open[1].found=true;open[0].up=open[1].up=false}
-        else {open.forEach(c=>c.up=false)}
+        else open.forEach(c=>c.up=false);
         save();
-        if(a.words.every(w=>g.deck.filter(c=>c.w===w&&c.found).length>=1)) attemptResult(key,true);
+        if(a.words.every(w=>g.deck.some(c=>c.w===w&&c.found))) attemptResult(key,true);
         else render();
       };
       if(g.deck.filter(c=>c.up&&!c.found).length>=2) setTimeout(after,450);
@@ -592,7 +649,7 @@ function bindPlay(a,key){
   }
   if(a.type==='rockets'){
     let sel=null;
-    document.querySelectorAll('[data-fuel]').forEach(el=>el.onclick=()=>{sel=+el.dataset.fuel;document.querySelectorAll('[data-fuel]').forEach(x=>x.classList.toggle('on',x===el))});
+    document.querySelectorAll('[data-fuel]').forEach(el=>el.onclick=()=>{sel=+el.dataset.fuel;document.querySelectorAll('[data-fuel]').forEach(x=>x.style.outline=x===el?'3px solid #6d5dfc':'')});
     document.querySelectorAll('[data-rock]').forEach(z=>z.onclick=()=>{
       if(sel===null) return;
       const g=gobj(key); g.rock=g.rock||{}; g.rock[sel]=+z.dataset.rock;
@@ -607,12 +664,14 @@ function bindPlay(a,key){
   }
   if(a.type==='swipe'){
     document.querySelectorAll('[data-swipe]').forEach(b=>b.onclick=()=>{
-      const g=gobj(key); g.i=g.i||0; g.ok=g.ok??true;
-      const card=a.cards[g.i];
-      if(!card) return;
-      if(b.dataset.swipe!==card[1]) g.ok=false;
-      g.i++; save();
-      if(g.i>=a.cards.length) attemptResult(key,g.ok);
+      const g=gobj(key);
+      if(!g.queue) g.queue=a.cards.map((_,i)=>i);
+      const cur=g.queue[0]; if(cur===undefined) return;
+      const card=a.cards[cur];
+      if(b.dataset.swipe===card[1]) g.queue.shift();
+      else g.queue.push(g.queue.shift());
+      save();
+      if(!g.queue.length) attemptResult(key,true);
       else render();
     });
   }
@@ -620,15 +679,16 @@ function bindPlay(a,key){
     document.querySelectorAll('[data-stone]').forEach(b=>b.onclick=()=>{
       const g=gobj(key); g.path=g.path||[];
       const i=+b.dataset.stone;
-      if(i!==g.path.length){attemptResult(key,false);return}
-      g.path.push(i); b.classList.add('lit'); save();
+      if(i!==g.path.length){b.classList.add('boom');return}
+      g.path.push(i); save();
       if(g.path.length===a.steps.length) attemptResult(key,true);
+      else render();
     });
   }
   if(a.type==='stack'){
     document.querySelectorAll('[data-stack]').forEach(b=>b.onclick=()=>{
       const g=gobj(key); g.n=g.n||0; const i=+b.dataset.stack;
-      if(i!==g.n){attemptResult(key,false);return}
+      if(i!==g.n){b.classList.add('boom');return}
       g.n++; save();
       if(g.n>=a.blocks.length) attemptResult(key,true);
       else render();
@@ -640,45 +700,67 @@ function bindPlay(a,key){
   if(a.type==='grow'){
     document.querySelectorAll('[data-grow]').forEach(b=>b.onclick=()=>{
       const g=gobj(key); g.n=g.n||0; const i=+b.dataset.grow;
-      if(i!==g.n){attemptResult(key,false);return}
+      if(i!==g.n){b.classList.add('boom');return}
       g.n++; save();
       if(g.n===a.steps.length) attemptResult(key,true);
       else render();
     });
   }
   if(a.type==='pocket'){
-    document.querySelectorAll('[data-bit]').forEach(el=>el.onclick=()=>{
-      const g=gobj(key); g.bit=+el.dataset.bit;
-      document.getElementById('pocketItems').textContent=el.textContent;
-      document.querySelectorAll('[data-bit]').forEach(x=>x.style.opacity=x===el?.5:1);
+    let sel=null;
+    document.querySelectorAll('[data-bit]').forEach(el=>el.onclick=()=>{sel=+el.dataset.bit;document.querySelectorAll('[data-bit]').forEach(x=>x.style.outline=x===el?'3px solid #6d5dfc':'')});
+    document.querySelector('[data-pocket]')?.addEventListener('click',()=>{
+      if(sel===null) return;
+      const g=gobj(key); g.pocket=sel;
+      document.getElementById('pocketItems').textContent=document.querySelector(`[data-bit="${sel}"]`).innerText;
     });
-    document.getElementById('checkGame')?.addEventListener('click',()=>attemptResult(key,gobj(key).bit===0));
+    document.querySelector('[data-toss]')?.addEventListener('click',()=>{
+      if(sel===null) return;
+      const g=gobj(key); g.toss=g.toss||[]; if(!g.toss.includes(sel)) g.toss.push(sel);
+      document.querySelector(`[data-bit="${sel}"]`).style.opacity='.35';
+    });
+    document.getElementById('checkGame')?.addEventListener('click',()=>{
+      const g=gobj(key);
+      const tossed=(g.toss||[]).slice().sort().join();
+      attemptResult(key,g.pocket===0 && tossed==='1,2,3');
+    });
   }
   if(a.type==='mirror'){
-    document.querySelectorAll('[data-mir]').forEach(b=>b.onclick=()=>b.classList.toggle('on'));
+    document.querySelectorAll('[data-mir]').forEach(b=>b.onclick=()=>{
+      const g=gobj(key); g.mir=g.mir||[]; const i=+b.dataset.mir;
+      if(!a.items[i].ok){b.classList.add('no','boom');return}
+      if(!g.mir.includes(i)) g.mir.push(i);
+      save(); render();
+    });
     document.getElementById('checkGame')?.addEventListener('click',()=>{
-      const chosen=[...document.querySelectorAll('[data-mir].on')].map(x=>+x.dataset.mir);
+      const got=gobj(key).mir||[];
       const need=a.items.map((it,i)=>it.ok?i:-1).filter(i=>i>=0);
-      attemptResult(key,chosen.length===need.length&&need.every(i=>chosen.includes(i)));
+      attemptResult(key,need.every(i=>got.includes(i)) && got.every(i=>a.items[i].ok));
     });
   }
   if(a.type==='pins'){
     document.querySelectorAll('[data-pin]').forEach(b=>b.onclick=()=>{
       const g=gobj(key); g.pins=g.pins||[]; const i=+b.dataset.pin;
+      if(!a.pins[i].ok){b.classList.add('bad','boom');return}
       if(!g.pins.includes(i)) g.pins.push(i);
       b.classList.add('on'); save();
-      if(g.pins.length===a.pins.length) attemptResult(key,true);
+      const need=a.pins.map((x,idx)=>x.ok?idx:-1).filter(x=>x>=0);
+      if(need.every(n=>g.pins.includes(n))) attemptResult(key,true);
     });
   }
   if(a.type==='rescue'){
-    document.getElementById('jar')?.addEventListener('click',()=>{
-      gobj(key).rescued=1; document.getElementById('rope').style.height='70%'; document.getElementById('jar').style.top='8%'; save();
+    document.getElementById('lowerRope')?.addEventListener('click',()=>{
+      const g=gobj(key); g.low=Math.min(3,(g.low||0)+1); save(); render();
     });
-    document.querySelectorAll('[data-badge]').forEach(b=>b.onclick=()=>b.classList.toggle('on'));
-    document.getElementById('checkGame')?.addEventListener('click',()=>{
-      const chosen=[...document.querySelectorAll('[data-badge].on')].map(x=>+x.dataset.badge);
-      const ok=gobj(key).rescued && chosen.includes(0)&&chosen.includes(1)&&chosen.includes(2)&&chosen.includes(3)&&chosen.includes(4)&&!chosen.includes(5);
-      attemptResult(key,ok);
+    document.querySelectorAll('[data-tok]').forEach(b=>b.onclick=()=>{
+      const g=gobj(key); g.peek=g.peek||[]; g.found=g.found||[];
+      const i=+b.dataset.tok;
+      const toks=[...a.good.map(t=>({t,ok:1})),...a.fake.map(t=>({t,ok:0}))];
+      if(!g.peek.includes(i)) g.peek.push(i);
+      if(toks[i].ok){ if(!g.found.includes(i)) g.found.push(i); }
+      else { b.classList.add('boom'); }
+      save(); render();
+      if(g.found.length===a.good.length) attemptResult(key,true);
     });
   }
   if(a.type==='tools'){
@@ -693,14 +775,30 @@ function bindPlay(a,key){
     document.querySelectorAll('[data-hunt]').forEach(b=>b.onclick=()=>{
       const g=gobj(key); g.found=g.found||[]; const i=+b.dataset.hunt;
       if(!g.found.includes(i)) g.found.push(i);
-      b.style.opacity='.3'; save();
+      save();
       if(g.found.length===a.items.length) attemptResult(key,true);
+      else render();
     });
   }
   if(a.type==='stamp'){
-    document.querySelectorAll('[data-stamp]').forEach(b=>b.onclick=()=>{document.querySelectorAll('[data-stamp]').forEach(x=>x.classList.remove('on'));b.classList.add('on');gobj(key).stamp=+b.dataset.stamp});
-    document.getElementById('activityDraw')?.addEventListener('click',openDraw);
-    document.getElementById('checkGame')?.addEventListener('click',()=>attemptResult(key,gobj(key).stamp!==undefined));
+    const g=gobj(key); g.dood=g.dood||{}; g.ink=g.ink||{};
+    document.querySelectorAll('[data-mini]').forEach(cv=>{
+      const i=+cv.dataset.mini;
+      const r=cv.getBoundingClientRect();
+      const dpr=Math.max(1,devicePixelRatio||1);
+      cv.width=Math.round(r.width*dpr); cv.height=Math.round(88*dpr);
+      const c=cv.getContext('2d'); c.scale(dpr,dpr); c.lineCap='round'; c.strokeStyle='#182033'; c.lineWidth=3;
+      if(g.dood[i]){const im=new Image(); im.onload=()=>c.drawImage(im,0,0,r.width,88); im.src=g.dood[i]}
+      let down=false,lx=0,ly=0;
+      const pos=e=>{const b=cv.getBoundingClientRect();return{x:e.clientX-b.left,y:e.clientY-b.top}};
+      cv.onpointerdown=e=>{down=true;cv.setPointerCapture(e.pointerId);const p=pos(e);lx=p.x;ly=p.y;g.ink[i]=1};
+      cv.onpointermove=e=>{if(!down)return;const p=pos(e);c.beginPath();c.moveTo(lx,ly);c.lineTo(p.x,p.y);c.stroke();lx=p.x;ly=p.y;g.dood[i]=cv.toDataURL()};
+      cv.onpointerup=()=>{down=false;g.dood[i]=cv.toDataURL();save()};
+    });
+    document.getElementById('checkGame')?.addEventListener('click',()=>{
+      const ink=gobj(key).ink||{};
+      attemptResult(key,a.choices.every((_,i)=>ink[i]));
+    });
   }
   if(a.type==='track'){
     let sel=null;
@@ -708,7 +806,8 @@ function bindPlay(a,key){
     document.querySelectorAll('[data-slot]').forEach(z=>z.onclick=()=>{
       if(sel===null) return;
       const g=gobj(key); g.map=g.map||{}; g.map[sel]=+z.dataset.slot;
-      z.textContent=`${+z.dataset.slot+1}. ${a.items[sel]}`;
+      const it=a.items[sel];
+      z.textContent=''; z.classList.add('filled'); z.innerHTML=`${it.ico} ${esc(it.t)}`;
       document.querySelector(`[data-trk="${sel}"]`).style.visibility='hidden';
       sel=null; save();
     });
