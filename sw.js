@@ -1,4 +1,4 @@
-const CACHE = 'smb-sunday-v7';
+const CACHE = 'smb-sunday-v8';
 const ASSETS = [
   './',
   './index.html',
@@ -8,7 +8,13 @@ const ASSETS = [
   './brutus.png',
   './icon-192.png',
   './icon-512.png',
-  './apple-touch-icon.png'
+  './apple-touch-icon.png',
+  './wt-pages/p-20.png',
+  './wt-pages/p-21.png',
+  './wt-pages/p-22.png',
+  './wt-pages/p-23.png',
+  './wt-pages/p-24.png',
+  './wt-pages/p-25.png'
 ];
 
 self.addEventListener('install', e => {

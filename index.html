@@ -204,10 +204,84 @@ button,input,textarea{font:inherit}button{border:0;cursor:pointer}button:disable
 .stat{background:#f7f8fb;border-radius:12px;padding:12px;font-weight:850}
 
 @media(max-width:700px){.talkGrid{grid-template-columns:1fr}.watch{grid-template-rows:auto minmax(0,.9fr) minmax(0,1.2fr) auto}.nextCol{width:96px}}
+
+[data-theme="sun"]{--bg:#fff6e8;--card:#fff;--ink:#3b2a14;--accent:#e07a2f;--soft:#ffe9c8}
+[data-theme="forest"]{--bg:#e7f3ea;--card:#fff;--ink:#16301c;--accent:#2f8f4e;--soft:#d7f0de}
+[data-theme="ocean"]{--bg:#e4f3fb;--card:#fff;--ink:#123044;--accent:#1c7ea8;--soft:#d5eef8}
+[data-theme="night"]{--bg:#1b2030;--card:#262c40;--ink:#eef2ff;--accent:#8b82ff;--soft:#323a55;--line:#3a4258;--muted:#9aa3b8}
+[data-theme="night"] .top,[data-theme="night"] .pane,[data-theme="night"] .watchHead,[data-theme="night"] .hero,[data-theme="night"] .finish{background:var(--card);color:var(--ink)}
+[data-font="round"] body{font-family:"Trebuchet MS","Avenir Next",sans-serif}
+[data-font="serif"] body{font-family:Georgia,"Times New Roman",serif}
+[data-bg="dots"] body{background-image:radial-gradient(#0001 1px,transparent 1px);background-size:14px 14px}
+[data-bg="stripes"] body{background-image:repeating-linear-gradient(135deg,#00000008 0 12px,transparent 12px 24px)}
+.holdNote{background:#fff4d6;border:1px solid #efd27b;border-radius:12px;padding:10px;font-weight:800;margin:8px 0}
+.kid{width:120px;height:180px;margin:8px auto;position:relative}
+.kid .body{position:absolute;inset:40px 28px 8px;background:#f2c9a0;border-radius:40px}
+.kid .head{position:absolute;top:0;left:28px;right:28px;height:70px;background:#f2c9a0;border-radius:50%}
+.kid.s1 .body{background:#f7d7b8}.kid.s2 .body{height:auto;bottom:20px}.kid.s3{filter:saturate(1.2)}.kid.s4{filter:drop-shadow(0 0 8px #e8b423)}
+.tileMix{display:flex;flex-wrap:wrap;gap:6px;justify-content:center}
+.mix{border-radius:12px;padding:10px 12px;background:#fff;border:2px solid #d5dceb;font-weight:800}
+.baskets{display:grid;grid-template-columns:1fr 1fr;gap:8px;min-height:120px}
+.basket{border:2px dashed #c9d1e0;border-radius:14px;padding:8px;min-height:110px;background:#f7f8fc}
+.basket.ok{background:#e7f8ee;border-color:#49b877}
+.door{margin-top:8px;min-height:64px;border-radius:16px;background:linear-gradient(#c9a227,#8a7014);color:#fff;font-weight:900}
+.slots{display:grid;gap:8px}
+.slotBox{min-height:48px;border:2px dashed #c9d1e0;border-radius:12px;padding:8px;font-weight:800}
+.personLite{position:relative;height:200px;background:linear-gradient(#eef3ff,#f7f8fc);border-radius:16px}
+.spot{position:absolute;width:54px;height:54px;border-radius:50%;border:3px dashed #bcc6d8;display:grid;place-items:center;font-weight:900;font-size:11px;background:#fff}
+.spot.lit{background:#ffe56a;border-color:#e0b000}
+.hideScene{position:relative;height:240px;border-radius:16px;background:linear-gradient(#cfe4ff 0 42%,#efe3c4 42% 70%,#d7efc8 70%);overflow:hidden;border:1px solid #d5dceb}
+.hideHot{position:absolute;border:0;background:transparent;font-size:28px;padding:0}
+.cockpit{background:#1b2436;color:#e8eef8;border-radius:16px;padding:10px}
+.planeFly{position:relative;height:180px;background:linear-gradient(#87b7e8,#eaf4ff);border-radius:14px;overflow:hidden}
+.bird{position:absolute;left:30px;width:36px;height:22px;background:#6d5dfc;border-radius:20px 20px 8px 8px}
+.gate{position:absolute;width:18px;background:#1f9d5b}
+.cw{display:grid;gap:2px;justify-content:center}
+.cw input{width:28px;height:28px;text-align:center;font-weight:900;border:1px solid #cfd6e2;border-radius:6px;text-transform:uppercase}
+.madline{line-height:1.7;font-size:16px}
+.blank{display:inline-block;min-width:70px;border-bottom:2px solid #6d5dfc;padding:0 6px;font-weight:900}
+.lensesPretty{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.lensCard{border-radius:18px;min-height:120px;padding:10px;border:4px solid #c9a227;background:radial-gradient(circle at 30% 20%,#fff,#d7c2ff 40%,#8b82e8)}
+.den{height:160px;border-radius:16px;background:radial-gradient(circle at 50% 80%,#3b2a1a,#1a120c);position:relative}
+.starsGrid{display:grid;grid-template-columns:repeat(6,1fr);gap:4px}
+.starCell{aspect-ratio:1;border-radius:8px;border:1px solid #d5dceb;background:#fff}
+.starCell.on{background:#ffe56a}
+.starCell.fix{background:#efd27b}
+.maze{display:grid;grid-template-columns:repeat(5,1fr);gap:4px}
+.mz{min-height:44px;border-radius:10px;background:#eef3ff;font-weight:800;font-size:11px}
+.mz.here{outline:3px solid #6d5dfc}
+.mz.goal{background:#d9f6e4}
+.diffWrap{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.diffPic{position:relative;height:220px;border-radius:14px;border:1px solid #d5dceb;overflow:hidden}
+.diffHot{position:absolute;width:22px;height:22px;border-radius:50%;border:2px solid transparent;background:transparent}
+.diffHot.found{border-color:#1f9d5b;background:#1f9d5b55}
+.puz{display:grid;grid-template-columns:repeat(5,1fr);gap:3px;max-width:360px;margin:auto}
+.puzPiece{aspect-ratio:1;border-radius:6px;border:1px dashed #c9d1e0;background:#f3efff;font-size:20px}
+.ws{display:grid;gap:1px;justify-content:center}
+.ws span{width:22px;height:22px;display:grid;place-items:center;font-size:11px;font-weight:800;border-radius:3px}
+.ws span.on{background:#ffe56a}
+.chests{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.chest{min-height:90px;border-radius:14px;background:#8b5a2b;color:#fff;font-weight:900;padding:8px}
+.chest.open{background:#1f9d5b}
+.bins{display:grid;gap:8px}
+.bin{border:2px dashed #c9d1e0;border-radius:14px;padding:8px;min-height:70px}
+.shopWrap{display:grid;grid-template-columns:160px 1fr;gap:12px}
+.buddyStage{position:relative;width:150px;height:180px}
+.buddyStage img.base{width:150px;height:180px;object-fit:cover;object-position:50% 18%;border-radius:18px}
+.layer{position:absolute;pointer-events:none}
+.shopItem{border:1px solid #d5dceb;border-radius:12px;padding:8px;background:#fff;font-weight:800}
+.shopItem.have{outline:2px solid #1f9d5b}
+.toastHold{position:fixed;left:50%;bottom:18px;transform:translateX(-50%);background:#1a2236;color:#fff;padding:12px 16px;border-radius:14px;z-index:120;max-width:90%;font-weight:800;display:none}
+.toastHold.show{display:block}
+
 </style>
 </head>
 <body>
 <div id="app" class="app"></div>
+<div id="toastHold" class="toastHold"></div>
+<div id="shopOverlay" class="drawOverlay"><div class="drawPanel" style="height:auto;max-height:100%"><div class="drawHead"><strong>⭐ Star shop</strong><button class="ghost" id="closeShop">✕</button></div><div class="paneBody" id="shopBody" style="padding:12px"></div></div></div>
+<div id="lookOverlay" class="drawOverlay"><div class="drawPanel" style="height:auto;max-height:100%"><div class="drawHead"><strong>Look</strong><button class="ghost" id="closeLook">✕</button></div><div class="paneBody" id="lookBody" style="padding:12px"></div></div></div>
+
 <div id="sheet" class="sheet" aria-hidden="true">
   <iframe class="sheetFrame" id="sheetFrame" title="Lead sheet"></iframe>
   <div class="sheetBar">
@@ -234,7 +308,12 @@ button,input,textarea{font:inherit}button{border:0;cursor:pointer}button:disable
       <div style="display:flex;gap:6px;flex-wrap:wrap;align-items:center">
         <button class="secondary" id="undoDraw">↩️</button>
         <button class="secondary" id="redoDraw">↪️</button>
-        <button class="secondary" id="eraseDraw">Eraser</button>
+        <button class="secondary" id="brushInk">Ink</button>
+        <button class="secondary" id="brushWater">Watercolor</button>
+        <button class="secondary" id="brushPencil">Pencil</button>
+        <button class="secondary" id="brushCalli">Calligraphy</button>
+        <button class="secondary" id="eraseDraw">Pixel eraser</button>
+        <button class="secondary" id="eraseObj">Object eraser</button>
         <button class="secondary" id="clearDraw">Clear</button>
         <button class="primary" id="saveDraw">Save</button>
         <button class="ghost" id="closeDraw">✕</button>
@@ -254,167 +333,188 @@ const WT='w_E_202607.pdf', SONGS='sjjsm_E.pdf';
 const SONG_PAGES={1:1,2:2,3:3,4:4,5:6,6:8,7:5,8:10,9:11,10:12,11:13,12:14,13:15,14:16,15:17,16:18,18:20,19:21,20:23,21:25,22:26,23:27,24:29,25:31,26:32,27:34,28:36,29:37,30:39,31:40,32:42,33:44,34:46,35:48,36:49,37:51,38:53,39:55,40:56,41:58,42:59,43:60,44:61,45:62,46:63,47:64,48:65,49:67,50:68,51:69,52:70,53:71,54:73,55:75,56:76,57:78,58:80,59:82,60:83,61:85,62:87,63:89,64:91,65:92,66:94,68:97,69:99,70:100,71:101,72:103,73:105,74:107,75:109,76:111,77:113,78:115,79:117,80:118,81:119,82:121,84:124,85:125,86:126,87:127,88:129,89:130,90:131,91:133,92:135,93:137,94:138,95:139,96:141,97:143,98:145,99:146,100:147,101:149,102:151,103:152,104:153,105:154,106:156,107:158,108:160,109:162,111:166,112:168,113:169,114:170,115:172,116:173,117:174,118:175,119:177,120:178,121:179,122:180,123:181,124:182,125:183,126:185,127:187,128:189,129:190,130:191,132:193,133:195,134:196,135:198,136:200,137:202,138:204,139:206,140:208,141:209,142:211,143:212,144:213,145:215,146:216,147:218,148:219,149:221,150:222,151:224};
 const PALETTE=['#182033','#6d5dfc','#d24b4b','#1f9d5b','#e8b423','#ff7ad9','#ff8a3d','#2bb7c7','#8b5a2b','#111','#fff','#7dd3fc','#86efac','#f9a8d4','#fde68a','#c4b5fd','#fb7185','#94a3b8'];
 const pTexts={
-1:`Have you ever thought about the depth of Jehovah’s knowledge, the vastness of his wisdom, or the scope of his accomplishments? We are humbled when we think about our Creator. You may feel as did the apostle Paul, who wrote: “O the depth of God’s riches and wisdom and knowledge! How unsearchable his judgments are and beyond tracing out his ways are!”—Rom. 11:33, 34.`,
-2:`Although we will never know everything there is to know about Jehovah, it is possible, to a certain extent, to get to know what he is like. King David told his son Solomon: “Know the God of your father and serve him with a complete heart . . . If you search for him, he will let himself be found by you.” (1 Chron. 28:9) And the apostle John reminded his fellow Christians that we have “insight so that we may gain the knowledge of the one who is true.” (1 John 5:20) Jesus himself said that knowledge of Jehovah is available to “anyone to whom the Son is willing to reveal him.”—Matt. 11:27.`,
-3:`All who dedicated themselves to Jehovah have already learned many things about him. Yet, we never stop “coming to know” Jehovah. (John 17:3; see study note.) We can always learn more about what makes him happy and how to deepen our trust in him. Let us discuss three questions that all of us should consider no matter how long we have served Jehovah: What does it mean to come to know Jehovah? Why should we continue to get to know him better? And how do we get to know him better?`,
-4:`We learn what is involved in coming to know Jehovah by considering what he said about the Jews who would return from exile. Jehovah promised: “I will give them a heart to know me, that I am Jehovah.” (Jer. 24:7) Surely those who returned from Babylon already knew basic facts about Jehovah. But their efforts to come to know Jehovah would need to involve their heart, including their feelings and motives. One reference work puts it this way: “There is a marked difference between knowing about God and knowing God. It is comparable to the difference between reading about love and falling in love.” We need to know more than the fact that Jehovah has a name and that he is God. We want to come to know the Person behind the name.`,
-5:`As we come to know Jehovah, we learn what makes him happy and what displeases him. To illustrate, consider the example of King Josiah. The Bible says: “In the 8th year of his reign, while he was still a boy, he started to search for the God of David his forefather.” (2 Chron. 34:3) But Josiah did more than study. He acted on what he was learning. Through the prophet Jeremiah, Jehovah said that Josiah “upheld justice and righteousness” and that he defended the afflicted and the poor. Then Jehovah added: “Is that not what it means to know me?”—Jer. 22:15, 16.`,
-6:`Read Psalm 9:10. The more we come to know Jehovah, the more we come to trust in him. That principle proved true for the apostle Paul. During his final imprisonment and not long before his death, he wrote: “I am not ashamed. For I know the One whom I have believed.” (2 Tim. 1:12) What Paul had learned and experienced during his life moved him to trust in his God implicitly.`,
-7:`Over time, we may not put as much effort into getting to know Jehovah as we did when we first learned about him. When reading the Bible on our own or along with others at congregation meetings, we may tend to focus on how the information can help us personally in practical ways or how we can use it to help others. The Scriptures encourage us to do that. (2 Tim. 3:16, 17) But the Bible also reveals much about its Author. (Ps. 25:8-10) We should never be so absorbed in how the Bible’s message benefits us or others that we fail to ask ourselves, “What does this tell me about Jehovah God?”`,
-8:`As we get to know Jehovah better, our friendship with him will grow stronger. For example, how do you feel about Jehovah after you do your daily Bible reading, watch a monthly broadcast, or attend an assembly or a convention? We often feel closer to our heavenly Father because we have learned more about him. As a result, we are moved to praise and thank him. We feel like the psalmist who meditated on Jehovah’s care for him and said: “God is the rock of my heart and my portion forever.” (Read Psalm 73:24-28.) Every effort we make to get to know Jehovah deepens our gratitude for our priceless friendship with him.`,
-9:`When we “take notice of” Jehovah—recalling what we have learned about him and thinking about how our actions affect him—we will make better decisions. To illustrate: Many brothers and sisters keep a photograph of their mate on their desk, in their wallet, or on their phone. This helps them to think fondly and often about their mate, to make decisions that they know will please their mate, and to avoid anything that would hurt that person. Similarly, the more often we think about Jehovah, the more likely we will be to make choices that please him.—Ps. 19:13, 14.`,
-10:`We are made in Jehovah’s image, which gives us the ability to reflect his qualities. (Gen. 1:26) And the more we learn about Jehovah’s qualities, the better we will understand how to imitate him. Jesus condemned the scribes and Pharisees for their failure to show godly qualities. Although they paid close attention to the minor details of the Law, they “disregarded the weightier matters of the Law, namely, justice and mercy and faithfulness.” (Matt. 23:23) Unlike those religious leaders, let us do our best to understand how Jehovah’s qualities are reflected in his laws and principles. Doing so will help us to demonstrate those very qualities.—1 John 4:8, 11.`,
-11:`Who introduced you to Jehovah? Perhaps you were raised by Christian parents. They likely related Bible accounts that reveal God’s qualities and taught you how the things he created reflect his personality. Or you may have accepted a Bible study from one of Jehovah’s Witnesses. Using a study aid, such as the Enjoy Life Forever! book, your Bible teacher helped you to analyze Scriptural accounts and to learn about Jehovah’s appealing qualities by studying the natural world. (Neh. 8:8; Acts 14:17) Let us consider how we can continue learning about Jehovah.`,
-12:`First, we can learn more about Jehovah by reading and studying his Word. Sometimes, the Bible specifically identifies God’s qualities. (Ex. 34:6, 7) More often, though, it relates events involving humans and the decisions they made. When you read such accounts, think about what they can teach you about Jehovah.`,
-13:`Consider the example of Ebed-melech, who rescued the prophet Jeremiah. (Jer. 38:6-13) Doubtless, you quickly identify ways that you can imitate Ebed-melech’s self-sacrifice, courage, and love for his fellow worshippers. But you can also look for what the account teaches you about Jehovah. Do you also see what qualities of Jehovah are revealed in this account? (Read Jeremiah 39:15-18.) For instance, what verse indicates that Jehovah is appreciative? Fair? Impartial? What other aspects of Jehovah’s personality do you discern in this account? Whenever you read a passage in God’s Word, identify Jehovah’s qualities that are reflected, and then thank and praise him for those qualities.`,
-14:`Second, we can learn more about Jehovah by meditating on his creative works. (Ps. 145:9, 10) Of course, simply observing the natural world is not enough. Some spend their entire lives studying nature but fail to acknowledge God’s qualities or even his existence! The apostle Paul wrote that God’s “invisible qualities are clearly seen from the world’s creation onward, because they are perceived by the things made.” (Rom. 1:20) One translation of this verse says that we can perceive God’s qualities because they are “visible . . . to the eye of reason.” So we must think about and reason on what we see in order to discern the qualities of our Creator.`,
-15:`Many of us live in urban areas that seem distant from the natural world. If this is your situation, can you still learn lessons from creation? Consider Patrick, who lives in Brazzaville, a large city in the Republic of the Congo. He relates: “I strive to observe creation from my balcony. I often see tiny insects or small birds busily looking for food or for a place to live. Once, I observed some birds making their nest. They found and used materials in our neighborhood that were perfectly suited for welcoming small chicks.” Patrick did not stop there; he thought deeply about the Creator. He says: “I learned that Jehovah cares about the well-being of his creatures, even those that seem insignificant. This assures me that he also cares about me and will not fail to provide me with what I need.”`,
-16:`A third way we can get to know Jehovah better is by meditating on our own experiences. That is what Jesus’ mother, Mary, did. She already knew Jehovah well, and she had “found favor with [him].” (Luke 1:30) But then she was given a weighty assignment—to be the mother of God’s Son. Through the angel Gabriel and Mary’s relative Elizabeth, Jehovah strengthened Mary and reassured her. She later meditated on what her experience had revealed about Jehovah—including his power, mercy, impartiality, and interest in even the lowly ones. (Luke 1:46-55) Just as Mary was appreciative of God’s support, we are grateful when Jehovah gives us help “at the right time.” (Heb. 4:16) When you receive this help, ask yourself: “What has this taught me about Jehovah? Which qualities of Jehovah has this help revealed?”`,
-17:`Think of how much more we will learn about Jehovah in the new world. We will receive new scrolls that reveal his requirements for us. (Rev. 20:12) We will be able to interact more closely with the natural world. (Isa. 11:6-9) And we will deepen our understanding as we experience new things, including our loved ones being resurrected and our getting closer to perfection every day.`,
-18:`We will never stop getting to know Jehovah. He has already lived for an eternity, so “his understanding is beyond measure.” (Ps. 90:2; 147:5) We “will never find out the work that the true God has made from start to finish.” (Eccl. 3:11) Therefore, regardless of how long we have been in the truth, may we seize every opportunity to learn more about our loving Father.`
+1:`HOW do you feel when a Bible student attends his first congregation meeting, begins to comment, shares his faith with others, and in time decides to dedicate himself to Jehovah God? No doubt you are thrilled! Of course, Jehovah deserves the credit for the spiritual progress our Bible student makes. We praise Jehovah when we see how he helps someone to grow spiritually.—1 Cor. 3:5-9; 3 John 3, 4.`,
+2:`God’s will is for “all sorts of people” to “be saved and come to an accurate knowledge of truth.” (Read 1 Timothy 2:3, 4.) Jehovah wants people to come to know him and his purposes as fully as possible. (Jer. 9:24) That means taking in accurate knowledge. The original-language word translated “accurate knowledge” means not merely a collection of facts that someone learns but knowledge that “has its full effect on the person,” as one Bible scholar said. When a Bible student comes to know Jehovah, that knowledge affects the way he lives. And it opens to him the prospect of “everlasting life.”—John 17:3.`,
+3:`Jehovah has given us the privilege of helping others come to know him. In this article, we will discuss the following questions: Why do Bible students need to get to know Jehovah well? How can we teach them what Jehovah is like? And how can we help them put their knowledge of Jehovah to work in their lives?`,
+4:`Jesus said that the greatest commandment is to love Jehovah with our whole heart, soul, mind, and strength. (Read Mark 12:30.) A Bible student must come to know Jehovah in order to love him. We want our Bible student to dedicate himself—not to us, not to a set of teachings, not to an organization—but to Jehovah. Therefore, our primary objective when conducting a Bible study is to help our student come to know and love Jehovah.`,
+5:`There is a connection between love and obedience. Once your Bible student comes to know and love Jehovah, he will be moved to obey him. Jesus said: “For the world to know that I love the Father, I am doing just as the Father has commanded me to do.” (John 14:31) Similarly, love for Jehovah—more than anything else—will motivate a Bible student to obey him and to stick to him.—1 John 5:3.`,
+6:`Bible students who come to know Jehovah well will be more likely to make wise decisions. To illustrate: A commercial airline pilot does not learn to fly by merely studying flight regulations or taking an exam. He must also log many hours in the cockpit. Over time, he learns how the plane reacts in different conditions and how his decisions affect the plane’s performance. Similarly, a Bible student will come to know Jehovah not only through his study but also by seeing how things turn out for him when he makes decisions in harmony with Scriptural principles. As he grows in knowledge of Jehovah and sees how his heavenly Father helps him, he will be equipped to make good decisions in any circumstance.`,
+7:`Knowledge of Jehovah helped Joseph when someone wanted him to do something Jehovah hates. From childhood, Joseph had no doubt heard about the accounts of Adam and Eve and of Abraham and Sarah. (Gen. 2:24; 20:3, 6) Joseph could discern from those accounts how Jehovah views marriage. Joseph came to know Jehovah so well that he refused and said: “How could I commit this great badness and actually sin against God?” (Gen. 39:7-9) Joseph knew what was good and what was bad in Jehovah’s eyes. He understood what would hurt his God. As a result, Joseph made the right decision. If we help our Bible students to get to know Jehovah well and to learn what he is like, they too will make choices that please him.`,
+8:`How, then, can you teach a Bible student what Jehovah is like? Jehovah helped Job to learn more about Him by asking questions—well over 50 of them! (Job 38:1–41:34) We too can ask questions. The questions found in the Enjoy Life Forever! book are designed to help a student progressively learn about Jehovah’s personality. (See the box “Questions That Help Us Teach.”) So use these questions to help your student come to know Him.`,
+9:`Early in our interactive Bible course, we encourage students to start a routine of Bible reading. How can we help them to get the most out of their personal reading? We might suggest that each time they read a Bible passage, they consider why Jehovah included it in his Word and what qualities it reveals about him. Notice how the disciple James did just that when he referred to the story of Job. James drew attention not only to a quality of Job—his endurance—but also to qualities of Jehovah—His tenderness and mercy.—Read James 5:11.`,
+10:`We want our students to discern how each Bible account reveals what pleases or what displeases Jehovah. For example, perhaps our student consults the chart “Get Started Reading the Bible” in the Enjoy Life Forever! book and tells us that he has chosen to read the story of Daniel in the lions’ den. We might encourage him to meditate on such questions as: ‘Why did Jehovah save Daniel? What does this tell me about what makes Jehovah happy?’ (Dan. 6:10, 22) He might also ask himself: ‘What happened to the men who had accused Daniel? What does this tell me about what displeases Jehovah?’ (Dan. 6:4, 5, 24) Finally, he can think about other qualities of Jehovah that are evident in the account.—Dan. 6:26, 27.`,
+11:`We are happy when our student appreciates the benefits he receives from his Bible study. However, we should help him to see that the Source of these benefits is Jehovah, the Grand Instructor. (Isa. 30:20, 21) Our student may thank us for what he is learning and perhaps even praise us for the way we teach. While these sincere expressions of gratitude are not wrong, we should try to redirect such praise and gratitude to Jehovah.`,
+12:`To benefit fully from accurate knowledge, we must use what we know. So how can you help your student to put his knowledge to work? First, teach him to recall what he knows about Jehovah when he reads a Bible account that he finds difficult to understand. While reading about divine judgments, for example, he may wonder why Jehovah executed some people but spared others. How might you help your student to reason on the matter?`,
+13:`You can encourage your student to reflect on what he has learned about Jehovah. How precious is life to Jehovah? (2 Pet. 3:9) How far has he gone to save us—even though we are sinners? (Eph. 2:4, 5) Does Jehovah punish people who do not deserve it? On the other hand, does he allow anyone who deserves punishment to escape it? (Ex. 34:6, 7) Sometimes, a Bible account does not provide the details that would make Jehovah’s decision more understandable to us. However, we do not need those details. We know our God, and we are convinced that our God always does what is right.`,
+14:`Consider a second way a Bible student can put his knowledge of Jehovah to work. Suppose your student is now attending meetings, but he finds it hard to get along with someone in the congregation. Perhaps he has been offended by that publisher. Encourage your student to consider how Jehovah views our brothers and sisters. What sacrifice has Jehovah made to show his love for them? (John 3:16) How important is our Christian unity to him? (Ps. 133:1) How does he feel when we strive to protect that unity? (2 Cor. 13:11) Help your student to see how pleased Jehovah will be when we focus on the positive qualities of others rather than on their faults.`,
+15:`Finally, you can help your Bible student to use his knowledge of Jehovah to make good decisions. You might first direct his attention to lesson 35 of the Enjoy Life Forever! book, entitled “How to Make Good Decisions.” However, what if your student has prayed and done research but still struggles to make a decision? He may feel overwhelmed by the number of Bible principles that bear on the topic. You can suggest that he reflect on Jesus’ example. How did Jesus make decisions? He said: “I always do the things pleasing to [my Father].” (Read John 8:29.) Encourage the student to ask himself, ‘Based on what I have researched and on what I have learned about Jehovah, what choice would please him?’ Any decision that pleases Jehovah is a good decision.`,
+16:`A woman in Chile who was studying the Bible faced a major decision. She was being pressured by her family to accept a well-paying job that would interfere with her meeting attendance. Her Bible teacher, Marianne, relates: “I urged her to reflect on how her decision would make Jehovah feel. Would he be happy or sad? I also encouraged her to pray to Jehovah specifically about the situation and to observe how he would answer. She refused the job offer and soon found employment that allowed her to attend meetings.” Note that rather than tell the student what to do, Marianne helped her to meditate on what she already knew about Jehovah. As a result, this experience strengthened the student’s relationship not only with Marianne but also with Jehovah. Marianne says about her student: “She learned that Jehovah cares for us if we put his worship first.”`,
+17:`Our interactive Bible course covers many important teachings. Students study basic Bible doctrines—including the condition of the dead, the ransom, and the Kingdom. They also learn about organizational aspects—such as the meetings, the elder arrangement, and the role of the Governing Body. However, we want our students to do more than just learn facts. We want them to get to know Jehovah well.`,
+18:`What a privilege it is for us to teach others to come to know Jehovah! Even now, those who come to know and worship Jehovah are blessed with the happiest life possible today. (Ps. 25:12-15) In the future, all who “gain the knowledge of the one who is true,” Jehovah, will enjoy eternal life. (1 John 5:20) But that is not all. The Bible tells us that those who strive to come to know and love Jehovah are “known by him.” (1 Cor. 8:3) Yes, Almighty God takes notice of us and acknowledges us as his friends. What a splendid reward for coming to know the only true God!`
 };
 const easy={
-1:`Jehovah’s knowledge, wisdom, and works are huge. Thinking about that can humble us — and make us want to know him.`,
-2:`We will never know everything about Jehovah. But if we search, he lets himself be found.`,
-3:`Three questions: What does it mean to know him? Why keep learning? How do we learn more?`,
-4:`Knowing Jehovah is more than facts. It is knowing the Person — his feelings and motives.`,
-5:`Josiah was still a boy. He searched, then he acted: he was fair and he helped people who needed help.`,
-6:`The more we know Jehovah, the more we trust him. That is what happened to Paul.`,
-7:`When we study, also ask: “What does this tell me about Jehovah?”`,
-8:`Learning more about him makes the friendship stronger. We feel closer, then we thank him.`,
-9:`If Jehovah is in our thoughts, we make choices that please him.`,
-10:`We can copy Jehovah’s qualities — like justice, mercy, and faithfulness.`,
-11:`Someone introduced you to Jehovah: family, a Bible study, Bible accounts, or creation.`,
-12:`When you read a Bible story, look for what it shows about Jehovah.`,
-13:`Ebed-melech rescued Jeremiah. Look for courage and love — and also Jehovah’s fairness and appreciation.`,
-14:`Look at creation. Then think. Then reason. That is how nature teaches us about Jehovah.`,
-15:`Patrick watched birds and bugs from a city balcony, then thought: Jehovah cares for small creatures — and for me.`,
-16:`Mary thought about what her experiences showed about Jehovah. We can do that when he helps us.`,
-17:`In the new world there will still be more to learn.`,
-18:`We will never finish knowing Jehovah. There is always more.`
+1:`A student grows in steps: first meeting, comments, shares his faith, later dedicates himself to Jehovah. That makes us thrilled. Jehovah gets the credit.`,
+2:`Jehovah wants all sorts of people saved. Accurate knowledge is not a pile of facts. It changes how someone lives. That opens everlasting life.`,
+3:`This article asks three things: Why know Jehovah well? How do we teach what he is like? How do we help them use that knowledge?`,
+4:`Greatest commandment: love Jehovah with whole heart, soul, mind, and strength. A study is to help them know and love HIM — not us, not a book, not an organization.`,
+5:`Love and obedience go together. Love for Jehovah — more than anything else — moves a student to obey him and stick to him.`,
+6:`A pilot does not only read rules or take a test. He logs hours in the cockpit. A student studies AND sees how good decisions turn out with Jehovah’s help.`,
+7:`Joseph already knew Jehovah. Someone wanted him to do something Jehovah hates. Joseph knew what would hurt God, so he said no.`,
+8:`Jehovah asked Job more than 50 questions. We can ask questions too. Enjoy Life Forever! questions help a student learn Jehovah’s personality.`,
+9:`When we read, ask: why did Jehovah put this here, and what quality of HIS does it show? James saw Job’s endurance AND Jehovah’s tenderness and mercy.`,
+10:`Daniel in the lions’ den: why did Jehovah save him (what makes Jehovah happy)? What happened to the accusers (what displeases him)?`,
+11:`Thanks to a teacher is not wrong. The Source of the gift is Jehovah, the Grand Instructor. Send the thanks on to him.`,
+12:`When an account is hard, recall what you already know about Jehovah.`,
+13:`Life is precious to him. He went far to save sinners. He does not punish the innocent. The guilty do not just escape. We may not get every detail. He always does what is right.`,
+14:`Hard to get along with someone? Think how Jehovah views them. Look at good qualities, not faults. Unity matters to him.`,
+15:`Jesus always did what pleased his Father. Ask: what choice would please Jehovah?`,
+16:`Marianne did not decide for her student. She asked how Jehovah would feel. The student refused a job that would cost meetings.`,
+17:`Students learn facts: the dead, the ransom, the Kingdom, meetings, elders. That is not enough. We want them to know Jehovah well.`,
+18:`Happiest life now. Eternal life later. And those who know and love him are known by him — Jehovah’s friends.`
 };
 const questions={
-1:`What thought about Jehovah can humble us?`,
-2:`What proves that we can get to know Jehovah?`,
-3:`What three questions will we discuss?`,
-4:`What is involved in coming to know Jehovah?`,
-5:`What can we learn from King Josiah?`,
-6:`How does knowing Jehovah affect our trust?`,
-7:`What extra question should we ask when we study?`,
-8:`How does knowing Jehovah better change the friendship?`,
-9:`How does taking notice of Jehovah affect our decisions?`,
-10:`How do Jehovah’s qualities help us?`,
-11:`Who introduced you to Jehovah?`,
-12:`What can Bible reading teach us about Jehovah?`,
-13:`What can we learn from Ebed-melech’s account?`,
-14:`How can creation help us know Jehovah?`,
-15:`What did Patrick do, and how can you copy him?`,
-16:`How did Mary get to know Jehovah better?`,
-17:`Why will we keep learning in the new world?`,
-18:`Why will we never stop getting to know Jehovah?`
+1:`How do you feel when you see a Bible student making progress?`,
+2:`What is Jehovah’s will for Bible students? (1 Timothy 2:3, 4)`,
+3:`What will we discuss in this article?`,
+4:`In harmony with Mark 12:30, what is our primary objective when conducting a Bible study?`,
+5:`What will love for Jehovah motivate your Bible student to do?`,
+6:`How will knowledge of Jehovah help your Bible student when making decisions?`,
+7:`How did knowledge of Jehovah help Joseph to make a good decision?`,
+8:`How can you use the Enjoy Life Forever! book to help a Bible student come to know Jehovah?`,
+9:`What will help Bible students get the most out of their Bible reading?`,
+10:`How can a Bible account show what pleases or displeases Jehovah?`,
+11:`How can we help our student to see his Bible study as a gift from Jehovah?`,
+12:`How can knowing Jehovah help when an account is hard to understand?`,
+13:`What should we remember about Jehovah when a judgment account is hard?`,
+14:`How can you help a student who finds it hard to get along with someone?`,
+15:`When facing a major decision, how can a student imitate Jesus?`,
+16:`How did Marianne help her student?`,
+17:`Besides learning the facts, what else do we want Bible students to do?`,
+18:`What blessings are in store for those who come to know Jehovah?`,
+19:`How would you answer the three review questions?`
 };
 const units=[
-{id:'u1',pts:4,ps:[1],activity:{type:'burst',prompt:'The sky is huge — like Jehovah’s mind. Catch the three ideas from the paragraph. Leave ordinary stuff alone.',items:[
-  {t:'Depth of his knowledge',ok:1},{t:'Vastness of his wisdom',ok:1},{t:'Scope of his works',ok:1},
-  {t:'Favorite color',ok:0},{t:'What’s for lunch',ok:0},{t:'Wi-Fi password',ok:0},{t:'How tall I am',ok:0}
+{id:'u1',pts:5,ps:[1],img:null,activity:{type:'growkid',prompt:'Feed the real steps. Junk gets kicked back.',good:[{t:'First meeting',why:'That is step one in the paragraph.'},{t:'Comments',why:'Then the student begins to comment.'},{t:'Shares his faith',why:'Then he shares what he is learning.'},{t:'Dedicates himself to Jehovah',why:'Later he belongs to Jehovah.'}],bad:[{t:'Baptized week one',why:'The paragraph does not skip to the end.'},{t:'Liked a video',why:'That is not one of the steps.'},{t:'The teacher did it',why:'Jehovah gets the credit, not the teacher.'}]}},
+{id:'u2',pts:6,ps:[2],activity:{type:'baskets',prompt:'Jehovah’s will, or just facts?',will:[{t:'All sorts of people',why:'Jehovah wants all sorts of people.'},{t:'Be saved',why:'His will is that they be saved.'},{t:'Know Jehovah',why:'He wants them to know him.'},{t:'Know his purposes',why:'And his purposes, as fully as possible.'},{t:'Knowledge that changes how you live',why:'Accurate knowledge has its full effect.'},{t:'Everlasting life',why:'That knowledge opens everlasting life.'}],junk:[{t:'Only one kind of person',why:'He said all sorts of people.'},{t:'Memorize the most verses',why:'A pile of facts is not the point.'},{t:'Win a quiz',why:'That is just facts.'},{t:'Make the teacher proud',why:'Not Jehovah’s will.'},{t:'Trivia about kings',why:'Trivia is a fact pile.'}]}},
+{id:'u3',pts:5,ps:[3],activity:{type:'slotsdraw',prompt:'Load the three article questions in order, then draw paradise.',slots:['Why know Jehovah well?','How can we teach what he is like?','How can we help them put knowledge to work?'],good:['Why do Bible students need to get to know Jehovah well?','How can we teach them what Jehovah is like?','How can we help them put their knowledge of Jehovah to work?'],junk:['What time is the song?','How many stars can I get?','How do I win?','Who is talking next?','What color is the songbook?']}},
+{id:'u4',pts:7,ps:[4],verse:'you must love Jehovah your God with your whole heart and with your whole soul and with your whole mind and with your whole strength.',activity:{type:'fouraim',prompt:'Light heart, soul, mind, strength. Then aim the study at Jehovah.',parts:['heart','soul','mind','strength'],junk:['speed','being right','impressing people','finishing the book']}},
+{id:'u5',pts:6,ps:[5],activity:{type:'hidescene',prompt:'Find love, obey, stick, and Jesus doing what the Father said. Leave prizes, fear, and hurry.',hots:[
+  {id:'heart',ok:1,l:18,t:58,e:'💛',why:'Love for Jehovah is the reason.'},
+  {id:'feet',ok:1,l:62,t:72,e:'👣',why:'Love moves him to obey.'},
+  {id:'hands',ok:1,l:72,t:48,e:'🤝',why:'And to stick to him.'},
+  {id:'jesus',ok:1,l:40,t:28,e:'✨',why:'Jesus did what the Father commanded.'},
+  {id:'trophy',ok:0,l:8,t:18,e:'🏆',why:'Prizes are not why he obeys.'},
+  {id:'scared',ok:0,l:84,t:16,e:'😨',why:'Fear is not the reason in the paragraph.'},
+  {id:'clock',ok:0,l:10,t:78,e:'⏱️',why:'Hurry is not the reason.'}
 ]}},
-{id:'u2',pts:6,ps:[2],activity:{type:'flip',prompt:'Flip cards. Find SEARCH, FIND, KNOW, SERVE.',words:['SEARCH','FIND','KNOW','SERVE']}},
-{id:'u3',pts:5,ps:[3],activity:{type:'rockets',prompt:'Load only the three questions this article will talk about.',qs:[
-  {t:'What does it mean to come to know Jehovah?',ok:1},
-  {t:'Why should we keep getting to know him better?',ok:1},
-  {t:'How do we get to know him better?',ok:1},
-  {t:'What time does the meeting end?',ok:0},
-  {t:'How many stars can I collect?',ok:0},
-  {t:'Why is my snack gone?',ok:0}
+{id:'u6',pts:7,ps:[6],activity:{type:'cockpit',prompt:'Load study + cockpit hours. Then pick the wise weather. Then fly.'}},
+{id:'u7',pts:7,ps:[7],activity:{type:'crossword',prompt:'Words from Joseph’s paragraph.',words:[
+  {w:'JOSEPH',c:'The young man who already knew Jehovah'},
+  {w:'KNOW',c:'He came to ____ Jehovah so well he said no'},
+  {w:'HURT',c:'He understood what would ____ his God'},
+  {w:'GOD',c:'He would not sin against ____'},
+  {w:'MARRIAGE',c:'Those accounts show how Jehovah views ____'},
+  {w:'ADAM',c:'An account he heard: ____ and Eve'},
+  {w:'EVE',c:'Adam and ____'},
+  {w:'ABRAHAM',c:'Another account: ____ and Sarah'},
+  {w:'SARAH',c:'Abraham and ____'}
 ]}},
-{id:'u4',pts:7,ps:[4],activity:{type:'swipe',prompt:'Sort fast. Heart = knowing the Person. Clipboard = only facts. Misses go to the back of the pile.',cards:[
-  ['Jehovah has a name','fact'],['He is God','fact'],['People can list titles for him','fact'],['He created everything','fact'],
-  ['His feelings','heart'],['His motives','heart'],['What makes him happy','heart'],['What displeases him','heart'],
-  ['Knowing the Person behind the name','heart'],['A heart to know me','heart'],['Reading about love vs falling in love','heart'],
-  ['Facts on a clipboard','fact']
-]}},
-{id:'u5',pts:7,ps:[5],activity:{type:'stones',prompt:'The stones are mixed up. Tap Josiah’s path in the real order.',steps:[
-  {t:'Boy Josiah starts searching',ico:'🔎'},
-  {t:'He learns what Jehovah loves',ico:'📖'},
-  {t:'He acts on it',ico:'👟'},
-  {t:'He is fair and helps the poor',ico:'🤲'},
-  {t:'That is what it means to know me',ico:'💛'}
-]}},
-{id:'u6',pts:5,ps:[6],activity:{type:'stack',prompt:'Build Paul’s trust tower from the ground up. Wrong block wobbles off.',blocks:['Know Jehovah','Learn + live it','Trust him completely']}},
-{id:'u7',pts:5,ps:[7],activity:{type:'lens',prompt:'Slap a magnifying glass onto the page. Which one belongs on a Bible account?',choices:['What does this tell me about Jehovah?','How fast can I finish?','How does this make me look smart?'],correct:0}},
-{id:'u8',pts:6,ps:[8],activity:{type:'grow',prompt:'Grow the friendship garden in order.',steps:['Learn more','Feel closer','Thank him','Friendship grows']}},
-{id:'u9',pts:5,ps:[9],activity:{type:'pocket',prompt:'Keep the photo that belongs in the pocket. Toss the junk.',keep:{t:'Would this please Jehovah?',ico:'🖼️'},toss:[{t:'What’s popular?',ico:'🎫'},{t:'What’s fastest?',ico:'⏱️'},{t:'What gets likes?',ico:'📱'}]}},
-{id:'u10',pts:6,ps:[10],activity:{type:'mirror',prompt:'Stick the weightier qualities on the glass. Fakes bounce off.',items:[{t:'Justice',ok:1},{t:'Mercy',ok:1},{t:'Faithfulness',ok:1},{t:'Showing off',ok:0},{t:'Being first',ok:0}]}},
-{id:'u11',pts:5,ps:[11],activity:{type:'pins',prompt:'Pin the real meeting-places. Two spots do not belong.',pins:[
-  {t:'Family home',ok:1,ico:'🏠'},{t:'Bible study',ok:1,ico:'📚'},{t:'Bible accounts',ok:1,ico:'📖'},{t:'Creation / trees',ok:1,ico:'🌳'},
-  {t:'The mall',ok:0,ico:'🛍️'},{t:'Game console',ok:0,ico:'🎮'}
-]}},
-{id:'u12-13',pts:10,ps:[12,13],activity:{type:'rescue',prompt:'Lower the rope to Jeremiah. Then hunt the well walls for hidden qualities. Leave the treasure-junk alone.',good:['Courage','Love','Appreciation','Fairness','Impartiality'],fake:['Famous','Gold','Crown']}},
-{id:'u14',pts:6,ps:[14],activity:{type:'tools',prompt:'Pack the detective kit. Leave the running shoes.',tools:[{t:'👀 Look',ok:1},{t:'🧠 Think',ok:1},{t:'🔎 Reason',ok:1},{t:'🏃 Rush past',ok:0}]}},
-{id:'u15',pts:8,ps:[15],activity:{type:'hunt',prompt:'Catch what Patrick noticed. Leave city junk alone.',items:[{e:'🐦',l:'birds',ok:1},{e:'🐜',l:'insects',ok:1},{e:'🪺',l:'nest',ok:1},{e:'❤️',l:'Jehovah cares',ok:1},{e:'🚗',l:'traffic',ok:0},{e:'🍕',l:'pizza',ok:0},{e:'📺',l:'TV',ok:0},{e:'🏀',l:'ball',ok:0}]}},
-{id:'u16',pts:8,ps:[16],activity:{type:'stamp',prompt:'Doodle a tiny symbol under every quality Mary noticed. All four pads keep your drawings.',choices:['Power','Mercy','Impartiality','Care for the lowly']}},
-{id:'u17-18',pts:7,ps:[17,18],activity:{type:'track',prompt:'Line the future up. Tap a picture-card, then tap its place on the path.',items:[
-  {t:'Learn now',ico:'📖'},{t:'New scrolls',ico:'📜'},{t:'Resurrection',ico:'🌅'},{t:'Closer to perfection',ico:'✨'},{t:'Never stop learning',ico:'♾️'}
-]}}
+{id:'u8',pts:7,ps:[8],img:'wt-pages/p-22.png',box:1,activity:{type:'madlib',prompt:'Fill the real blanks right. Funny blanks are yours.'}},
+{id:'u9',pts:8,ps:[9,10],activity:{type:'lenses',prompt:'Job gets endurance. Jehovah gets tenderness and mercy. Then tag the den.'}},
+{id:'u10',pts:6,ps:[11],activity:{type:'stars',prompt:'Two gifts per row and column. They do not touch sides. Several are already placed.'}},
+{id:'u11',pts:8,ps:[12,13],img:'wt-pages/p-23.png',cap:'Teach your student to recall what he knows about Jehovah when he finds a Bible account difficult to understand.',activity:{type:'maze',prompt:'Open gates with what you know about Jehovah. Reach: He always does what is right.'}},
+{id:'u12',pts:6,ps:[14],activity:{type:'diff10',prompt:'Find 10 differences. Left is looking at faults. Right is looking at good qualities.'}},
+{id:'u13',pts:8,ps:[15,16],verse:'I always do the things pleasing to [my Father]. — John 8:29',activity:{type:'puzzle20',prompt:'Assemble the girl making a good decision. 20 pieces.'}},
+{id:'u14',pts:5,ps:[17],activity:{type:'wordsearch',prompt:'Find the course words. QUIZ and SPEED do not count.',words:['DEAD','RANSOM','KINGDOM','MEETINGS','ELDERS','FACTS','KNOW','JEHOVAH','COURSE','TEACHINGS','BODY','STUDENTS']}},
+{id:'u15',pts:5,ps:[18],activity:{type:'chests',prompt:'Each chest needs its blessing AND its verse. Now, then later, then known by him.'}},
+{id:'u16',pts:4,ps:[18],review:1,activity:{type:'reviewbins',prompt:'Three questions, nine answers. No junk. Sort them.'}}
 ];
 
-const STORE='smb-sunday-2026-09-21-v5';
-const DEFAULT={screen:'setup',talk:'',opening:'',unit:0,view:'actual',stars:0,earned:{},activityStars:{},materialAwarded:{},attempts:{},test:false,meetingStarted:null,wtUnlocked:false,talkDone:false,talkNotes:{},questionAnswers:{},game:{},marks:{},hl:'y',chat:[]};
+const STORE='smb-sunday-2026-09-28-v1';
+const SHOP=[
+  {id:'bow',slot:'hat',name:'Bow',cost:2,html:'<div class="layer" style="top:6px;left:58px;font-size:28px">🎀</div>'},
+  {id:'party',slot:'hat',name:'Party hat',cost:3,html:'<div class="layer" style="top:0;left:54px;font-size:30px">🎉</div>'},
+  {id:'crown',slot:'hat',name:'Flower crown',cost:4,html:'<div class="layer" style="top:8px;left:48px;font-size:28px">🌼</div>'},
+  {id:'cap',slot:'hat',name:'Cap',cost:3,html:'<div class="layer" style="top:4px;left:50px;font-size:28px">🧢</div>'},
+  {id:'glasses',slot:'eyes',name:'Glasses',cost:2,html:'<div class="layer" style="top:58px;left:48px;font-size:26px">👓</div>'},
+  {id:'sunnies',slot:'eyes',name:'Sunnies',cost:3,html:'<div class="layer" style="top:58px;left:48px;font-size:26px">🕶️</div>'},
+  {id:'bandana',slot:'neck',name:'Blue bandana',cost:2,html:'<div class="layer" style="top:92px;left:52px;font-size:24px">💙</div>'},
+  {id:'tie',slot:'neck',name:'Bowtie',cost:3,html:'<div class="layer" style="top:96px;left:58px;font-size:22px">🎀</div>'},
+  {id:'medal',slot:'neck',name:'Medal',cost:4,html:'<div class="layer" style="top:100px;left:58px;font-size:22px">🏅</div>'},
+  {id:'bible',slot:'paw',name:'Bible',cost:3,html:'<div class="layer" style="top:130px;left:18px;font-size:26px">📖</div>'},
+  {id:'star',slot:'paw',name:'Star',cost:2,html:'<div class="layer" style="top:132px;left:20px;font-size:26px">⭐</div>'},
+  {id:'bone',slot:'paw',name:'Bone',cost:2,html:'<div class="layer" style="top:132px;left:18px;font-size:26px">🦴</div>'}
+];
+const DEFAULT={screen:'setup',talk:'',opening:'',unit:0,view:'actual',stars:0,earned:{},activityStars:{},materialAwarded:{},attempts:{},test:false,meetingStarted:null,wtUnlocked:false,talkDone:false,talkNotes:{},questionAnswers:{},game:{},marks:{},hl:'y',chat:[],owned:[],wear:{},theme:'lavender',font:'system',bg:'plain',readAt:{}};
 let state={...DEFAULT};
-let drawState={color:'#182033',size:6,drawing:null,history:[],redo:[],erase:false};
+let drawState={color:'#182033',size:6,drawing:null,history:[],redo:[],erase:false,brush:'ink',strokes:[]};
 let canvas,ctx,drawing=false,lastX=0,lastY=0;
 
 function esc(s){return String(s??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]))}
 function save(){try{localStorage.setItem(STORE,JSON.stringify(state))}catch(e){}}
 function load(){try{const s=JSON.parse(localStorage.getItem(STORE)||'null');if(s)state={...DEFAULT,...s}}catch(e){}}
-function fmt(ms){let t=Math.max(0,Math.ceil(ms/1000));return `${String(Math.floor(t/60)).padStart(2,'0')}:${String(t%60).padStart(2,'0')}`}
 function unit(){return units[state.unit]}
-function unitLabel(u){return u.ps.length>1?`¶ ${u.ps[0]}–${u.ps[u.ps.length-1]}`:`¶ ${u.ps[0]}`}
-function unitOptions(sel){return units.map((u,i)=>`<option value="${i}" ${i===sel?'selected':''}>${unitLabel(u)}</option>`).join('')}
-function jumpTo(i){
-  const n=Math.max(0,Math.min(units.length-1,Number(i)||0));
-  state.screen='wt'; state.unit=n; state.view='actual'; state.talkDone=true; state.wtUnlocked=true; state.meetingStarted=Date.now();
-  save(); render();
+function unitLabel(u){return u.review?'Review':(u.ps.length>1?`¶ ${u.ps[0]}–${u.ps[u.ps.length-1]}`:`¶ ${u.ps[0]}`)}
+function applyLook(){
+  document.documentElement.dataset.theme=state.theme||'lavender';
+  document.documentElement.dataset.font=state.font||'system';
+  document.documentElement.dataset.bg=state.bg||'plain';
 }
-
-function wtPage(p){return p<=3?14:p<=7?15:p<=11?16:p<=14?17:p<=16?18:19}
+function wtPage(p){return p<=3?20:p<=8?21:p<=11?22:p<=14?23:p<=16?24:25}
 function songPage(n){return SONG_PAGES[Number(n)]||null}
-const WT_BUDGET_MS=48*60*1000; // 48 minutes of unit minimums inside a ~60 minute study
-function unitPts(u){return (u&&u.pts)||0}
-function lessonPts(){return units.reduce((n,u)=>n+unitPts(u),0)||100}
-function unitBudget(u){return Math.round(WT_BUDGET_MS*unitPts(u)/lessonPts())}
-function remaining(){
-  if(state.test||state.screen!=='wt') return 0;
-  const e=state.meetingStarted?Date.now()-state.meetingStarted:0;
-  return Math.max(0,unitBudget(unit())-e);
+const WT_BUDGET_MS=45*60*1000;
+function lessonPts(){return units.reduce((n,u)=>n+(u.pts||0),0)||100}
+function unitBudget(u){return Math.round(WT_BUDGET_MS*(u.pts||0)/lessonPts())}
+function wtStartToday(){const d=new Date();d.setHours(10,35,0,0);return d}
+function unlockAt(idx){
+  let t=wtStartToday().getTime();
+  for(let i=0;i<idx;i++) t+=unitBudget(units[i]);
+  return t;
 }
-
+function canOpenUnit(idx){
+  if(state.test) return true;
+  return Date.now()>=unlockAt(idx);
+}
+function brutusSay(msg){
+  const el=document.getElementById('toastHold');
+  if(!el){popup(false,'Brutus',msg);return}
+  el.textContent='Brutus: '+msg;
+  el.classList.add('show');
+  setTimeout(()=>el.classList.remove('show'),2200);
+}
+function holdExplain(msg){
+  const el=document.getElementById('toastHold');
+  el.textContent=msg;
+  el.classList.add('show');
+  setTimeout(()=>el.classList.remove('show'),2000);
+}
 
 function header(){
-  const ready=!remaining();
   return `<div class="top">
     <button class="brutusDock" id="openChat" title="Talk to Brutus"><img src="brutus.png" alt="Brutus"></button>
     <div class="brand">Sunday Buddy</div>
     <div class="grow"></div>
-    ${state.screen==='wt'?`<div class="chip timerChip ${ready?'ready':''}" id="timer">${state.test?'TEST':fmt(remaining())}</div>`:''}
+    <button class="toolBtn" id="openShop">⭐ Shop</button>
+    <button class="toolBtn" id="openLook">Look</button>
     <button class="toolBtn" id="drawOpen">✏️</button>
     <div class="stars">⭐ ${state.stars}</div>
   </div>`;
 }
-
 function render(){
+  applyLook();
   const main=state.screen==='setup'?setup():state.screen==='talk'?talk():state.screen==='transition'?transition():state.screen==='wt'?watch():finish();
   document.getElementById('app').innerHTML=`${header()}${state.test?'<div class="testBanner">TEST MODE — locks off</div>':''}<div class="wrap">${main}</div>`;
   bind();
 }
-
 function setup(){
   return `<section class="hero">
-    <div class="eyebrow">Sep 21–27 · 2026</div>
+    <div class="eyebrow">${esc('Sep 28–Oct 4 · 2026')}</div>
     <h1>Ready, Maddy?</h1>
-    <p class="source">Are You Getting to Know Jehovah Better?</p>
+    <p class="source">Help Others Come to Know Jehovah</p>
+    <p class="small">“This means everlasting life, their coming to know you, the only true God.” — John 17:3</p>
     <div class="field"><label>Public talk title</label><input id="talk" value="${esc(state.talk)}" placeholder="Talk title"></div>
     <div class="field"><label>Opening song</label><input id="opening" inputmode="numeric" value="${esc(state.opening)}" placeholder="Song number"></div>
+    <div class="field"><label>Parent: start the study at</label><select class="jumpSel" id="setupJump">${units.map((u,i)=>`<option value="${i}">${unitLabel(u)}</option>`).join('')}</select></div>
     <label style="display:flex;gap:8px;justify-content:center;font-weight:800;margin:10px 0"><input id="testMode" type="checkbox" ${state.test?'checked':''}> Test mode</label>
     <button class="primary" id="start">START</button>
   </section>`;
@@ -427,33 +527,24 @@ function talk(){
   <div class="talkGrid">
     ${[['learned','💡 I learned'],['verse','📖 A verse'],['jehovah','❤️ About Jehovah'],['remember','🤔 Remember']].map(([k,l])=>`<div class="talkPrompt"><h3>${l}</h3><textarea data-note="${k}" placeholder="Type or dictate…">${esc(state.talkNotes[k]||'')}</textarea></div>`).join('')}
   </div>
-  <div class="lock"><div class="small">Stay here for the public talk. Watchtower unlocks at 10:30.</div>
+  <div class="lock"><div class="small">Stay here for the public talk. Watchtower starts after you hold to end.</div>
     <button class="holdBtn" id="endTalk" type="button"><i class="fill"></i><span>Hold to end the talk</span></button>
     <button class="secondary" id="openOpening2" style="margin-top:8px">🎵 Opening song lead sheet</button>
-    <div class="field" style="margin-top:12px;text-align:left"><label>Oops — jump into the study</label><select class="jumpSel" id="oopsUnit">${unitOptions(0)}</select></div>
-    <button class="secondary" id="oopsJump" style="margin-top:6px">Open that paragraph</button>
   </div>`;
 }
 function transition(){
-  const now=new Date(),u=new Date(now);u.setHours(10,30,0,0);
-  const ready=state.test||state.wtUnlocked||now>=u;
+  const ready=state.test||state.wtUnlocked||Date.now()>=wtStartToday().getTime();
   return `<section class="hero">
     <div class="eyebrow">Transition</div>
-    <h1>${ready?'Song 12, then study':'Locked until 10:30'}</h1>
-    <p><strong>Song 12 — Great God, Jehovah</strong></p>
-    <button class="secondary" id="song12">🎵 Song 12 lead sheet</button>
+    <h1>Song 79, then study</h1>
+    <p><strong>Song 79 — Teach Them to Stand Firm</strong></p>
+    <button class="secondary" id="song79">🎵 Song 79 lead sheet</button>
     <div style="height:10px"></div>
-    <p class="small">Study hour: units are weighted out of 100 and spread over 48 minutes of minimum time. Short paragraphs unlock sooner. Long ones (two questions, an account, a picture) hold longer.</p>
-    <div class="field"><label>Start at</label><select class="jumpSel" id="startUnit">${unitOptions(state.unit||0)}</select></div>
     <button class="primary" id="beginWT" ${ready?'':'disabled'}>Begin Watchtower</button>
     <button class="ghost" id="backTalk" style="margin-top:8px">← Back to the public talk</button>
   </section>`;
 }
-
-function sentences(text){
-  const parts=text.split(/(?<=[.!?—”])\s+/);
-  return parts.filter(Boolean);
-}
+function sentences(text){return text.split(/(?<=[.!?—”])\s+/).filter(Boolean)}
 function markedHTML(u){
   const key=u.id, marks=state.marks[key]||{};
   const blocks=u.ps.map(n=>{
@@ -465,23 +556,30 @@ function markedHTML(u){
     }).join(' ');
     return `<p style="margin:0 0 10px"><b>¶ ${n}</b> ${bits}</p>`;
   }).join('');
-  return `<div class="${state.view==='easy'?'easy':'actualText'}">${blocks}</div>`;
+  const pic=u.img?`<figure style="margin:8px 0"><img src="${u.img}" alt="" style="width:100%;border-radius:12px;border:1px solid var(--line)"><figcaption class="small">${esc(u.cap||'')}</figcaption></figure>`:'';
+  const box=u.box?`<div class="easy"><strong>Questions That Help Us Teach</strong><div class="small">How does Jehovah feel about those who preach? (21) · How do Jehovah and Jesus act justly? (33) · How does Jehovah feel when you obey? (34) · How would he feel about marrying someone who does not love him? (42) · How great is his forgiveness? (56) · How does he deal with sinners? (57)</div></div>`:'';
+  return `<div class="${state.view==='easy'?'easy':'actualText'}">${blocks}${pic}${box}</div>`;
 }
-
+function sawParagraph(key){
+  const marks=state.marks[key]||{};
+  if(Object.keys(marks).length) return true;
+  const t=state.readAt[key];
+  return !!(t && Date.now()-t>18000);
+}
 function watch(){
   const u=unit(), key=u.id, earned=state.earned[key]||0, score=state.activityStars[key];
-  const ready=state.test||remaining()===0;
+  if(!state.readAt[key]) {state.readAt[key]=Date.now(); save()}
   const qa=state.questionAnswers[key]||'';
-  const q=u.ps.length>1 && u.id==='u12-13'?questions[13]:questions[u.ps[0]];
-  const title=u.ps.length>1?`¶ ${u.ps[0]}–${u.ps[u.ps.length-1]}`:`¶ ${u.ps[0]}`;
+  const q=questions[u.review?19:u.ps[u.ps.length-1]];
+  const title=unitLabel(u);
+  const playOn=state.test||sawParagraph(key);
   return `<div class="watch">
     <div class="watchHead">
       <div>
         <h2>${title} · ${state.unit+1}/${units.length}</h2>
-        <div class="meta">Getting to Know Jehovah Better · ⭐ ${earned}/3 · ${unitPts(u)}/100 pts · min ${fmt(unitBudget(u))}</div>
+        <div class="meta">Help Others Come to Know Jehovah · ⭐ ${earned}/3</div>
         <div class="progress"><div style="width:${((state.unit+1)/units.length)*100}%"></div></div>
       </div>
-      <select class="jumpSel" id="jumpUnit" title="Jump to paragraph">${unitOptions(state.unit)}</select>
       <button class="secondary" id="openWT">Page</button>
     </div>
     <section class="pane">
@@ -496,11 +594,13 @@ function watch(){
           <button class="ghost" id="clearMarks" style="font-size:12px">Clear</button>
         </div>
       </div>
-      <div class="paneBody" id="textPane">${markedHTML(u)}</div>
+      <div class="paneBody" id="textPane">${markedHTML(u)}${u.verse?`<p class="easy" style="margin-top:8px">${esc(u.verse)}</p>`:''}</div>
     </section>
     <section class="pane">
-      <div class="paneBar"><strong style="font-size:13px">Play</strong><span class="small" style="margin-left:auto">Activity ${score===undefined?'—':score+'/2'} · Material ${state.materialAwarded[key]?'⭐':'—'}</span></div>
-      <div class="paneBody" id="playPane">${playHTML(u.activity,key)}</div>
+      <div class="paneBar"><strong style="font-size:13px">Play</strong>
+        <button class="ghost" id="resetGame" style="margin-left:auto">Reset game</button>
+        <span class="small">Activity ${score===undefined?'—':score+'/2'} · Material ${state.materialAwarded[key]?'⭐':'—'}</span></div>
+      <div class="paneBody" id="playPane">${playOn?playHTML(u.activity,key):`<div class="lock"><p>Look at the paragraph first. Highlight a sentence. Then Play opens.</p></div>`}</div>
     </section>
     <div class="foot">
       <div class="qbar">
@@ -510,93 +610,197 @@ function watch(){
       </div>
       <div class="nextCol">
         <button class="secondary" id="saveQuestion">Save</button>
-        <button class="primary" id="next" ${ready?'':'disabled'}>${state.unit===units.length-1?'Finish':'Next'}</button>
+        <button class="secondary" id="prevUnit" ${state.unit===0?'disabled':''}>Back</button>
+        <button class="primary" id="next">${state.unit===units.length-1?'Finish':'Next'}</button>
       </div>
     </div>
   </div>`;
 }
+function gobj(key){state.game[key]=state.game[key]||{};return state.game[key]}
+function mix(arr){return arr.map((x,i)=>({x,i})).sort(()=>Math.random()-.5)}
 
 function playHTML(a,key){
-  const g=state.game[key]||{};
-  if(a.type==='burst'){
-    const got=g.got||[];
-    const pos=[[8,18],[42,12],[70,22],[12,58],[48,62],[74,55],[30,38]];
-    return `<div class="playPrompt">${esc(a.prompt)}</div><div class="sky">${a.items.map((it,i)=>`<button class="floater ${got.includes(i)?'got':''}" data-burst="${i}" style="left:${pos[i][0]}%;top:${pos[i][1]}%;animation-duration:${2.6+i*.35}s">${esc(it.t)}</button>`).join('')}</div>`;
+  const g=gobj(key);
+  if(a.type==='growkid'){
+    const stage=g.stage||0;
+    const used=g.used||[];
+    const items=[...a.good.map((x,i)=>({...x,ok:1,i:'g'+i})),...a.bad.map((x,i)=>({...x,ok:0,i:'b'+i}))];
+    if(!g.order) g.order=mix(items).map(z=>z.x.i?z.x:z.x);
+    const pool=items.filter(it=>!used.includes(it.t));
+    if(g.card){
+      return `<div class="playPrompt">The student grew. Who do we thank?</div>
+        <div class="gridTap"><button class="bigHit" data-thanks="Jehovah">Jehovah</button><button class="bigHit" data-thanks="teacher">The teacher</button><button class="bigHit" data-thanks="book">The book</button><button class="bigHit" data-thanks="luck">Luck</button></div>`;
+    }
+    return `<div class="playPrompt">${esc(a.prompt)}</div><div class="kid s${stage}"><div class="head"></div><div class="body"></div></div>
+      <div class="tileMix">${pool.map(it=>`<button class="mix" data-feed="${esc(it.t)}" data-ok="${it.ok}">${esc(it.t)}</button>`).join('')}</div>`;
   }
-  if(a.type==='flip'){
-    const cards=g.deck||makeDeck(a.words);
-    if(!g.deck){state.game[key]={...g,deck:cards};}
-    return `<div class="playPrompt">${esc(a.prompt)}</div><div class="gridTap">${cards.map((c,i)=>`<button class="tile ${c.found?'found':c.up?'flip':''}" data-flip="${i}">${c.up||c.found?esc(c.w):'🐾'}</button>`).join('')}</div>`;
+  if(a.type==='baskets'){
+    if(g.door){
+      return `<div class="playPrompt">The everlasting-life door is open. Do not hang junk on it.</div><button class="door" id="openDoor">Open life</button>`;
+    }
+    const used=g.used||[];
+    const cards=[...a.will.map(x=>({...x,ok:1})),...a.junk.map(x=>({...x,ok:0}))].filter(c=>!used.includes(c.t));
+    return `<div class="playPrompt">${esc(a.prompt)}</div>
+      <div class="baskets"><div class="basket" data-bask="will"><strong>Jehovah’s will</strong><div>${(g.will||[]).map(t=>esc(t)).join('<br>')}</div></div>
+      <div class="basket" data-bask="facts"><strong>Just facts</strong><div>${(g.facts||[]).map(t=>esc(t)).join('<br>')}</div></div></div>
+      <div class="tileMix">${cards.map(c=>`<button class="mix" data-card="${esc(c.t)}" data-ok="${c.ok}">${esc(c.t)}</button>`).join('')}</div>`;
   }
-  if(a.type==='rockets'){
+  if(a.type==='slotsdraw'){
+    if(g.draw){
+      return `<div class="playPrompt">Door is open. Draw paradise.</div><canvas id="miniPar" style="width:100%;height:160px;border:1px dashed #c9d1e0;border-radius:12px;background:#fff;touch-action:none"></canvas><button class="primary" id="checkGame" style="margin-top:8px">Hang it up</button>`;
+    }
+    const placed=g.placed||[];
+    return `<div class="playPrompt">${esc(a.prompt)}</div><div class="slots">${a.slots.map((s,i)=>`<div class="slotBox" data-slot="${i}">${i+1}. ${esc(s)}${placed[i]?' — '+esc(placed[i]):''}</div>`).join('')}</div>
+      <div class="tileMix">${[...a.good,...a.junk].filter(t=>!placed.includes(t)).map(t=>`<button class="mix" data-qcard="${esc(t)}">${esc(t)}</button>`).join('')}</div>`;
+  }
+  if(a.type==='fouraim'){
+    const lit=g.lit||[];
+    if(lit.length>=4){
+      return `<div class="playPrompt">Aim the study.</div><p class="easy">${esc(unit().verse||'')}</p>
+        <div class="gridTap"><button class="bigHit" data-aim="Jehovah">Jehovah</button><button class="bigHit" data-aim="us">Us</button><button class="bigHit" data-aim="teachings">A set of teachings</button><button class="bigHit" data-aim="org">An organization</button></div>`;
+    }
+    const parts=a.parts.filter(p=>!lit.includes(p));
+    const junk=a.junk;
+    return `<div class="playPrompt">${esc(a.prompt)}</div><p class="easy">${esc(unit().verse||'')}</p>
+      <div class="personLite">${['heart','soul','mind','strength'].map((p,i)=>`<div class="spot ${lit.includes(p)?'lit':''}" style="left:${[38,12,64,38][i]}%;top:${[58,28,28,8][i]}%">${p}</div>`).join('')}</div>
+      <div class="tileMix">${[...parts,...junk].map(t=>`<button class="mix" data-part="${esc(t)}">${esc(t)}</button>`).join('')}</div>`;
+  }
+  if(a.type==='hidescene'){
+    const found=g.found||[];
+    return `<div class="playPrompt">${esc(a.prompt)}</div>
+      <div class="hideScene">${a.hots.map(h=>`<button class="hideHot" data-hot="${h.id}" style="left:${h.l}%;top:${h.t}%">${found.includes(h.id)?'✅':h.e}</button>`).join('')}<div style="position:absolute;left:28%;top:8%;font-size:40px">🏠</div></div>`;
+  }
+  if(a.type==='cockpit'){
+    if(g.fly) return `<div class="playPrompt">Tap to keep the plane up. Pass 4 gates.</div><div class="planeFly" id="flyBox"><div class="bird" id="bird"></div></div>`;
+    if(g.ready) return `<div class="playPrompt">Which weather matches Scriptural principles?</div><div class="gridTap"><button class="bigHit" data-wx="wise">Do what matches Jehovah’s principles</button><button class="bigHit" data-wx="fast">Whatever is fastest</button><button class="bigHit" data-wx="pop">Whatever is most popular</button></div>`;
     const load=g.load||[];
-    return `<div class="playPrompt">${esc(a.prompt)}</div><div class="rocketPad">${[0,1,2].map(i=>`<div class="rocketHole" data-rock="${i}">🚀 ${load[i]!==undefined?esc(a.qs[load[i]].t):'empty'}</div>`).join('')}</div><div>${a.qs.map((q,i)=>load.includes(i)?'':`<button class="picCard" data-fuel="${i}">${esc(q.t)}</button>`).join('')}</div><button class="primary" id="checkGame" style="margin-top:8px">Launch</button>`;
+    return `<div class="cockpit"><div class="playPrompt" style="color:#fff">${esc(a.prompt)}</div>
+      <div>Loaded: ${load.map(esc).join(', ')||'empty'}</div>
+      <div class="tileMix" style="margin-top:8px">${['Study','Hours in the cockpit','Exam only','Regulations only'].filter(t=>!load.includes(t)).map(t=>`<button class="mix" data-load="${esc(t)}">${esc(t)}</button>`).join('')}</div></div>`;
   }
-  if(a.type==='swipe'){
-    const q=g.queue||a.cards.map((c,i)=>i);
-    if(!g.queue) g.queue=q.slice();
-    const i=q[0]; const card=i===undefined?null:a.cards[i];
-    if(!card) return `<div class="playPrompt">Pile is empty. Nice sorting.</div>`;
-    return `<div class="playPrompt">${esc(a.prompt)}</div><div class="sortStage"><div class="sortCard">${esc(card[0])}</div><div class="sortBtns"><button class="factBtn" data-swipe="fact">📋 Facts only</button><button class="heartBtn" data-swipe="heart">💛 The Person</button></div><div class="small">${q.length} left in the pile</div></div>`;
+  if(a.type==='crossword'){
+    return `<div class="playPrompt">${esc(a.prompt)}</div>${a.words.map((w,i)=>`<div style="margin:6px 0"><div class="small">${i+1}. ${esc(w.c)}</div><input data-cw="${i}" maxlength="${w.w.length}" value="${esc((g.ans||{})[i]||'')}" style="width:100%;padding:8px;border-radius:10px;border:1px solid #cfd6e2;font-weight:900;letter-spacing:2px;text-transform:uppercase"></div>`).join('')}<button class="primary" id="checkGame">Check words</button>`;
   }
-  if(a.type==='stones'){
-    const order=g.order||a.steps.map((_,i)=>i).sort(()=>Math.random()-.5);
-    if(!g.order) g.order=order;
-    return `<div class="playPrompt">${esc(a.prompt)}</div><div class="path">${order.map(i=>`<button class="stone ${(g.path||[]).includes(i)?'lit':''}" data-stone="${i}"><span class="ico">${a.steps[i].ico}</span>${esc(a.steps[i].t)}</button>`).join('')}</div>`;
+  if(a.type==='madlib'){
+    const f=g.fun||{};
+    return `<div class="playPrompt">${esc(a.prompt)}</div>
+      <div class="field"><label>Color</label><input data-fun="color" value="${esc(f.color||'')}"></div>
+      <div class="field"><label>Animal</label><input data-fun="animal" value="${esc(f.animal||'')}"></div>
+      <div class="field"><label>Noise</label><input data-fun="noise" value="${esc(f.noise||'')}"></div>
+      <div class="field"><label>Silly name</label><input data-fun="name" value="${esc(f.name||'')}"></div>
+      <div class="field"><label>Funny verb</label><input data-fun="verb" value="${esc(f.verb||'')}"></div>
+      <div class="field"><label>Funny noun</label><input data-fun="noun" value="${esc(f.noun||'')}"></div>
+      <p class="madline">Jehovah helped
+        <button class="blank" data-real="Job">Job</button> learn about Him by asking
+        <button class="blank" data-real="questions">questions</button> — well over
+        <button class="blank" data-real="50">50</button> of them. He did not hand Job a ${esc(f.color||'____')} ${esc(f.animal||'____')} and walk away. We too can ask questions, even if our voice sounds like ${esc(f.noise||'____')} and our pencil is held by ${esc(f.name||'____')}.
+        The <button class="blank" data-real="Enjoy Life Forever!">Enjoy Life Forever!</button> book helps a student learn Jehovah’s
+        <button class="blank" data-real="personality">personality</button>, not a pile of recipes. One question might make us ${esc(f.verb||'____')} our ${esc(f.noun||'____')}. Still the point stays: ask questions so they come to know Him.</p>
+      <div class="tileMix">${['Job','questions','50','Enjoy Life Forever!','personality','sermon','3','encyclopedia','rules','quiz'].map(t=>`<button class="mix" data-mad="${esc(t)}">${esc(t)}</button>`).join('')}</div>
+      <button class="primary" id="checkGame">Read it back</button>`;
   }
-  if(a.type==='stack'){
-    const n=g.n||0;
-    const order=g.order||a.blocks.map((_,i)=>i).sort(()=>Math.random()-.5);
-    if(!g.order) g.order=order;
-    return `<div class="playPrompt">${esc(a.prompt)}</div><div class="towerBox"><div class="tower">${a.blocks.slice(0,n).map((b,i)=>`<div class="brick b${i}">${esc(b)}</div>`).join('')}${n?'':'<div class="small">empty ground</div>'}</div><div class="pile">${order.map(i=>n>i?'':`<button class="bigHit" data-stack="${i}">🧱 ${esc(a.blocks[i])}</button>`).join('')}</div></div>`;
+  if(a.type==='lenses'){
+    if(g.den){
+      return `<div class="playPrompt">Tag the den.</div><div class="den">
+        <button class="pin" data-den="happy" style="left:12%;top:30%">What made Jehovah happy?</button>
+        <button class="pin" data-den="sad" style="left:55%;top:55%">What displeased him?</button>
+      </div><div class="tileMix"><button class="mix" data-tag="saved">He saved Daniel</button><button class="mix" data-tag="accusers">The accusers were judged</button><button class="mix" data-tag="lunch">Daniel packed lunch</button></div>`;
+    }
+    return `<div class="playPrompt">${esc(a.prompt)}</div><div class="lensesPretty">
+      <div class="lensCard" data-lens="person"><strong>About the person</strong><div>${(g.person||[]).join('<br>')}</div></div>
+      <div class="lensCard" data-lens="god"><strong>About Jehovah</strong><div>${(g.god||[]).join('<br>')}</div></div></div>
+      <div class="tileMix">${['endurance','tenderness','mercy','how many lions','what Job ate'].filter(t=>!(g.person||[]).includes(t)&&!(g.god||[]).includes(t)).map(t=>`<button class="mix" data-tag="${esc(t)}">${esc(t)}</button>`).join('')}</div>`;
   }
-  if(a.type==='lens'){
-    const pick=g.pick;
-    return `<div class="playPrompt">${esc(a.prompt)}</div><div class="lensDesk"><div class="pageFake pageOn">“The Bible also reveals much about its Author.”<br><br>When you read a verse, what are you looking at it with?${pick!==undefined?`<div class="magSit mag">${esc(a.choices[pick])}</div>`:''}</div><div class="mags">${a.choices.map((c,i)=>`<button class="mag ${pick===i?'on':''}" data-pick="${i}">${esc(c)}</button>`).join('')}</div></div>`;
+  if(a.type==='stars'){
+    const grid=g.grid||defaultStars();
+    if(!g.grid) g.grid=grid;
+    return `<div class="playPrompt">${esc(a.prompt)}</div><div class="starsGrid">${grid.map((v,i)=>`<button class="starCell ${v===2?'fix on':v===1?'on':''}" data-star="${i}">${v?'🎁':''}</button>`).join('')}</div><button class="primary" id="checkGame" style="margin-top:8px">Check gifts</button>`;
   }
-  if(a.type==='grow'){
-    const n=g.n||0;
-    return `<div class="playPrompt">${esc(a.prompt)}</div><div class="garden">${a.steps.map((s,i)=>`<button class="plant ${i<n?'up':''}" data-grow="${i}">${i<n?'🌿':'🌱'}<br>${esc(s)}</button>`).join('')}</div>`;
+  if(a.type==='maze'){
+    const here=g.here||0;
+    const cells=['Start: hard account','Life is precious','Need every detail','He saves sinners','Jehovah was unfair','Does not punish the innocent','Skip the account','Guilty do not escape','He always does what is right'];
+    return `<div class="playPrompt">${esc(a.prompt)}</div><div class="maze">${cells.map((c,i)=>`<button class="mz ${i===here?'here':''} ${i===8?'goal':''}" data-mz="${i}">${esc(c)}</button>`).join('')}</div>`;
   }
-  if(a.type==='pocket'){
-    const bits=[a.keep,...a.toss];
-    return `<div class="playPrompt">${esc(a.prompt)}</div><div class="small" style="margin-top:-4px;margin-bottom:6px">Tap a card, then tap the jeans to keep it or Toss pile to throw it away. Only the keeper stays in the pocket.</div><div class="jeans"><div>${bits.map((x,i)=>`<button class="polaroid" data-bit="${i}" style="--r:${[-6,4,-2,7][i]}deg"><span class="pic">${x.ico}</span>${esc(x.t)}</button>`).join('')}<div class="tossBin" data-toss="1">Toss pile</div></div><div class="jeanPocket" data-pocket="1">back pocket<div id="pocketItems" class="small" style="margin-top:40px">${g.pocket!==undefined?esc(bits[g.pocket].t):''}</div></div></div><button class="primary" id="checkGame" style="margin-top:8px">Check pocket</button>`;
+  if(a.type==='diff10'){
+    const found=g.diff||[];
+    const spots=[[12,20],[40,18],[70,22],[18,48],[55,50],[78,46],[14,78],[48,74],[72,80],[88,30]];
+    return `<div class="playPrompt">${esc(a.prompt)}</div><div class="small">${found.length}/10</div>
+      <div class="diffWrap">
+        <div class="diffPic" style="background:linear-gradient(#d7dde8,#bcc6d4)">${spots.map((p,i)=>`<button class="diffHot ${found.includes(i)?'found':''}" data-d="${i}" style="left:${p[0]}%;top:${p[1]}%"></button>`).join('')}<div style="padding:16px;font-weight:900">Faults: scowls, backs turned, John 3:16 missing</div></div>
+        <div class="diffPic" style="background:linear-gradient(#e7f6ea,#cfe9d6)">${spots.map((p,i)=>`<button class="diffHot ${found.includes(i)?'found':''}" data-d="${i}" style="left:${p[0]+3}%;top:${p[1]+2}%"></button>`).join('')}<div style="padding:16px;font-weight:900">Good: smiles, together, John 3:16 on the wall</div></div>
+      </div>`;
   }
-  if(a.type==='mirror'){
-    const on=g.mir||[];
-    return `<div class="playPrompt">${esc(a.prompt)}</div><div class="mirrorScene"><div class="oval" id="glass">${on.map(i=>`<div>${esc(a.items[i].t)}</div>`).join('')||'<span class="small">empty glass</span>'}</div><div>${a.items.map((it,i)=>`<button class="sticker ${on.includes(i)?'on':''}" data-mir="${i}">${esc(it.t)}</button>`).join('')}<div><button class="primary" id="checkGame" style="margin-top:8px">Check reflection</button></div></div></div>`;
+  if(a.type==='puzzle20'){
+    const order=g.puz||[...Array(20).keys()];
+    if(!g.puz) g.puz=order.slice();
+    return `<div class="playPrompt">${esc(a.prompt)}</div><div class="puz">${order.map((n,i)=>`<button class="puzPiece" data-pz="${i}">${emojiPiece(n)}</button>`).join('')}</div><button class="primary" id="checkGame" style="margin-top:8px">Is it together?</button>`;
   }
-  if(a.type==='pins'){
-    const pos=[[8,16],[58,12],[18,62],[62,58],[40,8],[78,36]];
-    return `<div class="playPrompt">${esc(a.prompt)}</div><div class="mapScene"><div class="road"></div>${a.pins.map((p,i)=>`<button class="pin ${(g.pins||[]).includes(i)?'on':''}" data-pin="${i}" style="left:${pos[i][0]}%;top:${pos[i][1]}%">${p.ico} ${esc(p.t)}</button>`).join('')}</div>`;
+  if(a.type==='wordsearch'){
+    const grid=g.ws||makeWS(a.words.concat(['QUIZ','SPEED']));
+    if(!g.ws) g.ws=grid;
+    const found=g.wf||[];
+    return `<div class="playPrompt">${esc(a.prompt)}</div><div class="small">Found: ${found.join(', ')||'none yet'}</div>
+      <div class="ws" style="grid-template-columns:repeat(${grid[0].length},22px)">${grid.flatMap((row,r)=>row.map((ch,c)=>`<span data-ws="${r},${c}">${ch}</span>`)).join('')}</div>`;
   }
-  if(a.type==='rescue'){
-    const toks=[...a.good.map(t=>({t,ok:1})),...a.fake.map(t=>({t,ok:0}))];
-    const pos=[[8,22],[78,18],[12,70],[70,62],[40,44],[6,48],[82,48],[48,78]];
-    const low=g.low||0;
-    const act=g.act;
-    return `<div class="playPrompt">${esc(a.prompt)}</div><div class="well" id="cistern"><div class="wellWall"></div><div class="rope" id="rope" style="height:${20+low*18}%"></div><div class="person">🧔</div>${low>=3?toks.map((tk,i)=>`<button class="hideTok ${(g.found||[]).includes(i)?'found':''} ${act===i?'on':''}" data-tok="${i}" style="left:${pos[i][0]}%;top:${pos[i][1]}%">${(g.found||[]).includes(i)||(g.peek||[]).includes(i)||(g.tossed||[]).includes(i)?esc(tk.t):'·'}</button>`).join(''):''}</div><button class="secondary" id="lowerRope">${low>=3?'Rope is down':'Lower the rope'}</button>${low>=3 && act!==undefined?`<div class="decide"><button class="yesT" data-dec="keep">Treasure</button><button class="noT" data-dec="toss">Toss</button></div><div class="small">Is “${esc(toks[act].t)}” a real quality from the account, or junk?</div>`:'<div class="small">'+(low>=3?'Tap a faint dot, then choose Treasure or Toss.':'')+'</div>'}`;
+  if(a.type==='chests'){
+    const step=g.step||0;
+    const names=['Now — happiest life','Later — eternal life','Known by him'];
+    return `<div class="playPrompt">${esc(a.prompt)}</div><div class="chests">${names.map((n,i)=>`<div class="chest ${i<step?'open':''}">${esc(n)}</div>`).join('')}</div>
+      <div class="tileMix">${chestKeys(step).map(k=>`<button class="mix" data-key="${esc(k)}">${esc(k)}</button>`).join('')}</div>`;
   }
-  if(a.type==='tools'){
-    return `<div class="playPrompt">${esc(a.prompt)}</div><div class="gridTap">${a.tools.map((t,i)=>`<button class="bigHit" data-tool="${i}">${esc(t.t)}</button>`).join('')}</div><button class="primary" id="checkGame" style="margin-top:8px">Check kit</button>`;
-  }
-  if(a.type==='hunt'){
-    const pos=[[8,14],[38,18],[68,12],[22,52],[52,48],[78,50],[10,70],[60,72]];
-    return `<div class="playPrompt">${esc(a.prompt)}</div><div class="sky" style="background:linear-gradient(#9ec9f0 0 46%,#d9efd0 46%)">${a.items.map((it,i)=>`<button class="floater ${(g.found||[]).includes(i)?'got':''}" data-hunt="${i}" style="left:${pos[i][0]}%;top:${pos[i][1]}%;font-size:28px">${it.e}</button>`).join('')}</div><div class="small">Find: birds · insects · nest · Jehovah cares</div>`;
-  }
-  if(a.type==='stamp'){
-    const dood=g.dood||{};
-    return `<div class="playPrompt">${esc(a.prompt)}</div><div class="quadDraw">${a.choices.map((c,i)=>`<div class="pad"><strong>${esc(c)}</strong><canvas data-mini="${i}"></canvas></div>`).join('')}</div><button class="primary" id="checkGame" style="margin-top:8px">Hang them together</button>`;
-  }
-  if(a.type==='track'){
-    return `<div class="playPrompt">${esc(a.prompt)}</div>${a.items.map((x,i)=>`<div class="trackRow"><div class="trackIco">${i+1}</div><div class="slot" data-slot="${i}"></div></div>`).join('')}<div id="pool">${a.items.map((x,i)=>`<button class="picCard" data-trk="${i}"><span>${x.ico}</span> ${esc(x.t)}</button>`).join('')}</div><button class="primary" id="checkGame" style="margin-top:8px">Check path</button>`;
+  if(a.type==='reviewbins'){
+    const cards=[
+      {t:'so they can love him (Mark 12:30)',b:0},{t:'love moves them to obey and stick',b:0},{t:'then they can make decisions that please him',b:0},
+      {t:'ask questions, as Jehovah did with Job',b:1},{t:'use the Enjoy Life Forever! questions',b:1},{t:'read looking for Jehovah’s qualities',b:1},
+      {t:'recall what you know when an account is hard',b:2},{t:'look at good qualities when someone is hard to get along with',b:2},{t:'ask what would please Jehovah',b:2}
+    ];
+    const used=g.used||[];
+    return `<div class="playPrompt">${esc(a.prompt)}</div>
+      <div class="bins">
+        <div class="bin" data-bin="0"><strong>Why know him well?</strong><div>${(g.b0||[]).map(esc).join('<br>')}</div></div>
+        <div class="bin" data-bin="1"><strong>How teach what he is like?</strong><div>${(g.b1||[]).map(esc).join('<br>')}</div></div>
+        <div class="bin" data-bin="2"><strong>How put knowledge to work?</strong><div>${(g.b2||[]).map(esc).join('<br>')}</div></div>
+      </div>
+      <div class="tileMix">${cards.filter(c=>!used.includes(c.t)).map(c=>`<button class="mix" data-rev="${esc(c.t)}" data-bin="${c.b}">${esc(c.t)}</button>`).join('')}</div>`;
   }
   return '';
 }
-
-function makeDeck(words){
-  const all=[...words,...words].sort(()=>Math.random()-.5).map(w=>({w,up:false,found:false}));
-  return all;
+function emojiPiece(n){return ['👧','🏫','📘','💛','☀️','🌳','✏️','🙂','🙏','⭐','🌈','🏠','🎵','✋','💧','🌸','🐦','🚪','🌟','✅'][n]}
+function defaultStars(){
+  // 6x6, 1=player, 2=fixed gift. Two per some rows prefilled.
+  const g=Array(36).fill(0);
+  const fixed=[0,5, 8,11, 13,16, 20,23, 25,28, 30,35]; // a spaced pair pattern (cols 0+5, 2+5? )
+  // simpler easy: pre-place 8 gifts in a valid no-edge-adjacent 2-per-row pattern
+  const places=[0,3, 7,10, 13,16, 20,23, 25,28, 30,33];
+  places.forEach((p,i)=>{if(i<8)g[p]=2});
+  return g;
+}
+function makeWS(words){
+  const n=12, grid=Array.from({length:n},()=>Array(n).fill(''));
+  const dirs=[[1,0],[0,1],[1,1]];
+  words.forEach(w=>{
+    for(let t=0;t<40;t++){
+      const d=dirs[t%3], r=Math.floor(Math.random()*n), c=Math.floor(Math.random()*n);
+      const er=r+d[0]*(w.length-1), ec=c+d[1]*(w.length-1);
+      if(er<0||er>=n||ec<0||ec>=n) continue;
+      let ok=true;
+      for(let i=0;i<w.length;i++){
+        const ch=grid[r+d[0]*i][c+d[1]*i];
+        if(ch && ch!==w[i]) {ok=false;break}
+      }
+      if(!ok) continue;
+      for(let i=0;i<w.length;i++) grid[r+d[0]*i][c+d[1]*i]=w[i];
+      return;
+    }
+  });
+  const abc='ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+  for(let r=0;r<n;r++) for(let c=0;c<n;c++) if(!grid[r][c]) grid[r][c]=abc[Math.floor(Math.random()*26)];
+  return grid;
+}
+function chestKeys(step){
+  const real=[['happiest life today','Psalm 25'],['eternal life','1 John 5:20'],['known by him','1 Corinthians 8:3']];
+  const decoy=['famous','rich','first in line','everybody notices me'];
+  return step>2?[]:[...real[step],...decoy];
 }
 
 function popup(ok,title,msg){
@@ -609,7 +813,6 @@ function popup(ok,title,msg){
   el.classList.add('open');
   document.getElementById('popOk').onclick=()=>el.classList.remove('open');
 }
-
 function awardMaterial(key){
   if(state.materialAwarded[key]) return;
   state.materialAwarded[key]=1;
@@ -619,7 +822,7 @@ function awardMaterial(key){
 }
 function attemptResult(key,correct){
   if(state.activityStars[key]!==undefined){
-    popup(true,'Already finished','You already did this one.');
+    popup(true,'Already finished','You already did this one. Reset if you just want to play again — no extra stars.');
     return;
   }
   state.attempts[key]=(state.attempts[key]||0)+1;
@@ -630,43 +833,39 @@ function attemptResult(key,correct){
     state.earned[key]=(state.earned[key]||0)+score;
     state.stars+=score;
     save();
-    popup(true, score?`Yes! ${'⭐'.repeat(score)}`:'Got it', score?`First-try energy.`:`You figured it out.`);
+    popup(true, score?`Yes! ${'⭐'.repeat(score)}`:'Got it', score?'Nice.':'You figured it out.');
     render();
   }else{
     save();
-    popup(false, n===1?'Not yet':'Almost', n===1?'Look back at the paragraph and try again.':'One more careful try.');
+    popup(false, n===1?'Not yet':'Almost', 'Look back at the paragraph.');
   }
 }
 
 function bind(){
   document.getElementById('drawOpen')?.addEventListener('click',openDraw);
   document.getElementById('openChat')?.addEventListener('click',()=>document.getElementById('chat').classList.add('open'));
-  document.getElementById('closeChat')?.addEventListener('click',()=>document.getElementById('chat').classList.remove('open'));
+  document.getElementById('openShop')?.addEventListener('click',openShop);
+  document.getElementById('openLook')?.addEventListener('click',openLook);
   document.getElementById('start')?.addEventListener('click',()=>{
-    state={...DEFAULT,talk:document.getElementById('talk').value.trim()||'Public Talk',opening:document.getElementById('opening').value.trim(),test:!!document.getElementById('testMode')?.checked,screen:'talk',meetingStarted:Date.now(),chat:state.chat};
+    const jump=+document.getElementById('setupJump')?.value||0;
+    state={...DEFAULT,talk:document.getElementById('talk').value.trim()||'Public Talk',opening:document.getElementById('opening').value.trim(),test:!!document.getElementById('testMode')?.checked,screen:'talk',meetingStarted:Date.now(),chat:state.chat,owned:state.owned,wear:state.wear,theme:state.theme,font:state.font,bg:state.bg,stars:state.stars};
+    state._setupJump=jump;
     save();render();
   });
   document.querySelectorAll('[data-note]').forEach(t=>t.oninput=()=>{state.talkNotes[t.dataset.note]=t.value;save()});
-  document.getElementById('openOpening')?.addEventListener('click',()=>openSong(state.opening||12));
-  document.getElementById('openOpening2')?.addEventListener('click',()=>openSong(state.opening||12));
+  document.getElementById('openOpening')?.addEventListener('click',()=>openSong(state.opening||79));
+  document.getElementById('openOpening2')?.addEventListener('click',()=>openSong(state.opening||79));
   bindHoldEndTalk();
-  document.getElementById('song12')?.addEventListener('click',()=>openSong(12));
+  document.getElementById('song79')?.addEventListener('click',()=>openSong(79));
   document.getElementById('backTalk')?.addEventListener('click',()=>{state.screen='talk';state.talkDone=false;save();render()});
   if(state.screen==='transition'&&!state.test&&!state.wtUnlocked){
-    const c=()=>{const n=new Date(),u=new Date(n);u.setHours(10,30,0,0);if(n>=u){state.wtUnlocked=true;save();render()}else setTimeout(c,1000)};c();
+    const c=()=>{if(Date.now()>=wtStartToday().getTime()){state.wtUnlocked=true;save();render()}else setTimeout(c,1000)};c();
   }
   document.getElementById('beginWT')?.addEventListener('click',()=>{
-    const i=document.getElementById('startUnit')?.value||0;
-    jumpTo(i);
+    state.screen='wt'; state.talkDone=true; state.wtUnlocked=true;
+    state.unit=state._setupJump||0;
+    save(); render();
   });
-  document.getElementById('oopsJump')?.addEventListener('click',()=>{
-    const el=document.getElementById('oopsUnit')||document.getElementById('startUnit');
-    jumpTo(el?.value||0);
-  });
-  document.getElementById('jumpUnit')?.addEventListener('change',e=>jumpTo(e.target.value));
-  if(state.screen==='wt'&&!state.test){
-    const tick=()=>{const t=document.getElementById('timer');const r=remaining();if(t){t.textContent=fmt(r);t.classList.toggle('ready',r===0)}const n=document.getElementById('next');if(n&&r===0)n.disabled=false;if(state.screen==='wt') setTimeout(tick,500)};tick();
-  }
   const u=state.screen==='wt'?unit():null;
   if(u){
     document.getElementById('actual')?.addEventListener('click',()=>{state.view='actual';save();render()});
@@ -680,6 +879,7 @@ function bind(){
       state.marks[u.id][k]=state.marks[u.id][k]===state.hl?undefined:state.hl;
       save();
       s.className='mark '+(state.marks[u.id][k]||'');
+      if(!sawParagraph(u.id)) ; else if(!document.getElementById('playPane')?.querySelector('.playPrompt')) render();
     });
     document.getElementById('saveQuestion')?.addEventListener('click',()=>{
       const v=document.getElementById('questionAnswer').value.trim();
@@ -688,232 +888,273 @@ function bind(){
       else popup(false,'A little more','Write one real sentence.');
       save();
     });
-    bindPlay(u.activity,u.id);
-    document.getElementById('next')?.addEventListener('click',advance);
-  }
-  document.getElementById('restart')?.addEventListener('click',()=>{state={...DEFAULT,screen:'setup'};save();render()});
-  document.getElementById('end28')?.addEventListener('click',()=>song(28));
-}
-
-function gobj(key){state.game[key]=state.game[key]||{};return state.game[key]}
-
-function bindPlay(a,key){
-  if(a.type==='burst'){
-    document.querySelectorAll('[data-burst]').forEach(b=>b.onclick=()=>{
-      const i=+b.dataset.burst, it=a.items[i], g=gobj(key);
-      g.got=g.got||[];
-      if(!it.ok){b.classList.add('boom');return}
-      if(!g.got.includes(i)) g.got.push(i);
-      b.classList.add('got'); save();
-      if(a.items.every((x,idx)=>!x.ok||g.got.includes(idx))) attemptResult(key,true);
-    });
-  }
-  if(a.type==='flip'){
-    document.querySelectorAll('[data-flip]').forEach(b=>b.onclick=()=>{
-      const g=gobj(key); if(!g.deck) return;
-      const card=g.deck[+b.dataset.flip];
-      if(card.found||card.up) return;
-      card.up=true; save(); render();
-      const after=()=>{
-        const open=g.deck.filter(c=>c.up&&!c.found);
-        if(open.length<2) return;
-        if(open[0].w===open[1].w){open[0].found=open[1].found=true;open[0].up=open[1].up=false}
-        else open.forEach(c=>c.up=false);
-        save();
-        if(a.words.every(w=>g.deck.some(c=>c.w===w&&c.found))) attemptResult(key,true);
-        else render();
-      };
-      if(g.deck.filter(c=>c.up&&!c.found).length>=2) setTimeout(after,450);
-    });
-  }
-  if(a.type==='rockets'){
-    let sel=null;
-    document.querySelectorAll('[data-fuel]').forEach(el=>el.onclick=()=>{sel=+el.dataset.fuel;document.querySelectorAll('[data-fuel]').forEach(x=>x.style.outline=x===el?'3px solid #6d5dfc':'')});
-    document.querySelectorAll('[data-rock]').forEach(z=>z.onclick=()=>{
-      if(sel===null) return;
-      const g=gobj(key); g.load=g.load||[];
-      const slot=+z.dataset.rock;
-      g.load[slot]=sel;
+    document.getElementById('resetGame')?.addEventListener('click',()=>{
+      state.game[u.id]={};
       save(); render();
     });
+    document.getElementById('prevUnit')?.addEventListener('click',()=>{if(state.unit>0){state.unit--;save();render()}});
+    document.getElementById('next')?.addEventListener('click',()=>{
+      if(state.unit===units.length-1){state.screen='finish';save();render();return}
+      if(!canOpenUnit(state.unit+1)){brutusSay('Slow down. Stay with this paragraph a little longer.');return}
+      state.unit++; state.view='actual'; save(); render();
+    });
+    if(sawParagraph(u.id)||state.test) bindPlay(u.activity,u.id);
+    else setTimeout(()=>{if(state.screen==='wt'&&sawParagraph(u.id)) render()},4000);
+  }
+  document.getElementById('restart')?.addEventListener('click',()=>{const keep={owned:state.owned,wear:state.wear,theme:state.theme,font:state.font,bg:state.bg,stars:state.stars,chat:[]};state={...DEFAULT,...keep,screen:'setup'};save();render()});
+  document.getElementById('end84')?.addEventListener('click',()=>openSong(84));
+  document.getElementById('openShop2')?.addEventListener('click',openShop);
+}
+
+function bindPlay(a,key){
+  if(a.type==='growkid'){
+    document.querySelectorAll('[data-feed]').forEach(b=>b.onclick=()=>{
+      const g=gobj(key); const ok=b.dataset.ok==='1'; const t=b.dataset.feed;
+      const why=ok?a.good.find(x=>x.t===t)?.why:a.bad.find(x=>x.t===t)?.why;
+      holdExplain(why||'');
+      setTimeout(()=>{
+        g.used=g.used||[];
+        if(ok){g.used.push(t); g.stage=(g.stage||0)+1; if(g.stage>=4) g.card=1}
+        save(); render();
+      },2000);
+    });
+    document.querySelectorAll('[data-thanks]').forEach(b=>b.onclick=()=>{
+      if(b.dataset.thanks==='Jehovah'){holdExplain('Yes. Jehovah gets the credit.');setTimeout(()=>attemptResult(key,true),2000)}
+      else holdExplain('Nice people help. The thank-you still goes to Jehovah.');
+    });
+  }
+  if(a.type==='baskets'){
+    let sel=null,selOk=0;
+    document.querySelectorAll('[data-card]').forEach(b=>b.onclick=()=>{sel=b.dataset.card;selOk=+b.dataset.ok;document.querySelectorAll('[data-card]').forEach(x=>x.style.outline=x===b?'3px solid #6d5dfc':'')});
+    document.querySelectorAll('[data-bask]').forEach(z=>z.onclick=()=>{
+      if(!sel) return;
+      const g=gobj(key); const want=z.dataset.bask==='will'?1:0;
+      const item=[...a.will,...a.junk].find(x=>x.t===sel);
+      if((want===1 && selOk===1) || (want===0 && selOk===0)){
+        holdExplain(item?.why||'Yes.');
+        g.used=g.used||[]; g.used.push(sel);
+        if(want) (g.will=g.will||[]).push(sel); else (g.facts=g.facts||[]).push(sel);
+        if((g.will||[]).length===a.will.length) g.door=1;
+        sel=null; save(); setTimeout(()=>render(),2000);
+      } else {
+        holdExplain(want?'That is not Jehovah’s will.':'That actually belongs in Jehovah’s will.');
+      }
+    });
+    document.getElementById('openDoor')?.addEventListener('click',()=>attemptResult(key,true));
+  }
+  if(a.type==='slotsdraw'){
+    let sel=null;
+    document.querySelectorAll('[data-qcard]').forEach(b=>b.onclick=()=>{sel=b.dataset.qcard;document.querySelectorAll('[data-qcard]').forEach(x=>x.style.outline=x===b?'3px solid #6d5dfc':'')});
+    document.querySelectorAll('[data-slot]').forEach(z=>z.onclick=()=>{
+      if(!sel) return;
+      const i=+z.dataset.slot, g=gobj(key); g.placed=g.placed||[];
+      if(sel===a.good[i]){holdExplain('That is question '+(i+1)+'.'); g.placed[i]=sel; if(a.good.every((q,idx)=>g.placed[idx]===q)) g.draw=1; save(); setTimeout(()=>render(),2000)}
+      else holdExplain('That is not this article’s question.');
+    });
+    const cv=document.getElementById('miniPar');
+    if(cv){const c=cv.getContext('2d'); let d=false,x=0,y=0; cv.width=cv.clientWidth; cv.height=160; c.lineCap='round';
+      cv.onpointerdown=e=>{d=true;const r=cv.getBoundingClientRect();x=e.clientX-r.left;y=e.clientY-r.top};
+      cv.onpointermove=e=>{if(!d)return;const r=cv.getBoundingClientRect();c.beginPath();c.moveTo(x,y);x=e.clientX-r.left;y=e.clientY-r.top;c.lineTo(x,y);c.stroke()};
+      cv.onpointerup=()=>d=false;
+    }
+    document.getElementById('checkGame')?.addEventListener('click',()=>attemptResult(key,true));
+  }
+  if(a.type==='fouraim'){
+    document.querySelectorAll('[data-part]').forEach(b=>b.onclick=()=>{
+      const t=b.dataset.part, g=gobj(key); g.lit=g.lit||[];
+      if(a.parts.includes(t)){holdExplain('With your whole '+t+'.'); g.lit.push(t); save(); setTimeout(()=>render(),2000)}
+      else holdExplain('That is not in Mark 12:30.');
+    });
+    document.querySelectorAll('[data-aim]').forEach(b=>b.onclick=()=>{
+      if(b.dataset.aim==='Jehovah'){holdExplain('The study is to help them know and love Jehovah.'); setTimeout(()=>attemptResult(key,true),2000)}
+      else holdExplain('Not to us, not to teachings, not to an organization.');
+    });
+  }
+  if(a.type==='hidescene'){
+    document.querySelectorAll('[data-hot]').forEach(b=>b.onclick=()=>{
+      const id=b.dataset.hot, h=a.hots.find(x=>x.id===id), g=gobj(key); g.found=g.found||[];
+      holdExplain(h.why);
+      if(h.ok && !g.found.includes(id)) g.found.push(id);
+      save();
+      setTimeout(()=>{
+        if(a.hots.filter(x=>x.ok).every(x=>g.found.includes(x.id))) attemptResult(key,true);
+        else render();
+      },2000);
+    });
+  }
+  if(a.type==='cockpit'){
+    document.querySelectorAll('[data-load]').forEach(b=>b.onclick=()=>{
+      const t=b.dataset.load, g=gobj(key); g.load=g.load||[];
+      if(t==='Study'||t==='Hours in the cockpit'){holdExplain(t==='Study'?'He studies.':'He logs hours — he lives the decision.'); g.load.push(t); if(g.load.includes('Study')&&g.load.includes('Hours in the cockpit')) g.ready=1; save(); setTimeout(()=>render(),2000)}
+      else holdExplain('A test or a rule book alone is not enough.');
+    });
+    document.querySelectorAll('[data-wx]').forEach(b=>b.onclick=()=>{
+      if(b.dataset.wx==='wise'){gobj(key).fly=1; save(); render(); startFly(key)}
+      else holdExplain('Not fastest. Not most popular. Scriptural principles.');
+    });
+    if(gobj(key).fly) startFly(key);
+  }
+  if(a.type==='crossword'){
+    document.querySelectorAll('[data-cw]').forEach(inp=>inp.oninput=()=>{const g=gobj(key);g.ans=g.ans||{};g.ans[+inp.dataset.cw]=inp.value;save()});
     document.getElementById('checkGame')?.addEventListener('click',()=>{
-      const load=(gobj(key).load||[]).filter(x=>x!==undefined);
-      const ok=load.length===3 && load.every(i=>a.qs[i].ok) && new Set(load).size===3;
+      const g=gobj(key), ans=g.ans||{};
+      const ok=a.words.every((w,i)=>String(ans[i]||'').replace(/\s/g,'').toUpperCase()===w.w);
       attemptResult(key,ok);
     });
   }
-  if(a.type==='swipe'){
-    document.querySelectorAll('[data-swipe]').forEach(b=>b.onclick=()=>{
-      const g=gobj(key);
-      if(!g.queue) g.queue=a.cards.map((_,i)=>i);
-      const cur=g.queue[0]; if(cur===undefined) return;
-      const card=a.cards[cur];
-      if(b.dataset.swipe===card[1]) g.queue.shift();
-      else g.queue.push(g.queue.shift());
-      save();
-      if(!g.queue.length) attemptResult(key,true);
-      else render();
-    });
-  }
-  if(a.type==='stones'){
-    document.querySelectorAll('[data-stone]').forEach(b=>b.onclick=()=>{
-      const g=gobj(key); g.path=g.path||[];
-      const i=+b.dataset.stone;
-      if(i!==g.path.length){b.classList.add('boom');return}
-      g.path.push(i); save();
-      if(g.path.length===a.steps.length) attemptResult(key,true);
-      else render();
-    });
-  }
-  if(a.type==='stack'){
-    document.querySelectorAll('[data-stack]').forEach(b=>b.onclick=()=>{
-      const g=gobj(key); g.n=g.n||0; const i=+b.dataset.stack;
-      if(i!==g.n){b.classList.add('boom');return}
-      g.n++; save();
-      if(g.n>=a.blocks.length) attemptResult(key,true);
-      else render();
-    });
-  }
-  if(a.type==='lens'){
-    document.querySelectorAll('[data-pick]').forEach(b=>b.onclick=()=>{
-      gobj(key).pick=+b.dataset.pick; save();
-      attemptResult(key,+b.dataset.pick===a.correct);
-    });
-  }
-  if(a.type==='grow'){
-    document.querySelectorAll('[data-grow]').forEach(b=>b.onclick=()=>{
-      const g=gobj(key); g.n=g.n||0; const i=+b.dataset.grow;
-      if(i!==g.n){b.classList.add('boom');return}
-      g.n++; save();
-      if(g.n===a.steps.length) attemptResult(key,true);
-      else render();
-    });
-  }
-  if(a.type==='pocket'){
+  if(a.type==='madlib'){
+    document.querySelectorAll('[data-fun]').forEach(inp=>inp.oninput=()=>{const g=gobj(key);g.fun=g.fun||{};g.fun[inp.dataset.fun]=inp.value;save()});
     let sel=null;
-    document.querySelectorAll('[data-bit]').forEach(el=>el.onclick=()=>{sel=+el.dataset.bit;document.querySelectorAll('[data-bit]').forEach(x=>x.style.outline=x===el?'3px solid #6d5dfc':'')});
-    document.querySelector('[data-pocket]')?.addEventListener('click',()=>{
-      if(sel===null) return;
-      const g=gobj(key); g.pocket=sel;
-      document.getElementById('pocketItems').textContent=document.querySelector(`[data-bit="${sel}"]`).innerText;
-    });
-    document.querySelector('[data-toss]')?.addEventListener('click',()=>{
-      if(sel===null) return;
-      const g=gobj(key); g.toss=g.toss||[]; if(!g.toss.includes(sel)) g.toss.push(sel);
-      document.querySelector(`[data-bit="${sel}"]`).style.opacity='.35';
+    document.querySelectorAll('[data-mad]').forEach(b=>b.onclick=()=>sel=b.dataset.mad);
+    document.querySelectorAll('[data-real]').forEach(b=>b.onclick=()=>{
+      if(!sel) return;
+      if(sel===b.dataset.real){b.textContent=sel; b.dataset.done='1'; holdExplain('Yes.');}
+      else holdExplain('That is not the paragraph’s word.');
     });
     document.getElementById('checkGame')?.addEventListener('click',()=>{
-      const g=gobj(key);
-      if(g.pocket===undefined){popup(false,'Empty pocket','Tap the keeper photo, then tap the jeans.');return}
-      attemptResult(key,g.pocket===0);
+      const ok=[...document.querySelectorAll('[data-real]')].every(b=>b.dataset.done==='1');
+      attemptResult(key,ok);
     });
   }
-  if(a.type==='mirror'){
-    document.querySelectorAll('[data-mir]').forEach(b=>b.onclick=()=>{
-      const g=gobj(key); g.mir=g.mir||[]; const i=+b.dataset.mir;
-      if(!a.items[i].ok){b.classList.add('no','boom');return}
-      if(!g.mir.includes(i)) g.mir.push(i);
-      save(); render();
-    });
-    document.getElementById('checkGame')?.addEventListener('click',()=>{
-      const got=gobj(key).mir||[];
-      const need=a.items.map((it,i)=>it.ok?i:-1).filter(i=>i>=0);
-      attemptResult(key,need.every(i=>got.includes(i)) && got.every(i=>a.items[i].ok));
-    });
-  }
-  if(a.type==='pins'){
-    document.querySelectorAll('[data-pin]').forEach(b=>b.onclick=()=>{
-      const g=gobj(key); g.pins=g.pins||[]; const i=+b.dataset.pin;
-      if(!a.pins[i].ok){b.classList.add('bad','boom');return}
-      if(!g.pins.includes(i)) g.pins.push(i);
-      b.classList.add('on'); save();
-      const need=a.pins.map((x,idx)=>x.ok?idx:-1).filter(x=>x>=0);
-      if(need.every(n=>g.pins.includes(n))) attemptResult(key,true);
-    });
-  }
-  if(a.type==='rescue'){
-    const toks=[...a.good.map(t=>({t,ok:1})),...a.fake.map(t=>({t,ok:0}))];
-    document.getElementById('lowerRope')?.addEventListener('click',()=>{
-      const g=gobj(key); g.low=Math.min(3,(g.low||0)+1); save(); render();
-    });
-    document.querySelectorAll('[data-tok]').forEach(b=>b.onclick=()=>{
-      const g=gobj(key); g.peek=g.peek||[];
-      const i=+b.dataset.tok;
-      if(!g.peek.includes(i)) g.peek.push(i);
-      g.act=i; save(); render();
-    });
-    document.querySelectorAll('[data-dec]').forEach(b=>b.onclick=()=>{
-      const g=gobj(key); if(g.act===undefined) return;
-      const tk=toks[g.act];
-      g.found=g.found||[]; g.tossed=g.tossed||[];
-      const keep=b.dataset.dec==='keep';
-      if(keep===!!tk.ok){
-        if(tk.ok && !g.found.includes(g.act)) g.found.push(g.act);
-        if(!tk.ok && !g.tossed.includes(g.act)) g.tossed.push(g.act);
-        g.act=undefined; save();
-        const needG=a.good.length, needF=a.fake.length;
-        if((g.found||[]).length===needG && (g.tossed||[]).length===needF) attemptResult(key,true);
-        else render();
-      } else {
-        popup(false,'Not that one', keep?'That is junk. Toss it.':'That is a real quality. Keep it.');
-      }
-    });
-  }
-  if(a.type==='tools'){
-    document.querySelectorAll('[data-tool]').forEach(b=>b.onclick=()=>b.classList.toggle('on'));
-    document.getElementById('checkGame')?.addEventListener('click',()=>{
-      const chosen=[...document.querySelectorAll('[data-tool].on')].map(x=>+x.dataset.tool);
-      const need=a.tools.map((t,i)=>t.ok?i:-1).filter(i=>i>=0);
-      attemptResult(key,chosen.length===need.length&&need.every(i=>chosen.includes(i)));
-    });
-  }
-  if(a.type==='hunt'){
-    document.querySelectorAll('[data-hunt]').forEach(b=>b.onclick=()=>{
-      const g=gobj(key); g.found=g.found||[]; const i=+b.dataset.hunt;
-      if(!a.items[i].ok){b.classList.add('boom');return}
-      if(!g.found.includes(i)) g.found.push(i);
-      save();
-const need=a.items.map((it,idx)=>it.ok?idx:-1).filter(x=>x>=0);
-      if(need.every(n=>g.found.includes(n))) attemptResult(key,true);
-      else render();
-    });
-  }
-  if(a.type==='stamp'){
-    const g=gobj(key); g.dood=g.dood||{}; g.ink=g.ink||{};
-    document.querySelectorAll('[data-mini]').forEach(cv=>{
-      const i=+cv.dataset.mini;
-      const r=cv.getBoundingClientRect();
-      const dpr=Math.max(1,devicePixelRatio||1);
-      cv.width=Math.round(r.width*dpr); cv.height=Math.round(88*dpr);
-      const c=cv.getContext('2d'); c.scale(dpr,dpr); c.lineCap='round'; c.strokeStyle='#182033'; c.lineWidth=3;
-      if(g.dood[i]){const im=new Image(); im.onload=()=>c.drawImage(im,0,0,r.width,88); im.src=g.dood[i]}
-      let down=false,lx=0,ly=0;
-      const pos=e=>{const b=cv.getBoundingClientRect();return{x:e.clientX-b.left,y:e.clientY-b.top}};
-      cv.onpointerdown=e=>{down=true;cv.setPointerCapture(e.pointerId);const p=pos(e);lx=p.x;ly=p.y;g.ink[i]=1};
-      cv.onpointermove=e=>{if(!down)return;const p=pos(e);c.beginPath();c.moveTo(lx,ly);c.lineTo(p.x,p.y);c.stroke();lx=p.x;ly=p.y;g.dood[i]=cv.toDataURL()};
-      cv.onpointerup=()=>{down=false;g.dood[i]=cv.toDataURL();save()};
-    });
-    document.getElementById('checkGame')?.addEventListener('click',()=>{
-      const ink=gobj(key).ink||{};
-      attemptResult(key,a.choices.every((_,i)=>ink[i]));
-    });
-  }
-  if(a.type==='track'){
+  if(a.type==='lenses'){
     let sel=null;
-    document.querySelectorAll('[data-trk]').forEach(el=>el.onclick=()=>{sel=+el.dataset.trk;document.querySelectorAll('[data-trk]').forEach(x=>x.style.outline=x===el?'3px solid #6d5dfc':'')});
-    document.querySelectorAll('[data-slot]').forEach(z=>z.onclick=()=>{
-      if(sel===null) return;
-      const g=gobj(key); g.map=g.map||{}; g.map[sel]=+z.dataset.slot;
-      const it=a.items[sel];
-      z.textContent=''; z.classList.add('filled'); z.innerHTML=`${it.ico} ${esc(it.t)}`;
-      document.querySelector(`[data-trk="${sel}"]`).style.visibility='hidden';
+    document.querySelectorAll('[data-tag]').forEach(b=>b.onclick=()=>sel=b.dataset.tag);
+    document.querySelectorAll('[data-lens]').forEach(z=>z.onclick=()=>{
+      if(!sel||gobj(key).den) return;
+      const g=gobj(key);
+      const personOk=sel==='endurance', godOk=sel==='tenderness'||sel==='mercy';
+      if(z.dataset.lens==='person' && personOk){(g.person=g.person||[]).push(sel);holdExplain('James saw Job’s endurance.');}
+      else if(z.dataset.lens==='god' && godOk){(g.god=g.god||[]).push(sel);holdExplain('And Jehovah’s '+sel+'.');}
+      else {holdExplain('Wrong lens.');return}
+      if((g.god||[]).includes('tenderness')&&(g.god||[]).includes('mercy')) g.den=1;
+      sel=null; save(); setTimeout(()=>render(),2000);
+    });
+    document.querySelectorAll('[data-den]').forEach(z=>z.onclick=()=>{
+      if(!sel) return;
+      const g=gobj(key); g.denGot=g.denGot||[];
+      if(z.dataset.den==='happy' && sel==='saved'){g.denGot.push('happy');holdExplain('Jehovah saved Daniel.');}
+      else if(z.dataset.den==='sad' && sel==='accusers'){g.denGot.push('sad');holdExplain('The accusers show what displeases him.');}
+      else {holdExplain('Not that tag.');return}
+      if(g.denGot.includes('happy')&&g.denGot.includes('sad')) setTimeout(()=>attemptResult(key,true),2000);
       sel=null; save();
     });
+  }
+  if(a.type==='stars'){
+    document.querySelectorAll('[data-star]').forEach(b=>b.onclick=()=>{
+      const g=gobj(key); if(g.grid[+b.dataset.star]===2) return;
+      g.grid[+b.dataset.star]=g.grid[+b.dataset.star]?0:1; save(); render();
+    });
     document.getElementById('checkGame')?.addEventListener('click',()=>{
-      const map=gobj(key).map||{};
-      attemptResult(key,a.items.every((_,i)=>map[i]===i));
+      const g=gobj(key).grid.map(v=>v?1:0);
+      let ok=true;
+      for(let r=0;r<6;r++){let n=0;for(let c=0;c<6;c++) n+=g[r*6+c]; if(n!==2) ok=false}
+      for(let c=0;c<6;c++){let n=0;for(let r=0;r<6;r++) n+=g[r*6+c]; if(n!==2) ok=false}
+      for(let i=0;i<36;i++) if(g[i]){
+        const r=Math.floor(i/6),c=i%6;
+        for(const [dr,dc] of [[0,1],[1,0]]){
+          const rr=r+dr,cc=c+dc; if(rr<0||rr>5||cc<0||cc>5) continue;
+          if(g[rr*6+cc]) ok=false;
+        }
+      }
+      if(!ok) holdExplain('Two gifts per row and column, and they cannot sit on touching sides.');
+      attemptResult(key,ok);
     });
   }
+  if(a.type==='maze'){
+    const good={0:[1,3],1:[3],3:[5],5:[7],7:[8]};
+    document.querySelectorAll('[data-mz]').forEach(b=>b.onclick=()=>{
+      const i=+b.dataset.mz, g=gobj(key), here=g.here||0;
+      if((good[here]||[]).includes(i)){
+        g.here=i; save();
+        if(i===8){holdExplain('We know our God always does what is right.'); setTimeout(()=>attemptResult(key,true),2000)}
+        else {holdExplain('Yes. Keep recalling Jehovah.'); setTimeout(()=>render(),2000)}
+      } else holdExplain('Dead end. We do not need every detail, and Jehovah is not unfair.');
+    });
+  }
+  if(a.type==='diff10'){
+    document.querySelectorAll('[data-d]').forEach(b=>b.onclick=()=>{
+      const g=gobj(key); g.diff=g.diff||[]; const i=+b.dataset.d;
+      if(!g.diff.includes(i)) g.diff.push(i);
+      const lines=['Unity matters','Look at good qualities','John 3:16 — he sacrificed for them','Smile instead of a scowl','Sit together','A help instead of a cold shoulder','Hello seen','Hands open','Warm wall','Same meeting, different eyes'];
+      holdExplain(lines[i]||'Found one.');
+      save();
+      if(g.diff.length>=10) setTimeout(()=>attemptResult(key,true),2000);
+      else render();
+    });
+  }
+  if(a.type==='puzzle20'){
+    let sel=null;
+    document.querySelectorAll('[data-pz]').forEach(b=>b.onclick=()=>{
+      const i=+b.dataset.pz, g=gobj(key);
+      if(sel===null){sel=i;b.style.outline='3px solid #6d5dfc'}
+      else {
+        const t=g.puz[sel]; g.puz[sel]=g.puz[i]; g.puz[i]=t; sel=null; save(); render();
+      }
+    });
+    document.getElementById('checkGame')?.addEventListener('click',()=>{
+      const ok=gobj(key).puz.every((n,i)=>n===i);
+      if(ok) popup(true,'Together','We make Jehovah happy when we make the right decision.');
+      attemptResult(key,ok);
+    });
+  }
+  if(a.type==='wordsearch'){
+    let start=null, pick=[];
+    document.querySelectorAll('[data-ws]').forEach(el=>el.onpointerdown=()=>{start=el.dataset.ws;pick=[start];el.classList.add('on')});
+    document.querySelectorAll('[data-ws]').forEach(el=>el.onpointerenter=()=>{if(!start)return;pick.push(el.dataset.ws);el.classList.add('on')});
+    document.addEventListener('pointerup',()=>{
+      if(!start) return;
+      const g=gobj(key); const grid=g.ws;
+      const letters=pick.map(p=>{const [r,c]=p.split(',').map(Number);return grid[r][c]}).join('');
+      const rev=letters.split('').reverse().join('');
+      const hit=a.words.find(w=>w===letters||w===rev);
+      if(hit){g.wf=g.wf||[]; if(!g.wf.includes(hit)) g.wf.push(hit); holdExplain(hit); if(a.words.every(w=>(g.wf||[]).includes(w))) {holdExplain('Besides the facts, we want them to know Jehovah.'); setTimeout(()=>attemptResult(key,true),2000)}}
+      start=null; pick=[]; save(); render();
+    },{once:true});
+  }
+  if(a.type==='chests'){
+    const need=[['happiest life today','Psalm 25'],['eternal life','1 John 5:20'],['known by him','1 Corinthians 8:3']];
+    document.querySelectorAll('[data-key]').forEach(b=>b.onclick=()=>{
+      const g=gobj(key); g.got=g.got||[]; const k=b.dataset.key;
+      if(['famous','rich','first in line','everybody notices me'].includes(k)){holdExplain('That is not the blessing in the paragraph.');return}
+      if(!need[g.step||0].includes(k)){holdExplain('This chest is not that one yet. Now, then later, then known by him.');return}
+      if(!g.got.includes(k)) g.got.push(k);
+      if(need[g.step||0].every(x=>g.got.includes(x))){
+        holdExplain(need[g.step||0].join(' + '));
+        g.step=(g.step||0)+1; g.got=[];
+        if(g.step>=3){holdExplain('Almighty God notices us and calls us friends.'); setTimeout(()=>attemptResult(key,true),2000)}
+        else setTimeout(()=>render(),2000);
+      }
+      save();
+    });
+  }
+  if(a.type==='reviewbins'){
+    let sel=null,sb=0;
+    document.querySelectorAll('[data-rev]').forEach(b=>b.onclick=()=>{sel=b.dataset.rev;sb=+b.dataset.bin});
+    document.querySelectorAll('[data-bin]').forEach(z=>z.onclick=()=>{
+      if(!sel) return;
+      const want=+z.dataset.bin, g=gobj(key);
+      if(want===sb){(g['b'+want]=g['b'+want]||[]).push(sel); g.used=g.used||[]; g.used.push(sel); save();
+        if((g.b0||[]).length===3&&(g.b1||[]).length===3&&(g.b2||[]).length===3) attemptResult(key,true);
+        else render();
+      } else holdExplain('That answers a different question.');
+    });
+  }
+}
+
+function startFly(key){
+  const box=document.getElementById('flyBox'), bird=document.getElementById('bird');
+  if(!box||!bird) return;
+  let y=80, vy=0, xg=180, passed=0, dead=false;
+  const tick=()=>{
+    if(dead||!document.getElementById('flyBox')) return;
+    vy+=0.35; y+=vy;
+    if(y<0||y>160){dead=true;holdExplain('Try the little flight again.'); gobj(key).fly=1; return}
+    xg-=3; if(xg<-20){xg=220; passed++; if(passed>=4){holdExplain('Now he can decide in any circumstance.'); setTimeout(()=>attemptResult(key,true),2000);return}}
+    bird.style.top=y+'px';
+    requestAnimationFrame(tick);
+  };
+  box.onclick=()=>vy=-5;
+  tick();
 }
 
 function finish(){
@@ -922,139 +1163,190 @@ function finish(){
     <div class="eyebrow">Done</div>
     <h1>Great job, Maddy</h1>
     <div class="finishStats"><div class="stat">⭐ ${state.stars}</div><div class="stat">${units.length*3} possible</div><div class="stat">${Object.values(state.questionAnswers).filter(Boolean).length} answers</div></div>
-    <p><button class="secondary" id="end28">🎵 Song 28</button></p>
-    <div class="field" style="text-align:left"><label>Jump back to a paragraph</label><select class="jumpSel" id="startUnit">${unitOptions(0)}</select></div>
-    <button class="secondary" id="oopsJump">Open that paragraph</button>
+    <p><button class="secondary" id="end84">🎵 Song 84 — Reaching Out</button></p>
+    <button class="secondary" id="openShop2">⭐ Star shop</button>
     <button class="primary" id="restart">New meeting</button>
   </section>`;
 }
-function advance(){if(state.unit===units.length-1)state.screen='finish';else{state.unit++;state.view='actual';state.meetingStarted=Date.now()}save();render()}
+function buddyHTML(){
+  const layers=Object.entries(state.wear||{}).map(([slot,id])=>{const it=SHOP.find(s=>s.id===id);return it?it.html:''}).join('');
+  return `<div class="buddyStage"><img class="base" src="brutus.png" alt="Brutus">${layers}</div>`;
+}
+function openShop(){
+  const el=document.getElementById('shopOverlay');
+  document.getElementById('shopBody').innerHTML=`<div class="shopWrap">${buddyHTML()}<div>
+    <p class="small">Stars: ${state.stars}. One item per spot. Different spots can stack.</p>
+    ${SHOP.map(it=>{
+      const have=(state.owned||[]).includes(it.id);
+      const on=state.wear[it.slot]===it.id;
+      return `<div class="shopItem ${have?'have':''}">${esc(it.name)} · ${it.slot} · ${it.cost}⭐
+        ${have?`<button class="secondary" data-wear="${it.id}">${on?'Take off':'Wear'}</button>`:`<button class="primary" data-buy="${it.id}">Buy</button>`}</div>`;
+    }).join('')}</div></div>`;
+  el.classList.add('open');
+  document.getElementById('closeShop').onclick=()=>el.classList.remove('open');
+  document.getElementById('openShop2')?.addEventListener('click',openShop);
+  document.querySelectorAll('[data-buy]').forEach(b=>b.onclick=()=>{
+    const it=SHOP.find(s=>s.id===b.dataset.buy);
+    if(state.stars<it.cost){brutusSay('Need more stars.');return}
+    state.stars-=it.cost; state.owned=state.owned||[]; state.owned.push(it.id); save(); openShop();
+  });
+  document.querySelectorAll('[data-wear]').forEach(b=>b.onclick=()=>{
+    const it=SHOP.find(s=>s.id===b.dataset.wear);
+    state.wear=state.wear||{};
+    if(state.wear[it.slot]===it.id) delete state.wear[it.slot];
+    else state.wear[it.slot]=it.id;
+    save(); openShop();
+  });
+}
+function openLook(){
+  const el=document.getElementById('lookOverlay');
+  document.getElementById('lookBody').innerHTML=`
+    <div class="field"><label>Theme</label><select id="themeSel">${[['lavender','Lavender'],['sun','Sunshine'],['forest','Forest'],['ocean','Ocean'],['night','Night']].map(([k,n])=>`<option value="${k}" ${state.theme===k?'selected':''}>${n}</option>`).join('')}</select></div>
+    <div class="field"><label>Font</label><select id="fontSel">${[['system','System'],['round','Round'],['serif','Serif']].map(([k,n])=>`<option value="${k}" ${state.font===k?'selected':''}>${n}</option>`).join('')}</select></div>
+    <div class="field"><label>Background</label><select id="bgSel">${[['plain','Plain'],['dots','Dots'],['stripes','Stripes']].map(([k,n])=>`<option value="${k}" ${state.bg===k?'selected':''}>${n}</option>`).join('')}</select></div>
+    <button class="primary" id="saveLook">Save look</button>`;
+  el.classList.add('open');
+  document.getElementById('closeLook').onclick=()=>el.classList.remove('open');
+  document.getElementById('saveLook').onclick=()=>{
+    state.theme=document.getElementById('themeSel').value;
+    state.font=document.getElementById('fontSel').value;
+    state.bg=document.getElementById('bgSel').value;
+    save(); applyLook(); el.classList.remove('open'); render();
+  };
+}
+
 function openSong(n){const p=songPage(n);openSheet(`${SONGS}${p?'#page='+p:''}`,`Song ${n}`)}
 function openWT(para){openSheet(`${WT}#page=${wtPage(para)}`,`Watchtower ¶${para}`)}
 function openSheet(src,title){
   const wrap=document.getElementById('sheet');
-  const frame=document.getElementById('sheetFrame');
   document.getElementById('sheetTitle').textContent=title;
-  frame.src=src;
-  wrap.classList.add('open');
-  wrap.setAttribute('aria-hidden','false');
+  document.getElementById('sheetFrame').src=src;
+  wrap.classList.add('open'); wrap.setAttribute('aria-hidden','false');
 }
 function closeSheet(){
   const wrap=document.getElementById('sheet');
-  const frame=document.getElementById('sheetFrame');
-  wrap.classList.remove('open');
-  wrap.setAttribute('aria-hidden','true');
-  frame.src='about:blank';
+  wrap.classList.remove('open'); wrap.setAttribute('aria-hidden','true');
+  document.getElementById('sheetFrame').src='about:blank';
 }
 function bindHoldEndTalk(){
-  const btn=document.getElementById('endTalk');
-  if(!btn) return;
-  const fill=btn.querySelector('.fill');
-  let t=null, start=0;
-  const down=e=>{
-    e.preventDefault();
-    start=Date.now();
-    fill.style.transition='width 1.1s linear';
-    fill.style.width='100%';
-    t=setTimeout(()=>{
-      state.talkDone=true; state.screen='transition'; save(); render();
-    },1100);
-  };
-  const up=()=>{
-    clearTimeout(t); t=null;
-    fill.style.transition='width .15s ease';
-    fill.style.width='0';
-  };
-  btn.addEventListener('pointerdown',down);
-  btn.addEventListener('pointerup',up);
-  btn.addEventListener('pointercancel',up);
-  btn.addEventListener('pointerleave',up);
+  const btn=document.getElementById('endTalk'); if(!btn) return;
+  const fill=btn.querySelector('.fill'); let t=null;
+  const down=e=>{e.preventDefault(); fill.style.transition='width 1.1s linear'; fill.style.width='100%'; t=setTimeout(()=>{state.talkDone=true; state.screen='transition'; save(); render()},1100)};
+  const up=()=>{clearTimeout(t); fill.style.transition='width .15s ease'; fill.style.width='0'};
+  btn.addEventListener('pointerdown',down); btn.addEventListener('pointerup',up); btn.addEventListener('pointercancel',up); btn.addEventListener('pointerleave',up);
 }
 
-/* Brutus */
-const CHIPS=['What should I do?','I’m bored','What’s this about?','Can I draw?','Good boy','I don’t get it'];
+const CHIPS=['What should I do?','I’m bored','What’s this about?','Can I draw?','Good boy','Where is the shop?'];
 function brutusReply(q){
   const s=q.toLowerCase();
   const lines=[
-    [/bored|adhd|wiggle|sit/, 'Woof. Hands first. Tap the Play half. Two minutes. Then we can talk snacks that do not exist.'],
-    [/what should|do now|help me/, 'Read the yellow Think box. Highlight one sentence. Then smash the game. I believe in you. I am a dog, but still.'],
-    [/about|paragraph|study|watchtower|article/, 'This week is: getting to know Jehovah like a friend. Not a list. A Person.'],
-    [/draw|color|pencil/, 'Yes. Purple button up top. Whole rainbow. Draw Jehovah’s qualities. Or draw me with a bigger snout. I would allow it.'],
-    [/good boy|cute|love you|hi brutus|hello/, 'Tail = yes. I am staying on this screen so you are not alone. Also I would like a biscuit that is imaginary.'],
-    [/don’t get|dont get|confused|hard/, 'Switch to Maddy words. Highlight the sentence that feels sticky. Ask the Think question out loud. Whisper is fine. I have excellent ears.'],
-    [/jehovah|know|friend/, 'Knowing Jehovah is like knowing me, only infinitely better and with no shedding. Name on a tag is not the same as a real friend.'],
-    [/star|point|win/, 'Stars are a nudge, not a report card. Think, then tap. First try gets two.'],
-    [/timer|next|unlock/, 'Timer only unlocks Next. You can read, highlight, draw, and pester me the whole time.'],
-    [/song/, 'Song 12 to start the study. Song 28 at the end. I cannot sing. I can hum in my throat. It is not good.'],
-    [/josiah/, 'Boy king. Searched. Then did something. That is the whole trick.'],
-    [/patrick|balcony|bird/, 'City balcony. Tiny birds. Tiny bugs. Big God. Look out a window later and steal Patrick’s move.'],
-    [/mary/, 'Mary kept things in her heart and thought about them. That is allowed during a meeting.'],
-    [/ebed|jeremiah|cistern|well/, 'Someone was stuck in a hole. Someone else got a rope. Jehovah noticed. Tag the real qualities, not “famous.”']
+    [/shop|dress|bow|hat/, 'Shop is the star button up top. One thing per spot. You can stack a hat and glasses. Not two hats.'],
+    [/bored|wiggle/, 'Highlight one sentence. Then Play. I will stay.'],
+    [/about|paragraph|article/, 'This week we help others come to know Jehovah. Path, questions, Joseph, Daniel, Marianne.'],
+    [/draw/, 'Purple pencil. Ink, watercolor, pencil, calligraphy. Pixel eraser and object eraser.'],
+    [/good boy|hi brutus|hello/, 'Tail = yes.'],
+    [/don’t get|dont get|hard/, 'Switch to Maddy words. Highlight the sticky sentence.'],
+    [/star|timer|next/, 'No clock. If I tell you to slow down, stay put. The games should take a while all by themselves.'],
+    [/song/, 'Song 79 opens the study. Song 84 closes it. Your talk song is whatever Dad typed.']
   ];
   for(const [re,ans] of lines){if(re.test(s)) return ans}
-  const fallbacks=[
-    'I heard you. I do not have thumbs, so you have to tap the game.',
-    'Hmm. Try highlighting the sentence that made your brain itch.',
-    'Woof woof, which in Brutus means: look at Maddy words, then play.',
-    'That is a good question. The paragraph probably already answered it. I checked with my nose.'
-  ];
-  return fallbacks[Math.floor(Math.random()*fallbacks.length)];
+  return ['Woof. Look at the paragraph, then play.','I heard you. I still do not have thumbs.','Try Maddy words.'][Math.floor(Math.random()*3)];
 }
 function paintChat(){
-  const log=document.getElementById('chatLog');
-  const chips=document.getElementById('chatChips');
-  if(!log) return;
-  log.innerHTML=(state.chat.length?state.chat:[{who:'dog',t:'Hi. I am Brutus. Ask me a question. I have a few answers and a lot of fur.'}]).map(m=>`<div class="bubble ${m.who==='me'?'me':'dog'}">${esc(m.t)}</div>`).join('');
+  const log=document.getElementById('chatLog'); const chips=document.getElementById('chatChips'); if(!log) return;
+  log.innerHTML=(state.chat.length?state.chat:[{who:'dog',t:'Hi. I am Brutus. Shop is up top if you want a bow.'}]).map(m=>`<div class="bubble ${m.who==='me'?'me':'dog'}">${esc(m.t)}</div>`).join('');
   log.scrollTop=log.scrollHeight;
   chips.innerHTML=CHIPS.map(c=>`<button class="chipAsk" data-chip="${esc(c)}">${esc(c)}</button>`).join('');
   chips.querySelectorAll('[data-chip]').forEach(b=>b.onclick=()=>askBrutus(b.dataset.chip));
 }
 function askBrutus(text){
   text=String(text||'').trim(); if(!text) return;
-  state.chat.push({who:'me',t:text});
-  state.chat.push({who:'dog',t:brutusReply(text)});
+  state.chat.push({who:'me',t:text}, {who:'dog',t:brutusReply(text)});
   if(state.chat.length>24) state.chat=state.chat.slice(-24);
   save(); paintChat();
 }
 document.getElementById('chatForm').addEventListener('submit',e=>{e.preventDefault();const i=document.getElementById('chatInput');askBrutus(i.value);i.value=''});
 document.getElementById('closeChat').addEventListener('click',()=>document.getElementById('chat').classList.remove('open'));
 
-/* Draw */
 function openDraw(){document.getElementById('drawOverlay').classList.add('open');setupCanvas()}
 function closeDraw(){document.getElementById('drawOverlay').classList.remove('open');saveDrawing()}
 function setupCanvas(){
   canvas=document.getElementById('drawCanvas'); if(!canvas) return;
   const r=canvas.getBoundingClientRect(),dpr=Math.max(1,devicePixelRatio||1);
-  if(canvas.width!==Math.round(r.width*dpr)||canvas.height!==Math.round(r.height*dpr)){
-    canvas.width=Math.round(r.width*dpr); canvas.height=Math.round(r.height*dpr);
-    canvas.style.width=r.width+'px'; canvas.style.height=r.height+'px';
-    ctx=canvas.getContext('2d'); ctx.scale(dpr,dpr); ctx.lineCap='round'; ctx.lineJoin='round';
-    if(drawState.drawing){const im=new Image();im.onload=()=>ctx.drawImage(im,0,0,r.width,r.height);im.src=drawState.drawing}
-  }
-  canvas.onpointerdown=e=>{drawing=true;canvas.setPointerCapture(e.pointerId);const p=pos(e);lastX=p.x;lastY=p.y;saveHistory();stroke(p.x,p.y,p.x,p.y)};
-  canvas.onpointermove=e=>{if(!drawing)return;const p=pos(e);stroke(lastX,lastY,p.x,p.y);lastX=p.x;lastY=p.y;saveDrawing()};
+  canvas.width=Math.round(r.width*dpr); canvas.height=Math.round(r.height*dpr);
+  canvas.style.width=r.width+'px'; canvas.style.height=r.height+'px';
+  ctx=canvas.getContext('2d'); ctx.scale(dpr,dpr); ctx.lineCap='round'; ctx.lineJoin='round';
+  if(drawState.drawing){const im=new Image();im.onload=()=>ctx.drawImage(im,0,0,r.width,r.height);im.src=drawState.drawing}
+  canvas.onpointerdown=e=>{
+    drawing=true; canvas.setPointerCapture(e.pointerId); const p=pos(e); lastX=p.x; lastY=p.y; saveHistory();
+    if(drawState.erase==='obj'){eraseNearest(p.x,p.y);return}
+    drawState.strokes.push({brush:drawState.brush,color:drawState.color,size:drawState.size,erase:drawState.erase===true,pts:[[p.x,p.y]]});
+    stroke(p.x,p.y,p.x,p.y);
+  };
+  canvas.onpointermove=e=>{if(!drawing||drawState.erase==='obj')return;const p=pos(e);stroke(lastX,lastY,p.x,p.y);lastX=p.x;lastY=p.y;const st=drawState.strokes[drawState.strokes.length-1]; if(st) st.pts.push([p.x,p.y]); saveDrawing()};
   canvas.onpointerup=()=>drawing=false; canvas.onpointercancel=()=>drawing=false;
 }
 function stroke(x1,y1,x2,y2){
   if(!ctx) return;
-  ctx.globalCompositeOperation=drawState.erase?'destination-out':'source-over';
-  ctx.strokeStyle=drawState.color; ctx.lineWidth=drawState.erase?Math.max(10,drawState.size*2):drawState.size;
-  ctx.beginPath(); ctx.moveTo(x1,y1); ctx.lineTo(x2,y2); ctx.stroke();
+  ctx.globalCompositeOperation=drawState.erase===true?'destination-out':'source-over';
+  ctx.strokeStyle=drawState.color;
+  let w=drawState.size;
+  if(drawState.brush==='pencil') {ctx.globalAlpha=.55; w=Math.max(1,w*.6)}
+  else if(drawState.brush==='water') {ctx.globalAlpha=.25; w=w*2.2}
+  else if(drawState.brush==='calli') {ctx.globalAlpha=1; w=w*1.8}
+  else ctx.globalAlpha=1;
+  if(drawState.erase===true) w=Math.max(12,w*2);
+  ctx.lineWidth=w; ctx.beginPath(); ctx.moveTo(x1,y1); ctx.lineTo(x2,y2); ctx.stroke(); ctx.globalAlpha=1;
+}
+function eraseNearest(x,y){
+  const st=drawState.strokes; let hit=-1;
+  for(let i=st.length-1;i>=0;i--){
+    if(st[i].pts.some(([px,py])=>Math.hypot(px-x,py-y)<18)){hit=i;break}
+  }
+  if(hit>=0){st.splice(hit,1); replayStrokes()}
+}
+function replayStrokes(){
+  if(!ctx||!canvas) return;
+  const r=canvas.getBoundingClientRect();
+  ctx.globalCompositeOperation='source-over'; ctx.clearRect(0,0,canvas.width,canvas.height);
+  drawState.strokes.forEach(s=>{
+    drawState.brush=s.brush; drawState.color=s.color; drawState.size=s.size; drawState.erase=s.erase||false;
+    for(let i=1;i<s.pts.length;i++) stroke(s.pts[i-1][0],s.pts[i-1][1],s.pts[i][0],s.pts[i][1]);
+  });
+  drawState.erase=false; saveDrawing();
 }
 function pos(e){const r=canvas.getBoundingClientRect();return{x:e.clientX-r.left,y:e.clientY-r.top}}
 function saveHistory(){if(canvas){drawState.history.push(canvas.toDataURL('image/png'));if(drawState.history.length>20)drawState.history.shift();drawState.redo=[]}}
 function saveDrawing(){if(canvas){drawState.drawing=canvas.toDataURL('image/png');try{localStorage.setItem('smb-drawing-sunday',drawState.drawing)}catch(e){}}}
-function clearDraw(){if(!canvas||!ctx)return;saveHistory();ctx.globalCompositeOperation='source-over';ctx.clearRect(0,0,canvas.width,canvas.height);saveDrawing()}
-function undoDraw(){if(!canvas||!drawState.history.length)return;drawState.redo.push(canvas.toDataURL('image/png'));const d=drawState.history.pop();restoreDrawing(d);drawState.drawing=d}
-function redoDraw(){if(!canvas||!drawState.redo.length)return;drawState.history.push(canvas.toDataURL('image/png'));const d=drawState.redo.pop();restoreDrawing(d);drawState.drawing=d}
-function restoreDrawing(d){const im=new Image();im.onload=()=>{const r=canvas.getBoundingClientRect();ctx.globalCompositeOperation='source-over';ctx.clearRect(0,0,canvas.width,canvas.height);ctx.drawImage(im,0,0,r.width,r.height)};im.src=d}
-function saveImage(){if(!canvas)return;const a=document.createElement('a');a.href=canvas.toDataURL('image/png');a.download='maddys-meeting-drawing.png';a.click()}
+function clearDraw(){if(!canvas||!ctx)return;saveHistory();ctx.clearRect(0,0,canvas.width,canvas.height);drawState.strokes=[];saveDrawing()}
+function undoDraw(){if(!drawState.strokes.length)return;drawState.strokes.pop();replayStrokes()}
+function redoDraw(){if(!canvas||!drawState.redo.length)return;const d=drawState.redo.pop();restoreDrawing(d)}
+function restoreDrawing(d){const im=new Image();im.onload=()=>{const r=canvas.getBoundingClientRect();ctx.clearRect(0,0,canvas.width,canvas.height);ctx.drawImage(im,0,0,r.width,r.height)};im.src=d}
+function saveImage(){
+  if(!canvas)return;
+  canvas.toBlob(blob=>{
+    if(!blob) return;
+    const file=new File([blob],'maddys-meeting-drawing.png',{type:'image/png'});
+    if(navigator.canShare && navigator.canShare({files:[file]})) navigator.share({files:[file],title:'Maddy drawing'}).catch(()=>downloadBlob(blob));
+    else downloadBlob(blob);
+  },'image/png');
+}
+function downloadBlob(blob){
+  const url=URL.createObjectURL(blob);
+  const a=document.createElement('a'); a.href=url; a.download='maddys-meeting-drawing.png'; a.click();
+  setTimeout(()=>URL.revokeObjectURL(url),1500);
+}
 
 const sw=document.getElementById('swatches');
-PALETTE.forEach(c=>{const b=document.createElement('button');b.className='swatch';b.style.background=c;b.onclick=()=>{drawState.color=c;drawState.erase=false;document.getElementById('fullColor').value=c.startsWith('#')&&c.length===7?c:'#182033'};sw.appendChild(b)});
+PALETTE.forEach(c=>{const b=document.createElement('button');b.className='swatch';b.style.background=c;b.onclick=()=>{drawState.color=c;drawState.erase=false};sw.appendChild(b)});
 document.getElementById('fullColor').oninput=e=>{drawState.color=e.target.value;drawState.erase=false};
 document.getElementById('penSize').oninput=e=>drawState.size=Number(e.target.value);
-document.getElementById('eraseDraw').onclick=()=>{drawState.erase=!drawState.erase;document.getElementById('eraseDraw').textContent=drawState.erase?'Pen':'Eraser'};
+document.getElementById('brushInk').onclick=()=>{drawState.brush='ink';drawState.erase=false};
+document.getElementById('brushWater').onclick=()=>{drawState.brush='water';drawState.erase=false};
+document.getElementById('brushPencil').onclick=()=>{drawState.brush='pencil';drawState.erase=false};
+document.getElementById('brushCalli').onclick=()=>{drawState.brush='calli';drawState.erase=false};
+document.getElementById('eraseDraw').onclick=()=>{drawState.erase=true};
+document.getElementById('eraseObj').onclick=()=>{drawState.erase='obj'};
 document.getElementById('closeDraw').onclick=closeDraw;
 document.getElementById('undoDraw').onclick=undoDraw;
 document.getElementById('redoDraw').onclick=redoDraw;
@@ -1070,10 +1362,10 @@ paintChat(); render();
 document.getElementById('closeSheet').addEventListener('click',closeSheet);
 window.addEventListener('popstate',closeSheet);
 document.addEventListener('visibilitychange',()=>{
-  if(document.visibilityState==='visible' && location.pathname.toLowerCase().endsWith('.pdf')){
-    location.replace('./');
-  }
+  if(document.visibilityState==='visible' && location.pathname.toLowerCase().endsWith('.pdf')) location.replace('./');
 });
+document.getElementById('openShop2')?.addEventListener('click',openShop);
+
 </script>
 </body>
 </html>
