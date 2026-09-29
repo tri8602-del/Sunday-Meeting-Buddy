@@ -274,6 +274,12 @@ button,input,textarea{font:inherit}button{border:0;cursor:pointer}button:disable
 .toastHold{position:fixed;left:50%;bottom:18px;transform:translateX(-50%);background:#1a2236;color:#fff;padding:12px 16px;border-radius:14px;z-index:120;max-width:90%;font-weight:800;display:none}
 .toastHold.show{display:block}
 
+/* Week games (games/*.html) run in an iframe that fills the Play pane */
+#playPane.hasGame{padding:0;overflow:hidden}
+.gameFrame{display:block;width:100%;height:100%;border:0;background:#fff}
+.watch.gameOn{grid-template-rows:auto minmax(0,.55fr) minmax(0,1.45fr) auto}
+.watch.gameOn.gameBig{grid-template-rows:auto minmax(0,1fr) auto}
+.watch.gameBig>.pane:nth-child(2){display:none}
 </style>
 </head>
 <body>
@@ -394,11 +400,11 @@ const questions={
 19:`How would you answer the three review questions?`
 };
 const units=[
-{id:'u1',pts:5,ps:[1],img:null,activity:{type:'growkid',prompt:'Feed the real steps. Junk gets kicked back.',good:[{t:'First meeting',why:'That is step one in the paragraph.'},{t:'Comments',why:'Then the student begins to comment.'},{t:'Shares his faith',why:'Then he shares what he is learning.'},{t:'Dedicates himself to Jehovah',why:'Later he belongs to Jehovah.'}],bad:[{t:'Baptized week one',why:'The paragraph does not skip to the end.'},{t:'Liked a video',why:'That is not one of the steps.'},{t:'The teacher did it',why:'Jehovah gets the credit, not the teacher.'}]}},
-{id:'u2',pts:6,ps:[2],activity:{type:'baskets',prompt:'Jehovah’s will, or just facts?',will:[{t:'All sorts of people',why:'Jehovah wants all sorts of people.'},{t:'Be saved',why:'His will is that they be saved.'},{t:'Know Jehovah',why:'He wants them to know him.'},{t:'Know his purposes',why:'And his purposes, as fully as possible.'},{t:'Knowledge that changes how you live',why:'Accurate knowledge has its full effect.'},{t:'Everlasting life',why:'That knowledge opens everlasting life.'}],junk:[{t:'Only one kind of person',why:'He said all sorts of people.'},{t:'Memorize the most verses',why:'A pile of facts is not the point.'},{t:'Win a quiz',why:'That is just facts.'},{t:'Make the teacher proud',why:'Not Jehovah’s will.'},{t:'Trivia about kings',why:'Trivia is a fact pile.'}]}},
-{id:'u3',pts:5,ps:[3],activity:{type:'slotsdraw',prompt:'Load the three article questions in order, then draw paradise.',slots:['Why know Jehovah well?','How can we teach what he is like?','How can we help them put knowledge to work?'],good:['Why do Bible students need to get to know Jehovah well?','How can we teach them what Jehovah is like?','How can we help them put their knowledge of Jehovah to work?'],junk:['What time is the song?','How many stars can I get?','How do I win?','Who is talking next?','What color is the songbook?']}},
-{id:'u4',pts:7,ps:[4],verse:'you must love Jehovah your God with your whole heart and with your whole soul and with your whole mind and with your whole strength.',activity:{type:'fouraim',prompt:'Light heart, soul, mind, strength. Then aim the study at Jehovah.',parts:['heart','soul','mind','strength'],junk:['speed','being right','impressing people','finishing the book']}},
-{id:'u5',pts:6,ps:[5],activity:{type:'hidescene',prompt:'Find love, obey, stick, and Jesus doing what the Father said. Leave prizes, fear, and hurry.',hots:[
+{id:'u1',game:'game-01-grow',pts:5,ps:[1],img:null,activity:{type:'growkid',prompt:'Feed the real steps. Junk gets kicked back.',good:[{t:'First meeting',why:'That is step one in the paragraph.'},{t:'Comments',why:'Then the student begins to comment.'},{t:'Shares his faith',why:'Then he shares what he is learning.'},{t:'Dedicates himself to Jehovah',why:'Later he belongs to Jehovah.'}],bad:[{t:'Baptized week one',why:'The paragraph does not skip to the end.'},{t:'Liked a video',why:'That is not one of the steps.'},{t:'The teacher did it',why:'Jehovah gets the credit, not the teacher.'}]}},
+{id:'u2',game:'game-02-baskets',pts:6,ps:[2],activity:{type:'baskets',prompt:'Jehovah’s will, or just facts?',will:[{t:'All sorts of people',why:'Jehovah wants all sorts of people.'},{t:'Be saved',why:'His will is that they be saved.'},{t:'Know Jehovah',why:'He wants them to know him.'},{t:'Know his purposes',why:'And his purposes, as fully as possible.'},{t:'Knowledge that changes how you live',why:'Accurate knowledge has its full effect.'},{t:'Everlasting life',why:'That knowledge opens everlasting life.'}],junk:[{t:'Only one kind of person',why:'He said all sorts of people.'},{t:'Memorize the most verses',why:'A pile of facts is not the point.'},{t:'Win a quiz',why:'That is just facts.'},{t:'Make the teacher proud',why:'Not Jehovah’s will.'},{t:'Trivia about kings',why:'Trivia is a fact pile.'}]}},
+{id:'u3',game:'game-03-paradise',pts:5,ps:[3],activity:{type:'slotsdraw',prompt:'Load the three article questions in order, then draw paradise.',slots:['Why know Jehovah well?','How can we teach what he is like?','How can we help them put knowledge to work?'],good:['Why do Bible students need to get to know Jehovah well?','How can we teach them what Jehovah is like?','How can we help them put their knowledge of Jehovah to work?'],junk:['What time is the song?','How many stars can I get?','How do I win?','Who is talking next?','What color is the songbook?']}},
+{id:'u4',game:'game-04-heart',pts:7,ps:[4],verse:'you must love Jehovah your God with your whole heart and with your whole soul and with your whole mind and with your whole strength.',activity:{type:'fouraim',prompt:'Light heart, soul, mind, strength. Then aim the study at Jehovah.',parts:['heart','soul','mind','strength'],junk:['speed','being right','impressing people','finishing the book']}},
+{id:'u5',game:'game-05-scene',pts:6,ps:[5],activity:{type:'hidescene',prompt:'Find love, obey, stick, and Jesus doing what the Father said. Leave prizes, fear, and hurry.',hots:[
   {id:'heart',ok:1,l:18,t:58,e:'💛',why:'Love for Jehovah is the reason.'},
   {id:'feet',ok:1,l:62,t:72,e:'👣',why:'Love moves him to obey.'},
   {id:'hands',ok:1,l:72,t:48,e:'🤝',why:'And to stick to him.'},
@@ -407,8 +413,8 @@ const units=[
   {id:'scared',ok:0,l:84,t:16,e:'😨',why:'Fear is not the reason in the paragraph.'},
   {id:'clock',ok:0,l:10,t:78,e:'⏱️',why:'Hurry is not the reason.'}
 ]}},
-{id:'u6',pts:7,ps:[6],activity:{type:'cockpit',prompt:'Load study + cockpit hours. Then pick the wise weather. Then fly.'}},
-{id:'u7',pts:7,ps:[7],activity:{type:'crossword',prompt:'Words from Joseph’s paragraph.',words:[
+{id:'u6',game:'game-06-cockpit',pts:7,ps:[6],activity:{type:'cockpit',prompt:'Load study + cockpit hours. Then pick the wise weather. Then fly.'}},
+{id:'u7',game:'game-07-crossword',pts:7,ps:[7],activity:{type:'crossword',prompt:'Words from Joseph’s paragraph.',words:[
   {w:'JOSEPH',c:'The young man who already knew Jehovah'},
   {w:'KNOW',c:'He came to ____ Jehovah so well he said no'},
   {w:'HURT',c:'He understood what would ____ his God'},
@@ -419,15 +425,15 @@ const units=[
   {w:'ABRAHAM',c:'Another account: ____ and Sarah'},
   {w:'SARAH',c:'Abraham and ____'}
 ]}},
-{id:'u8',pts:7,ps:[8],img:'wt-pages/p-22.png',box:1,activity:{type:'madlib',prompt:'Fill the real blanks right. Funny blanks are yours.'}},
-{id:'u9',pts:8,ps:[9,10],activity:{type:'lenses',prompt:'Job gets endurance. Jehovah gets tenderness and mercy. Then tag the den.'}},
-{id:'u10',pts:6,ps:[11],activity:{type:'stars',prompt:'Two gifts per row and column. They do not touch sides. Several are already placed.'}},
-{id:'u11',pts:8,ps:[12,13],img:'wt-pages/p-23.png',cap:'Teach your student to recall what he knows about Jehovah when he finds a Bible account difficult to understand.',activity:{type:'maze',prompt:'Open gates with what you know about Jehovah. Reach: He always does what is right.'}},
-{id:'u12',pts:6,ps:[14],activity:{type:'diff10',prompt:'Find 10 differences. Left is looking at faults. Right is looking at good qualities.'}},
-{id:'u13',pts:8,ps:[15,16],verse:'I always do the things pleasing to [my Father]. — John 8:29',activity:{type:'puzzle20',prompt:'Assemble the girl making a good decision. 20 pieces.'}},
-{id:'u14',pts:5,ps:[17],activity:{type:'wordsearch',prompt:'Find the course words. QUIZ and SPEED do not count.',words:['DEAD','RANSOM','KINGDOM','MEETINGS','ELDERS','FACTS','KNOW','JEHOVAH','COURSE','TEACHINGS','BODY','STUDENTS']}},
-{id:'u15',pts:5,ps:[18],activity:{type:'chests',prompt:'Each chest needs its blessing AND its verse. Now, then later, then known by him.'}},
-{id:'u16',pts:4,ps:[18],review:1,activity:{type:'reviewbins',prompt:'Three questions, nine answers. No junk. Sort them.'}}
+{id:'u8',game:'game-08-madlibs',pts:7,ps:[8],img:'wt-pages/p-22.png',box:1,activity:{type:'madlib',prompt:'Fill the real blanks right. Funny blanks are yours.'}},
+{id:'u9',game:'game-09-lenses',pts:8,ps:[9,10],activity:{type:'lenses',prompt:'Job gets endurance. Jehovah gets tenderness and mercy. Then tag the den.'}},
+{id:'u10',game:'game-11-gifts',pts:6,ps:[11],activity:{type:'stars',prompt:'Two gifts per row and column. They do not touch sides. Several are already placed.'}},
+{id:'u11',game:'game-12-maze',pts:8,ps:[12,13],img:'wt-pages/p-23.png',cap:'Teach your student to recall what he knows about Jehovah when he finds a Bible account difficult to understand.',activity:{type:'maze',prompt:'Open gates with what you know about Jehovah. Reach: He always does what is right.'}},
+{id:'u12',game:'game-14-diff',pts:6,ps:[14],activity:{type:'diff10',prompt:'Find 10 differences. Left is looking at faults. Right is looking at good qualities.'}},
+{id:'u13',game:'game-15-puzzle',pts:8,ps:[15,16],verse:'I always do the things pleasing to [my Father]. — John 8:29',activity:{type:'puzzle20',prompt:'Assemble the girl making a good decision. 20 pieces.'}},
+{id:'u14',game:'game-17-search',pts:5,ps:[17],activity:{type:'wordsearch',prompt:'Find the course words. QUIZ and SPEED do not count.',words:['DEAD','RANSOM','KINGDOM','MEETINGS','ELDERS','FACTS','KNOW','JEHOVAH','COURSE','TEACHINGS','BODY','STUDENTS']}},
+{id:'u15',game:'game-18-chests',pts:5,ps:[18],activity:{type:'chests',prompt:'Each chest needs its blessing AND its verse. Now, then later, then known by him.'}},
+{id:'u16',game:'game-19-review',pts:4,ps:[18],review:1,activity:{type:'reviewbins',prompt:'Three questions, nine answers. No junk. Sort them.'}}
 ];
 
 const STORE='smb-sunday-2026-09-28-v1';
@@ -573,7 +579,8 @@ function watch(){
   const q=questions[u.review?19:u.ps[u.ps.length-1]];
   const title=unitLabel(u);
   const playOn=state.test||sawParagraph(key);
-  return `<div class="watch">
+  const gameOn=playOn&&!!u.game;
+  return `<div class="watch${gameOn?' gameOn':''}${gameOn&&state.bigPlay===key?' gameBig':''}">
     <div class="watchHead">
       <div>
         <h2>${title} · ${state.unit+1}/${units.length}</h2>
@@ -598,9 +605,10 @@ function watch(){
     </section>
     <section class="pane">
       <div class="paneBar"><strong style="font-size:13px">Play</strong>
-        <button class="ghost" id="resetGame" style="margin-left:auto">Reset game</button>
-        <span class="small">Activity ${score===undefined?'—':score+'/2'} · Material ${state.materialAwarded[key]?'⭐':'—'}</span></div>
-      <div class="paneBody" id="playPane">${playOn?playHTML(u.activity,key):`<div class="lock"><p>Look at the paragraph first. Highlight a sentence. Then Play opens.</p></div>`}</div>
+        ${gameOn?`<button class="ghost" id="bigPlay" style="margin-left:auto">${state.bigPlay===key?'⤡ Show paragraph':'⤢ Bigger game'}</button>`:''}
+        <button class="ghost" id="resetGame" style="${gameOn?'':'margin-left:auto'}">Reset game</button>
+        <span class="small" id="playScore">Activity ${score===undefined?'—':score+'/2'} · Material ${state.materialAwarded[key]?'⭐':'—'}</span></div>
+      <div class="paneBody${playOn&&u.game?' hasGame':''}" id="playPane">${playOn?(u.game?gameFrameHTML(u):playHTML(u.activity,key)):`<div class="lock"><p>Look at the paragraph first. Highlight a sentence. Then Play opens.</p></div>`}</div>
     </section>
     <div class="foot">
       <div class="qbar">
@@ -616,6 +624,40 @@ function watch(){
     </div>
   </div>`;
 }
+// Week game files: each unit's game runs as-is in an iframe; games/*.html post 'smb-game-complete' when done.
+function gameFrameHTML(u){return `<iframe class="gameFrame" id="gameFrame" data-game="${u.game}" src="games/${u.game}.html" title="${esc(unitLabel(u))} game"></iframe>`}
+function refreshScore(){
+  const u=unit(); if(!u) return; const key=u.id, score=state.activityStars[key];
+  const st=document.querySelector('.top .stars'); if(st) st.textContent='⭐ '+state.stars;
+  const meta=document.querySelector('.watchHead .meta'); if(meta) meta.textContent='Help Others Come to Know Jehovah · ⭐ '+(state.earned[key]||0)+'/3';
+  const ps=document.getElementById('playScore'); if(ps) ps.textContent=`Activity ${score===undefined?'—':score+'/2'} · Material ${state.materialAwarded[key]?'⭐':'—'}`;
+}
+// Re-draw only the paragraph pane, so a running game iframe is not reloaded.
+function refreshText(u){
+  const tp=document.getElementById('textPane');
+  if(!tp||!document.getElementById('gameFrame')){render();return}
+  tp.innerHTML=markedHTML(u)+(u.verse?`<p class="easy" style="margin-top:8px">${esc(u.verse)}</p>`:'');
+  document.getElementById('actual')?.classList.toggle('active',state.view==='actual');
+  document.getElementById('easy')?.classList.toggle('active',state.view==='easy');
+  document.querySelectorAll('[data-hl]').forEach(b=>b.classList.toggle('on',b.dataset.hl===state.hl));
+  bindMarks(u);
+}
+function bindMarks(u){
+  document.querySelectorAll('[data-mark]').forEach(s=>s.onclick=()=>{
+    state.marks[u.id]=state.marks[u.id]||{};
+    const k=s.dataset.mark;
+    state.marks[u.id][k]=state.marks[u.id][k]===state.hl?undefined:state.hl;
+    save();
+    s.className='mark '+(state.marks[u.id][k]||'');
+    if(!sawParagraph(u.id)) ; else if(!document.getElementById('playPane')?.querySelector('.playPrompt,#gameFrame')) render();
+  });
+}
+window.addEventListener('message',e=>{
+  const d=e.data; if(!d||d.type!=='smb-game-complete') return;
+  const f=document.getElementById('gameFrame'); if(!f||e.source!==f.contentWindow) return;
+  const u=state.screen==='wt'?unit():null; if(!u||u.game!==d.game||f.dataset.game!==d.game) return;
+  attemptResult(u.id,true,true);
+});
 function gobj(key){state.game[key]=state.game[key]||{};return state.game[key]}
 function mix(arr){return arr.map((x,i)=>({x,i})).sort(()=>Math.random()-.5)}
 
@@ -820,7 +862,7 @@ function awardMaterial(key){
   state.stars++;
   save();
 }
-function attemptResult(key,correct){
+function attemptResult(key,correct,keepPlay){
   if(state.activityStars[key]!==undefined){
     popup(true,'Already finished','You already did this one. Reset if you just want to play again — no extra stars.');
     return;
@@ -834,7 +876,7 @@ function attemptResult(key,correct){
     state.stars+=score;
     save();
     popup(true, score?`Yes! ${'⭐'.repeat(score)}`:'Got it', score?'Nice.':'You figured it out.');
-    render();
+    if(keepPlay) refreshScore(); else render();
   }else{
     save();
     popup(false, n===1?'Not yet':'Almost', 'Look back at the paragraph.');
@@ -868,25 +910,25 @@ function bind(){
   });
   const u=state.screen==='wt'?unit():null;
   if(u){
-    document.getElementById('actual')?.addEventListener('click',()=>{state.view='actual';save();render()});
-    document.getElementById('easy')?.addEventListener('click',()=>{state.view='easy';save();render()});
+    document.getElementById('actual')?.addEventListener('click',()=>{state.view='actual';save();refreshText(u)});
+    document.getElementById('easy')?.addEventListener('click',()=>{state.view='easy';save();refreshText(u)});
     document.getElementById('openWT')?.addEventListener('click',()=>{awardMaterial(u.id);openWT(u.ps[0])});
-    document.querySelectorAll('[data-hl]').forEach(b=>b.onclick=()=>{state.hl=b.dataset.hl;save();render()});
-    document.getElementById('clearMarks')?.addEventListener('click',()=>{state.marks[u.id]={};save();render()});
-    document.querySelectorAll('[data-mark]').forEach(s=>s.onclick=()=>{
-      state.marks[u.id]=state.marks[u.id]||{};
-      const k=s.dataset.mark;
-      state.marks[u.id][k]=state.marks[u.id][k]===state.hl?undefined:state.hl;
-      save();
-      s.className='mark '+(state.marks[u.id][k]||'');
-      if(!sawParagraph(u.id)) ; else if(!document.getElementById('playPane')?.querySelector('.playPrompt')) render();
-    });
+    document.querySelectorAll('[data-hl]').forEach(b=>b.onclick=()=>{state.hl=b.dataset.hl;save();refreshText(u)});
+    document.getElementById('clearMarks')?.addEventListener('click',()=>{state.marks[u.id]={};save();refreshText(u)});
+    bindMarks(u);
     document.getElementById('saveQuestion')?.addEventListener('click',()=>{
       const v=document.getElementById('questionAnswer').value.trim();
       state.questionAnswers[u.id]=v;
       if(v.length>=8){awardMaterial(u.id);popup(true,'Saved','Material star is yours.');}
       else popup(false,'A little more','Write one real sentence.');
       save();
+    });
+    // Bigger game / Show paragraph: only toggles layout, the game keeps running.
+    document.getElementById('bigPlay')?.addEventListener('click',e=>{
+      state.bigPlay=state.bigPlay===u.id?null:u.id; save();   // per unit: each new paragraph starts with the paragraph showing
+      const big=state.bigPlay===u.id;
+      document.querySelector('.watch')?.classList.toggle('gameBig',big);
+      e.currentTarget.textContent=big?'⤡ Show paragraph':'⤢ Bigger game';
     });
     document.getElementById('resetGame')?.addEventListener('click',()=>{
       state.game[u.id]={};
@@ -898,8 +940,13 @@ function bind(){
       if(!canOpenUnit(state.unit+1)){brutusSay('Slow down. Stay with this paragraph a little longer.');return}
       state.unit++; state.view='actual'; save(); render();
     });
-    if(sawParagraph(u.id)||state.test) bindPlay(u.activity,u.id);
-    else setTimeout(()=>{if(state.screen==='wt'&&sawParagraph(u.id)) render()},4000);
+    clearTimeout(window._gateT);
+    if(sawParagraph(u.id)||state.test){if(!u.game) bindPlay(u.activity,u.id)}
+    else {
+      // Keep checking until the ~18s look (or a highlight) opens Play.
+      const id=u.id, tick=()=>{if(state.screen!=='wt'||unit().id!==id||!document.querySelector('#playPane .lock')) return; if(sawParagraph(id)) render(); else window._gateT=setTimeout(tick,2000)};
+      window._gateT=setTimeout(tick,2000);
+    }
   }
   document.getElementById('restart')?.addEventListener('click',()=>{const keep={owned:state.owned,wear:state.wear,theme:state.theme,font:state.font,bg:state.bg,stars:state.stars,chat:[]};state={...DEFAULT,...keep,screen:'setup'};save();render()});
   document.getElementById('end84')?.addEventListener('click',()=>openSong(84));
@@ -1355,7 +1402,12 @@ document.getElementById('saveDraw').onclick=saveImage;
 document.getElementById('newDraw').onclick=()=>{if(confirm('New drawing?')){clearDraw();drawState.history=[];drawState.redo=[]}};
 window.addEventListener('resize',()=>{if(document.getElementById('drawOverlay').classList.contains('open'))setupCanvas()});
 try{drawState.drawing=localStorage.getItem('smb-drawing-sunday')||null}catch(e){}
-if('serviceWorker' in navigator) navigator.serviceWorker.register('./sw.js').catch(()=>{});
+if('serviceWorker' in navigator){
+  const hadSW=!!navigator.serviceWorker.controller, bootAt=Date.now();
+  navigator.serviceWorker.register('./sw.js').catch(()=>{});
+  // A new version was installed: reload once if we just launched or are on setup, so the iPad does not stay on the old cached copy.
+  navigator.serviceWorker.addEventListener('controllerchange',()=>{if(hadSW&&!window._swReloaded&&(Date.now()-bootAt<15000||state.screen==='setup')){window._swReloaded=1;location.reload()}});
+}
 load();
 if(state.screen==='transition' && !state.talkDone && !state.test){state.screen='talk'; save()}
 paintChat(); render();
