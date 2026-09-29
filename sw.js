@@ -1,4 +1,4 @@
-const CACHE = 'smb-sunday-v8';
+const CACHE = 'smb-sunday-v9';
 const ASSETS = [
   './',
   './index.html',
@@ -14,7 +14,23 @@ const ASSETS = [
   './wt-pages/p-22.png',
   './wt-pages/p-23.png',
   './wt-pages/p-24.png',
-  './wt-pages/p-25.png'
+  './wt-pages/p-25.png',
+  './games/game-01-grow.html',
+  './games/game-02-baskets.html',
+  './games/game-03-paradise.html',
+  './games/game-04-heart.html',
+  './games/game-05-scene.html',
+  './games/game-06-cockpit.html',
+  './games/game-07-crossword.html',
+  './games/game-08-madlibs.html',
+  './games/game-09-lenses.html',
+  './games/game-11-gifts.html',
+  './games/game-12-maze.html',
+  './games/game-14-diff.html',
+  './games/game-15-puzzle.html',
+  './games/game-17-search.html',
+  './games/game-18-chests.html',
+  './games/game-19-review.html'
 ];
 
 self.addEventListener('install', e => {
